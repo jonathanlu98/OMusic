@@ -3,27 +3,125 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2200AC2A2494FD0900E44910 /* AMFetchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2200AC292494FD0900E44910 /* AMFetchManager.swift */; };
+		221EAC69245E920100A5B576 /* OMTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221EAC68245E920100A5B576 /* OMTheme.swift */; };
+		2225514E247556540099D62B /* JLDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2225514D247556540099D62B /* JLDatabase.swift */; };
+		222937F9245DA5410090467C /* JLNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222937F8245DA5410090467C /* JLNavigationBar.swift */; };
+		2245992B25130CAA00E49132 /* JLTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2245992A25130CAA00E49132 /* JLTableView.swift */; };
+		2245992D25130F0700E49132 /* JLCarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2245992C25130F0700E49132 /* JLCarouselView.swift */; };
+		2245992F25130F8700E49132 /* JLHeaderViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2245992E25130F8700E49132 /* JLHeaderViewProtocol.swift */; };
+		22468D4D2476630D001A7404 /* Localizations.strings in Resources */ = {isa = PBXBuildFile; fileRef = 22468D4F2476630D001A7404 /* Localizations.strings */; };
+		22468D522476CDB3001A7404 /* JLColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22468D512476CDB3001A7404 /* JLColor.swift */; };
+		2246A879245AC453007F5CA7 /* ListenerNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2246A875245AC453007F5CA7 /* ListenerNode.swift */; };
+		2246A87A245AC453007F5CA7 /* JLPlayItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2246A876245AC453007F5CA7 /* JLPlayItem.swift */; };
+		2246A87B245AC453007F5CA7 /* ListenerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2246A877245AC453007F5CA7 /* ListenerProtocol.swift */; };
+		2246A87C245AC453007F5CA7 /* ListenerCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2246A878245AC453007F5CA7 /* ListenerCenter.swift */; };
+		2246A87E245AC4B9007F5CA7 /* JLExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2246A87D245AC4B9007F5CA7 /* JLExtension.swift */; };
+		2246A894245ACD03007F5CA7 /* MI Lan Pro VF.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 228DF2B4245AABF100E9FF1B /* MI Lan Pro VF.ttf */; };
+		224D2B812536CEC300E0736D /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 224D2B802536CEC200E0736D /* libc++.tbd */; };
+		224D2B842536CED200E0736D /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 224D2B832536CED200E0736D /* libz.tbd */; };
+		224D2B872536CEE000E0736D /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 224D2B862536CEE000E0736D /* MessageUI.framework */; };
+		224D2B892536CEED00E0736D /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 224D2B882536CEED00E0736D /* SystemConfiguration.framework */; };
+		227785A62534566600D1924D /* OMBaseCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227785A52534566600D1924D /* OMBaseCollectionViewController.swift */; };
+		2289EBFA2463DEB500E0F9F5 /* AMProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2289EBF92463DEB500E0F9F5 /* AMProtocol.swift */; };
+		2289EBFC2463E5B200E0F9F5 /* JLAlbum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2289EBFB2463E5B200E0F9F5 /* JLAlbum.swift */; };
+		2289EBFE2463E6BA00E0F9F5 /* JLArtist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2289EBFD2463E6BA00E0F9F5 /* JLArtist.swift */; };
+		2289EC002463EA6600E0F9F5 /* JLMedia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2289EBFF2463EA6600E0F9F5 /* JLMedia.swift */; };
+		228D98B6246018ED009BC2A4 /* JLPlaylist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228D98B5246018ED009BC2A4 /* JLPlaylist.swift */; };
+		228DF2C2245AB81600E9FF1B /* JLPlayerImageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 228DF2B9245AB81600E9FF1B /* JLPlayerImageCollectionViewCell.xib */; };
+		228DF2C3245AB81600E9FF1B /* JLPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228DF2BA245AB81600E9FF1B /* JLPlayer.swift */; };
+		228DF2C4245AB81600E9FF1B /* JLPlayerImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228DF2BB245AB81600E9FF1B /* JLPlayerImageCollectionViewCell.swift */; };
+		228DF2C5245AB81600E9FF1B /* JLPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228DF2BC245AB81600E9FF1B /* JLPlayerViewController.swift */; };
+		228DF2C6245AB81600E9FF1B /* JLPlayerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 228DF2BD245AB81600E9FF1B /* JLPlayerViewController.xib */; };
+		228DF2C7245AB81600E9FF1B /* JLPlayerProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228DF2BF245AB81600E9FF1B /* JLPlayerProgressView.swift */; };
 		22959CB5244D86AE00571046 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22959CB4244D86AE00571046 /* AppDelegate.swift */; };
 		22959CB7244D86AE00571046 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22959CB6244D86AE00571046 /* SceneDelegate.swift */; };
-		22959CB9244D86AE00571046 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22959CB8244D86AE00571046 /* ViewController.swift */; };
+		22959CB9244D86AE00571046 /* OMAppLoadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22959CB8244D86AE00571046 /* OMAppLoadViewController.swift */; };
 		22959CBC244D86AE00571046 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22959CBA244D86AE00571046 /* Main.storyboard */; };
 		22959CBE244D86B100571046 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22959CBD244D86B100571046 /* Assets.xcassets */; };
 		22959CC1244D86B100571046 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22959CBF244D86B100571046 /* LaunchScreen.storyboard */; };
+		22970BE9249A28BA00D5B995 /* JLError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22970BE8249A28BA00D5B995 /* JLError.swift */; };
+		22970BEB249A5B8300D5B995 /* load.json in Resources */ = {isa = PBXBuildFile; fileRef = 22970BEA249A5B8300D5B995 /* load.json */; };
+		229F567C25345B2B0092D9E1 /* OMBaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229F567B25345B2B0092D9E1 /* OMBaseNavigationController.swift */; };
+		22AB175724613BD9004C67EB /* JLTrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AB175624613BD9004C67EB /* JLTrack.swift */; };
+		22AB175A24614203004C67EB /* AMTracks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AB175924614203004C67EB /* AMTracks.swift */; };
+		22AB175C24614F1B004C67EB /* AMAlbums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AB175B24614F1B004C67EB /* AMAlbums.swift */; };
+		22AB175E246150C3004C67EB /* AMArtists.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AB175D246150C3004C67EB /* AMArtists.swift */; };
+		22AB176024615B90004C67EB /* AMModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AB175F24615B90004C67EB /* AMModel.swift */; };
+		22BEE532253FE67C00A810D3 /* UIViewController+OM_NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BEE531253FE67C00A810D3 /* UIViewController+OM_NavigationBar.swift */; };
+		22D4D79F2511B2D800593D38 /* OMHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D4D79D2511B2D800593D38 /* OMHomeViewController.swift */; };
+		22DE09BF245B03320024EE04 /* JLMacroDefinition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DE09BE245B03320024EE04 /* JLMacroDefinition.swift */; };
+		22DE09C1245B054B0024EE04 /* MIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DE09C0245B054B0024EE04 /* MIFont.swift */; };
+		22EE7FB62534367B0055E871 /* OMAccountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22EE7FB52534367B0055E871 /* OMAccountManager.swift */; };
+		D61825DBB5CB24B2BA73BF66 /* Pods_OMusic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 822315A5CFED1B7D920BDD7D /* Pods_OMusic.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2200AC292494FD0900E44910 /* AMFetchManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AMFetchManager.swift; sourceTree = "<group>"; };
+		221EAC68245E920100A5B576 /* OMTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OMTheme.swift; sourceTree = "<group>"; };
+		2225514D247556540099D62B /* JLDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JLDatabase.swift; sourceTree = "<group>"; };
+		222937F8245DA5410090467C /* JLNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JLNavigationBar.swift; sourceTree = "<group>"; };
+		2230BEBB2536B0310083C96A /* KSCrash.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KSCrash.framework; path = ../Framework/KSCrash.framework; sourceTree = "<group>"; };
+		2245992A25130CAA00E49132 /* JLTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JLTableView.swift; sourceTree = "<group>"; };
+		2245992C25130F0700E49132 /* JLCarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JLCarouselView.swift; sourceTree = "<group>"; };
+		2245992E25130F8700E49132 /* JLHeaderViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JLHeaderViewProtocol.swift; sourceTree = "<group>"; };
+		22468D47247661FA001A7404 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
+		22468D48247661FA001A7404 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		22468D4E2476630D001A7404 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizations.strings"; sourceTree = "<group>"; };
+		22468D5024766324001A7404 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizations.strings; sourceTree = "<group>"; };
+		22468D512476CDB3001A7404 /* JLColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JLColor.swift; sourceTree = "<group>"; };
+		2246A875245AC453007F5CA7 /* ListenerNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListenerNode.swift; sourceTree = "<group>"; };
+		2246A876245AC453007F5CA7 /* JLPlayItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JLPlayItem.swift; sourceTree = "<group>"; };
+		2246A877245AC453007F5CA7 /* ListenerProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListenerProtocol.swift; sourceTree = "<group>"; };
+		2246A878245AC453007F5CA7 /* ListenerCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListenerCenter.swift; sourceTree = "<group>"; };
+		2246A87D245AC4B9007F5CA7 /* JLExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JLExtension.swift; sourceTree = "<group>"; };
+		224D2B802536CEC200E0736D /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		224D2B832536CED200E0736D /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		224D2B862536CEE000E0736D /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		224D2B882536CEED00E0736D /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		227785A52534566600D1924D /* OMBaseCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OMBaseCollectionViewController.swift; sourceTree = "<group>"; };
+		2289EBF92463DEB500E0F9F5 /* AMProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AMProtocol.swift; sourceTree = "<group>"; };
+		2289EBFB2463E5B200E0F9F5 /* JLAlbum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JLAlbum.swift; sourceTree = "<group>"; };
+		2289EBFD2463E6BA00E0F9F5 /* JLArtist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JLArtist.swift; sourceTree = "<group>"; };
+		2289EBFF2463EA6600E0F9F5 /* JLMedia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JLMedia.swift; sourceTree = "<group>"; };
+		228D98B5246018ED009BC2A4 /* JLPlaylist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JLPlaylist.swift; sourceTree = "<group>"; };
+		228DF2B4245AABF100E9FF1B /* MI Lan Pro VF.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MI Lan Pro VF.ttf"; sourceTree = "<group>"; };
+		228DF2B9245AB81600E9FF1B /* JLPlayerImageCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JLPlayerImageCollectionViewCell.xib; sourceTree = "<group>"; };
+		228DF2BA245AB81600E9FF1B /* JLPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JLPlayer.swift; sourceTree = "<group>"; };
+		228DF2BB245AB81600E9FF1B /* JLPlayerImageCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JLPlayerImageCollectionViewCell.swift; sourceTree = "<group>"; };
+		228DF2BC245AB81600E9FF1B /* JLPlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JLPlayerViewController.swift; sourceTree = "<group>"; };
+		228DF2BD245AB81600E9FF1B /* JLPlayerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JLPlayerViewController.xib; sourceTree = "<group>"; };
+		228DF2BF245AB81600E9FF1B /* JLPlayerProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JLPlayerProgressView.swift; sourceTree = "<group>"; };
 		22959CB1244D86AE00571046 /* OMusic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OMusic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		22959CB4244D86AE00571046 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		22959CB6244D86AE00571046 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		22959CB8244D86AE00571046 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		22959CB8244D86AE00571046 /* OMAppLoadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OMAppLoadViewController.swift; sourceTree = "<group>"; };
 		22959CBB244D86AE00571046 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		22959CBD244D86B100571046 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		22959CC0244D86B100571046 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		22959CC2244D86B100571046 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		22970BE8249A28BA00D5B995 /* JLError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JLError.swift; sourceTree = "<group>"; };
+		22970BEA249A5B8300D5B995 /* load.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = load.json; sourceTree = "<group>"; };
+		229E8DF0247017F300D47458 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		229E8DF12470181E00D47458 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		229F567B25345B2B0092D9E1 /* OMBaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OMBaseNavigationController.swift; sourceTree = "<group>"; };
+		22AB175624613BD9004C67EB /* JLTrack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JLTrack.swift; sourceTree = "<group>"; };
+		22AB175924614203004C67EB /* AMTracks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AMTracks.swift; sourceTree = "<group>"; };
+		22AB175B24614F1B004C67EB /* AMAlbums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AMAlbums.swift; sourceTree = "<group>"; };
+		22AB175D246150C3004C67EB /* AMArtists.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AMArtists.swift; sourceTree = "<group>"; };
+		22AB175F24615B90004C67EB /* AMModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AMModel.swift; sourceTree = "<group>"; };
+		22BEE531253FE67C00A810D3 /* UIViewController+OM_NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+OM_NavigationBar.swift"; sourceTree = "<group>"; };
+		22D4D79D2511B2D800593D38 /* OMHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OMHomeViewController.swift; sourceTree = "<group>"; };
+		22DE09BE245B03320024EE04 /* JLMacroDefinition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JLMacroDefinition.swift; sourceTree = "<group>"; };
+		22DE09C0245B054B0024EE04 /* MIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIFont.swift; sourceTree = "<group>"; };
+		22EE7FB52534367B0055E871 /* OMAccountManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OMAccountManager.swift; sourceTree = "<group>"; };
+		822315A5CFED1B7D920BDD7D /* Pods_OMusic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OMusic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C3E7E9C64CC22453DC3D86AC /* Pods-OMusic.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OMusic.debug.xcconfig"; path = "Target Support Files/Pods-OMusic/Pods-OMusic.debug.xcconfig"; sourceTree = "<group>"; };
+		C539F81E8DCFFC63F5350502 /* Pods-OMusic.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OMusic.release.xcconfig"; path = "Target Support Files/Pods-OMusic/Pods-OMusic.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +129,153 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				224D2B892536CEED00E0736D /* SystemConfiguration.framework in Frameworks */,
+				224D2B872536CEE000E0736D /* MessageUI.framework in Frameworks */,
+				224D2B842536CED200E0736D /* libz.tbd in Frameworks */,
+				224D2B812536CEC300E0736D /* libc++.tbd in Frameworks */,
+				D61825DBB5CB24B2BA73BF66 /* Pods_OMusic.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0B7D33444401C09FCFACBB5F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C3E7E9C64CC22453DC3D86AC /* Pods-OMusic.debug.xcconfig */,
+				C539F81E8DCFFC63F5350502 /* Pods-OMusic.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		2225514C247555FA0099D62B /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+				22DE09C0245B054B0024EE04 /* MIFont.swift */,
+				221EAC68245E920100A5B576 /* OMTheme.swift */,
+				2225514D247556540099D62B /* JLDatabase.swift */,
+				2200AC292494FD0900E44910 /* AMFetchManager.swift */,
+				22EE7FB52534367B0055E871 /* OMAccountManager.swift */,
+				22970BE8249A28BA00D5B995 /* JLError.swift */,
+				2245992A25130CAA00E49132 /* JLTableView.swift */,
+				2245992C25130F0700E49132 /* JLCarouselView.swift */,
+				2245992E25130F8700E49132 /* JLHeaderViewProtocol.swift */,
+				22BEE531253FE67C00A810D3 /* UIViewController+OM_NavigationBar.swift */,
+			);
+			path = Tool;
+			sourceTree = "<group>";
+		};
+		222937F7245DA4DD0090467C /* NavigationBar */ = {
+			isa = PBXGroup;
+			children = (
+				222937F8245DA5410090467C /* JLNavigationBar.swift */,
+			);
+			path = NavigationBar;
+			sourceTree = "<group>";
+		};
+		2246A873245AC443007F5CA7 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				2246A87D245AC4B9007F5CA7 /* JLExtension.swift */,
+				2246A874245AC453007F5CA7 /* Player */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		2246A874245AC453007F5CA7 /* Player */ = {
+			isa = PBXGroup;
+			children = (
+				228DF2BA245AB81600E9FF1B /* JLPlayer.swift */,
+				2246A875245AC453007F5CA7 /* ListenerNode.swift */,
+				2246A876245AC453007F5CA7 /* JLPlayItem.swift */,
+				2246A877245AC453007F5CA7 /* ListenerProtocol.swift */,
+				2246A878245AC453007F5CA7 /* ListenerCenter.swift */,
+			);
+			path = Player;
+			sourceTree = "<group>";
+		};
+		227785A32534547F00D1924D /* App Load */ = {
+			isa = PBXGroup;
+			children = (
+				22959CB8244D86AE00571046 /* OMAppLoadViewController.swift */,
+			);
+			path = "App Load";
+			sourceTree = "<group>";
+		};
+		2289EBF62463D6BF00E0F9F5 /* Album */ = {
+			isa = PBXGroup;
+			children = (
+				2289EBFB2463E5B200E0F9F5 /* JLAlbum.swift */,
+			);
+			path = Album;
+			sourceTree = "<group>";
+		};
+		2289EBF72463D6D000E0F9F5 /* Artist */ = {
+			isa = PBXGroup;
+			children = (
+				2289EBFD2463E6BA00E0F9F5 /* JLArtist.swift */,
+			);
+			path = Artist;
+			sourceTree = "<group>";
+		};
+		2289EBF82463DD5A00E0F9F5 /* Media */ = {
+			isa = PBXGroup;
+			children = (
+				22AB175524613B9A004C67EB /* Track */,
+				228D98B42460183C009BC2A4 /* Playlist */,
+				2289EBF72463D6D000E0F9F5 /* Artist */,
+				2289EBF62463D6BF00E0F9F5 /* Album */,
+				2289EBFF2463EA6600E0F9F5 /* JLMedia.swift */,
+			);
+			path = Media;
+			sourceTree = "<group>";
+		};
+		228D98B42460183C009BC2A4 /* Playlist */ = {
+			isa = PBXGroup;
+			children = (
+				228D98B5246018ED009BC2A4 /* JLPlaylist.swift */,
+			);
+			path = Playlist;
+			sourceTree = "<group>";
+		};
+		228DF2B3245AABD800E9FF1B /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				22970BEA249A5B8300D5B995 /* load.json */,
+				228DF2B4245AABF100E9FF1B /* MI Lan Pro VF.ttf */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		228DF2B7245AB81600E9FF1B /* Player */ = {
+			isa = PBXGroup;
+			children = (
+				228DF2B9245AB81600E9FF1B /* JLPlayerImageCollectionViewCell.xib */,
+				228DF2BB245AB81600E9FF1B /* JLPlayerImageCollectionViewCell.swift */,
+				228DF2BC245AB81600E9FF1B /* JLPlayerViewController.swift */,
+				228DF2BD245AB81600E9FF1B /* JLPlayerViewController.xib */,
+				228DF2BE245AB81600E9FF1B /* ProgressView */,
+			);
+			path = Player;
+			sourceTree = "<group>";
+		};
+		228DF2BE245AB81600E9FF1B /* ProgressView */ = {
+			isa = PBXGroup;
+			children = (
+				228DF2BF245AB81600E9FF1B /* JLPlayerProgressView.swift */,
+			);
+			path = ProgressView;
+			sourceTree = "<group>";
+		};
 		22959CA8244D86AE00571046 = {
 			isa = PBXGroup;
 			children = (
+				22468D4F2476630D001A7404 /* Localizations.strings */,
 				22959CB3244D86AE00571046 /* OMusic */,
 				22959CB2244D86AE00571046 /* Products */,
+				0B7D33444401C09FCFACBB5F /* Pods */,
+				4AF9CB240D0590E5FD08110D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,15 +290,102 @@
 		22959CB3244D86AE00571046 /* OMusic */ = {
 			isa = PBXGroup;
 			children = (
+				22E4061C2513884700A53FD8 /* Commons */,
+				22D4D79B2511AE8C00593D38 /* Model */,
+				22D4D79A2511AE4000593D38 /* Application */,
+				22D4D68F2511ABD500593D38 /* Base */,
+				2225514C247555FA0099D62B /* Tool */,
+				2246A873245AC443007F5CA7 /* Extension */,
+				228DF2B3245AABD800E9FF1B /* Resource */,
+			);
+			path = OMusic;
+			sourceTree = "<group>";
+		};
+		22AB175524613B9A004C67EB /* Track */ = {
+			isa = PBXGroup;
+			children = (
+				22AB175624613BD9004C67EB /* JLTrack.swift */,
+			);
+			path = Track;
+			sourceTree = "<group>";
+		};
+		22AB1758246140A8004C67EB /* AMJSONModel */ = {
+			isa = PBXGroup;
+			children = (
+				22AB175924614203004C67EB /* AMTracks.swift */,
+				22AB175B24614F1B004C67EB /* AMAlbums.swift */,
+				22AB175D246150C3004C67EB /* AMArtists.swift */,
+				22AB175F24615B90004C67EB /* AMModel.swift */,
+				2289EBF92463DEB500E0F9F5 /* AMProtocol.swift */,
+			);
+			path = AMJSONModel;
+			sourceTree = "<group>";
+		};
+		22D4D68F2511ABD500593D38 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				227785A52534566600D1924D /* OMBaseCollectionViewController.swift */,
+				229F567B25345B2B0092D9E1 /* OMBaseNavigationController.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		22D4D79A2511AE4000593D38 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				22DE09BE245B03320024EE04 /* JLMacroDefinition.swift */,
 				22959CB4244D86AE00571046 /* AppDelegate.swift */,
 				22959CB6244D86AE00571046 /* SceneDelegate.swift */,
-				22959CB8244D86AE00571046 /* ViewController.swift */,
-				22959CBA244D86AE00571046 /* Main.storyboard */,
 				22959CBD244D86B100571046 /* Assets.xcassets */,
 				22959CBF244D86B100571046 /* LaunchScreen.storyboard */,
 				22959CC2244D86B100571046 /* Info.plist */,
 			);
-			path = OMusic;
+			path = Application;
+			sourceTree = "<group>";
+		};
+		22D4D79B2511AE8C00593D38 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				22468D512476CDB3001A7404 /* JLColor.swift */,
+				2289EBF82463DD5A00E0F9F5 /* Media */,
+				22AB1758246140A8004C67EB /* AMJSONModel */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		22D4D79C2511B29600593D38 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				22D4D79D2511B2D800593D38 /* OMHomeViewController.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		22E4061C2513884700A53FD8 /* Commons */ = {
+			isa = PBXGroup;
+			children = (
+				22959CBA244D86AE00571046 /* Main.storyboard */,
+				227785A32534547F00D1924D /* App Load */,
+				22D4D79C2511B29600593D38 /* Home */,
+				228DF2B7245AB81600E9FF1B /* Player */,
+				222937F7245DA4DD0090467C /* NavigationBar */,
+			);
+			path = Commons;
+			sourceTree = "<group>";
+		};
+		4AF9CB240D0590E5FD08110D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				224D2B882536CEED00E0736D /* SystemConfiguration.framework */,
+				224D2B862536CEE000E0736D /* MessageUI.framework */,
+				224D2B832536CED200E0736D /* libz.tbd */,
+				224D2B802536CEC200E0736D /* libc++.tbd */,
+				2230BEBB2536B0310083C96A /* KSCrash.framework */,
+				229E8DF12470181E00D47458 /* libsqlite3.0.tbd */,
+				229E8DF0247017F300D47458 /* libsqlite3.tbd */,
+				822315A5CFED1B7D920BDD7D /* Pods_OMusic.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +395,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 22959CC5244D86B100571046 /* Build configuration list for PBXNativeTarget "OMusic" */;
 			buildPhases = (
+				0C3C2F88BBFE5C7748346455 /* [CP] Check Pods Manifest.lock */,
 				22959CAD244D86AE00571046 /* Sources */,
 				22959CAE244D86AE00571046 /* Frameworks */,
 				22959CAF244D86AE00571046 /* Resources */,
+				3AA986602D682891930233ED /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -109,6 +432,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hans",
 			);
 			mainGroup = 22959CA8244D86AE00571046;
 			productRefGroup = 22959CB2244D86AE00571046 /* Products */;
@@ -125,7 +449,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2246A894245ACD03007F5CA7 /* MI Lan Pro VF.ttf in Resources */,
+				22970BEB249A5B8300D5B995 /* load.json in Resources */,
 				22959CC1244D86B100571046 /* LaunchScreen.storyboard in Resources */,
+				228DF2C2245AB81600E9FF1B /* JLPlayerImageCollectionViewCell.xib in Resources */,
+				22468D4D2476630D001A7404 /* Localizations.strings in Resources */,
+				228DF2C6245AB81600E9FF1B /* JLPlayerViewController.xib in Resources */,
 				22959CBE244D86B100571046 /* Assets.xcassets in Resources */,
 				22959CBC244D86AE00571046 /* Main.storyboard in Resources */,
 			);
@@ -133,24 +462,111 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0C3C2F88BBFE5C7748346455 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-OMusic-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3AA986602D682891930233ED /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-OMusic/Pods-OMusic-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-OMusic/Pods-OMusic-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-OMusic/Pods-OMusic-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		22959CAD244D86AE00571046 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				22959CB9244D86AE00571046 /* ViewController.swift in Sources */,
+				228DF2C3245AB81600E9FF1B /* JLPlayer.swift in Sources */,
+				22959CB9244D86AE00571046 /* OMAppLoadViewController.swift in Sources */,
+				22970BE9249A28BA00D5B995 /* JLError.swift in Sources */,
+				229F567C25345B2B0092D9E1 /* OMBaseNavigationController.swift in Sources */,
+				2245992B25130CAA00E49132 /* JLTableView.swift in Sources */,
+				228D98B6246018ED009BC2A4 /* JLPlaylist.swift in Sources */,
+				22BEE532253FE67C00A810D3 /* UIViewController+OM_NavigationBar.swift in Sources */,
+				22EE7FB62534367B0055E871 /* OMAccountManager.swift in Sources */,
+				22AB175C24614F1B004C67EB /* AMAlbums.swift in Sources */,
+				2246A87C245AC453007F5CA7 /* ListenerCenter.swift in Sources */,
+				2289EBFA2463DEB500E0F9F5 /* AMProtocol.swift in Sources */,
+				227785A62534566600D1924D /* OMBaseCollectionViewController.swift in Sources */,
+				2246A87E245AC4B9007F5CA7 /* JLExtension.swift in Sources */,
+				2245992F25130F8700E49132 /* JLHeaderViewProtocol.swift in Sources */,
+				2289EBFC2463E5B200E0F9F5 /* JLAlbum.swift in Sources */,
 				22959CB5244D86AE00571046 /* AppDelegate.swift in Sources */,
+				22DE09BF245B03320024EE04 /* JLMacroDefinition.swift in Sources */,
+				2225514E247556540099D62B /* JLDatabase.swift in Sources */,
+				222937F9245DA5410090467C /* JLNavigationBar.swift in Sources */,
+				228DF2C4245AB81600E9FF1B /* JLPlayerImageCollectionViewCell.swift in Sources */,
+				22468D522476CDB3001A7404 /* JLColor.swift in Sources */,
+				2246A87A245AC453007F5CA7 /* JLPlayItem.swift in Sources */,
+				221EAC69245E920100A5B576 /* OMTheme.swift in Sources */,
+				2289EBFE2463E6BA00E0F9F5 /* JLArtist.swift in Sources */,
+				22DE09C1245B054B0024EE04 /* MIFont.swift in Sources */,
+				228DF2C7245AB81600E9FF1B /* JLPlayerProgressView.swift in Sources */,
+				2246A87B245AC453007F5CA7 /* ListenerProtocol.swift in Sources */,
+				22AB176024615B90004C67EB /* AMModel.swift in Sources */,
 				22959CB7244D86AE00571046 /* SceneDelegate.swift in Sources */,
+				22AB175A24614203004C67EB /* AMTracks.swift in Sources */,
+				2245992D25130F0700E49132 /* JLCarouselView.swift in Sources */,
+				22AB175724613BD9004C67EB /* JLTrack.swift in Sources */,
+				2200AC2A2494FD0900E44910 /* AMFetchManager.swift in Sources */,
+				2289EC002463EA6600E0F9F5 /* JLMedia.swift in Sources */,
+				228DF2C5245AB81600E9FF1B /* JLPlayerViewController.swift in Sources */,
+				2246A879245AC453007F5CA7 /* ListenerNode.swift in Sources */,
+				22D4D79F2511B2D800593D38 /* OMHomeViewController.swift in Sources */,
+				22AB175E246150C3004C67EB /* AMArtists.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		22468D4F2476630D001A7404 /* Localizations.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				22468D4E2476630D001A7404 /* zh-Hans */,
+				22468D5024766324001A7404 /* en */,
+			);
+			name = Localizations.strings;
+			sourceTree = "<group>";
+		};
 		22959CBA244D86AE00571046 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				22959CBB244D86AE00571046 /* Base */,
+				22468D47247661FA001A7404 /* zh-Hans */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -159,6 +575,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				22959CC0244D86B100571046 /* Base */,
+				22468D48247661FA001A7404 /* zh-Hans */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -170,6 +587,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -216,7 +634,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -230,6 +648,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -270,7 +689,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -282,16 +701,83 @@
 		};
 		22959CC6244D86B100571046 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C3E7E9C64CC22453DC3D86AC /* Pods-OMusic.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 3826XM56GE;
-				INFOPLIST_FILE = OMusic/Info.plist;
+				CURRENT_PROJECT_VERSION = 4;
+				DEVELOPMENT_TEAM = VEPK8889X2;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(USER_LIBRARY_DIR)/Mobile\\ Documents/com~apple~CloudDocs/class/毕业设计/OMusic-iSCUEC/Framework",
+				);
+				INFOPLIST_FILE = OMusic/Application/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = club.iscuec.OMusic;
+				MARKETING_VERSION = 1.0.0;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-l\"c++\"",
+					"-l\"z\"",
+					"-framework",
+					"\"AVFoundation\"",
+					"-framework",
+					"\"Alamofire\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"CoreServices\"",
+					"-framework",
+					"\"Differentiator\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"ID3TagEditor\"",
+					"-framework",
+					"\"IQKeyboardManagerSwift\"",
+					"-framework",
+					"\"ImageIO\"",
+					"-framework",
+					"\"Lottie\"",
+					"-framework",
+					"\"MJRefresh\"",
+					"-framework",
+					"\"MarqueeLabel\"",
+					"-framework",
+					"\"Masonry\"",
+					"-framework",
+					"\"PanModal\"",
+					"-framework",
+					"\"QuartzCore\"",
+					"-framework",
+					"\"RxCocoa\"",
+					"-framework",
+					"\"RxDataSources\"",
+					"-framework",
+					"\"RxRelay\"",
+					"-framework",
+					"\"RxSwift\"",
+					"-framework",
+					"\"SDWebImage\"",
+					"-framework",
+					"\"SZAVPlayer\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"SwiftHEXColors\"",
+					"-framework",
+					"\"UIKit\"",
+					"-framework",
+					"\"WCDBSwift\"",
+					"-framework",
+					"\"sqlcipher\"",
+					"-framework",
+					"\"sqliterk\"",
+					"-ObjC",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = club.iscuec.omusic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -300,16 +786,83 @@
 		};
 		22959CC7244D86B100571046 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C539F81E8DCFFC63F5350502 /* Pods-OMusic.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 3826XM56GE;
-				INFOPLIST_FILE = OMusic/Info.plist;
+				CURRENT_PROJECT_VERSION = 4;
+				DEVELOPMENT_TEAM = VEPK8889X2;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(USER_LIBRARY_DIR)/Mobile\\ Documents/com~apple~CloudDocs/class/毕业设计/OMusic-iSCUEC/Framework",
+				);
+				INFOPLIST_FILE = OMusic/Application/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = club.iscuec.OMusic;
+				MARKETING_VERSION = 1.0.0;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-l\"c++\"",
+					"-l\"z\"",
+					"-framework",
+					"\"AVFoundation\"",
+					"-framework",
+					"\"Alamofire\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"CoreServices\"",
+					"-framework",
+					"\"Differentiator\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"ID3TagEditor\"",
+					"-framework",
+					"\"IQKeyboardManagerSwift\"",
+					"-framework",
+					"\"ImageIO\"",
+					"-framework",
+					"\"Lottie\"",
+					"-framework",
+					"\"MJRefresh\"",
+					"-framework",
+					"\"MarqueeLabel\"",
+					"-framework",
+					"\"Masonry\"",
+					"-framework",
+					"\"PanModal\"",
+					"-framework",
+					"\"QuartzCore\"",
+					"-framework",
+					"\"RxCocoa\"",
+					"-framework",
+					"\"RxDataSources\"",
+					"-framework",
+					"\"RxRelay\"",
+					"-framework",
+					"\"RxSwift\"",
+					"-framework",
+					"\"SDWebImage\"",
+					"-framework",
+					"\"SZAVPlayer\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"SwiftHEXColors\"",
+					"-framework",
+					"\"UIKit\"",
+					"-framework",
+					"\"WCDBSwift\"",
+					"-framework",
+					"\"sqlcipher\"",
+					"-framework",
+					"\"sqliterk\"",
+					"-ObjC",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = club.iscuec.omusic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
