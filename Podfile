@@ -27,6 +27,8 @@ target 'OMusic' do
   pod 'ID3TagEditor', '~> 3.0'
   pod 'SwiftHEXColors'
   pod 'lottie-ios'
+  
+  pod 'LookinServer'
   # Pods for OMusic
 
 end

@@ -3,6 +3,7 @@ PODS:
   - Differentiator (4.0.1)
   - ID3TagEditor (3.2.0)
   - IQKeyboardManagerSwift (6.5.5)
+  - LookinServer (1.0.0)
   - lottie-ios (3.1.8)
   - MarqueeLabel (4.0.2)
   - Masonry (1.1.0)
@@ -34,6 +35,7 @@ DEPENDENCIES:
   - Alamofire (= 4.9.1)
   - ID3TagEditor (~> 3.0)
   - IQKeyboardManagerSwift
+  - LookinServer
   - lottie-ios
   - MarqueeLabel
   - Masonry
@@ -53,6 +55,7 @@ SPEC REPOS:
     - Differentiator
     - ID3TagEditor
     - IQKeyboardManagerSwift
+    - LookinServer
     - lottie-ios
     - MarqueeLabel
     - Masonry
@@ -74,6 +77,7 @@ SPEC CHECKSUMS:
   Differentiator: 886080237d9f87f322641dedbc5be257061b0602
   ID3TagEditor: e8146a966a05d06f791be39669a0cf517809628a
   IQKeyboardManagerSwift: 0fb93310284665245591f50f7a5e38de615960b7
+  LookinServer: 0002891cd3cec5e082a910e897dfe71b4f06b89e
   lottie-ios: 48fac6be217c76937e36e340e2d09cf7b10b7f5f
   MarqueeLabel: f762aa681ae201f66c1d511858b171f75d83013a
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
@@ -90,6 +94,6 @@ SPEC CHECKSUMS:
   WCDB.swift: 05d509d7a0e60fb6e11c34eb7e4027c0fab5849f
   WCDBOptimizedSQLCipher: baf44493b0c7a3d49e97bc5b64a3856f6428ddd1
 
-PODFILE CHECKSUM: 6b8a20922904c05306d2472b51febf557e779728
+PODFILE CHECKSUM: 1f991ec29454b3f1364732cf2b08ce24bb8d40fc
 
-COCOAPODS: 1.8.4
+COCOAPODS: 1.10.1

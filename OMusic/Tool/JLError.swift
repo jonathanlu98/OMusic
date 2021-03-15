@@ -15,5 +15,13 @@ struct JLErrorCode {
     static let ValueUnavailable = 778
     static let JSONDecodeFailed = 779
     static let AMObjectsNotFound = 780
-}
+    
+    static let AMAccountMangerHeaderNotFound = 781
+    static let AMAccountMangerHeaderNotFoundError:NSError = NSError.init(domain: JLErrorDomain, code: JLErrorCode.AMAccountMangerHeaderNotFound, userInfo: [NSLocalizedDescriptionKey:"授权出现问题。"])
+
+    static let AMAccountMangerStorefrontNotFound = 782
+    static let AMAccountMangerStorefrontNotFoundError:NSError = NSError.init(domain: JLErrorDomain, code: JLErrorCode.AMAccountMangerStorefrontNotFound, userInfo: [NSLocalizedDescriptionKey:"未能从Apple Store中读取你所在的地区。"])
+
+    
+    }
 

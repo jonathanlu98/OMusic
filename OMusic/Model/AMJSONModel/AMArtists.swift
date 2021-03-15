@@ -10,7 +10,7 @@ import Foundation
 
 
 // MARK: - AMArtists
-class AMArtists: AMResponseProtocol {
+class AMArtists: AMObjectResponseProtocol {
     let href: String?
     let next: String?
     let data: [AMArtist]?
@@ -23,11 +23,13 @@ class AMArtists: AMResponseProtocol {
 }
 
 // MARK: - AMArtist
-class AMArtist: AMProtocol {
-    static var codableClass: AMArtists.Type = AMArtists.self
+class AMArtist: AMObjectProtocol {
+    typealias MediaClass = AMArtists.Type
+        
+    static var responseCodableClass: AMArtists.Type = AMArtists.self
     
-    static var description: String = "artists"
-    
+    static var urlPathDescription:urlPathDescriptionType = .artists
+
     let id, type, href: String?
     let attributes: AMArtistAttributes?
     let relationships: AMArtistRelationships?

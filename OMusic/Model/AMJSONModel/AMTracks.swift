@@ -9,7 +9,7 @@
 import Foundation
 
 // MARK: - AMTracks
-class AMTracks: AMResponseProtocol {
+class AMTracks: AMObjectResponseProtocol {
     let href: String?
     let next: String?
     let data: [AMTrack]?
@@ -22,10 +22,10 @@ class AMTracks: AMResponseProtocol {
 }
 
 // MARK: - AMTrack
-class AMTrack: AMProtocol {
-    static var codableClass: AMTracks.Type = AMTracks.self
+class AMTrack: AMObjectProtocol {
+    static var responseCodableClass: AMTracks.Type = AMTracks.self
     
-    static var description: String = "songs"
+    static var urlPathDescription:urlPathDescriptionType = .tracks
     
     let id, type, href: String?
     let attributes: AMTrackAttributes?

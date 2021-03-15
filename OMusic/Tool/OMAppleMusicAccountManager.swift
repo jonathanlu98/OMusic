@@ -1,5 +1,5 @@
 //
-//  OMAccountManager.swift
+//  OMAppleMusicAccountManager.swift
 //  OMusic
 //
 //  Created by Jonathan Lu on 2020/10/12.
@@ -10,7 +10,7 @@ import Foundation
 import Alamofire
 import StoreKit
 
-class OMAccountManager: NSObject {
+class OMAppleMusicAccountManager: NSObject {
     
     private(set) var developerToken: String? {
         didSet {
@@ -48,7 +48,7 @@ class OMAccountManager: NSObject {
         }
     }
     
-    static let shared = OMAccountManager()
+    static let shared = OMAppleMusicAccountManager()
     
     
     

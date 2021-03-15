@@ -12,12 +12,13 @@ import StoreKit
 
 class AMFetchManager: NSObject {
     
+    /// 适用于Apple Music API的请求头
     fileprivate var headers: HTTPHeaders? {
         get {
-            guard let developerToken = OMAccountManager.shared.developerToken else {
+            guard let developerToken = OMAppleMusicAccountManager.shared.developerToken else {
                 return nil
             }
-            if let userToken = OMAccountManager.shared.userToken {
+            if let userToken = OMAppleMusicAccountManager.shared.userToken {
                 return ["Authorization": "Bearer  \(developerToken)", "Music-User-Token": userToken]
             }
             return ["Authorization": "Bearer  \(developerToken)"]
@@ -28,23 +29,28 @@ class AMFetchManager: NSObject {
     
 
     
-    public func getAMObjects<T: AMProtocol>(by ids: [String],
+    /// 获取Apple Music中的各类型的具体信息，包括单曲、专辑、歌手
+    /// - Parameters:
+    ///   - ids: 传入对应类型对象的id数组
+    ///   - amObject: 类型封装类  对应协议会传递类型名称
+    ///   - completion: completion
+    public func getAMObjects<T: AMObjectProtocol>(by ids: [String],
                                             from amObject: T.Type,
                                             completion: @escaping ([T]?, [String]?, Error?) -> Void) {
         guard let headers = headers else {
-            completion(nil, nil, NSError.init(domain: JLErrorDomain, code: JLErrorCode.ValueNotFound, userInfo: [NSLocalizedDescriptionKey:"未能获得授权。"]))
+            completion(nil, nil, JLErrorCode.AMAccountMangerHeaderNotFoundError)
             return
         }
-        guard let storefront = OMAccountManager.shared.storefront else {
-            completion(nil, nil, NSError.init(domain: JLErrorDomain, code: JLErrorCode.ValueNotFound, userInfo: [NSLocalizedDescriptionKey:"未能从Apple Store中读取你所在的地区。"]))
+        guard let storefront = OMAppleMusicAccountManager.shared.storefront else {
+            completion(nil, nil, JLErrorCode.AMAccountMangerStorefrontNotFoundError)
             return
         }
         let requestUrl = "https://api.music.apple.com/v1/catalog/\(storefront)"
-        Alamofire.request("\(requestUrl)/\(amObject.description)", method: .get, parameters: ["ids":ids.joined(separator: ",")], encoding: URLEncoding.default, headers: headers).responseData { (response) in
+        Alamofire.request("\(requestUrl)/\(amObject.urlPathDescription)", method: .get, parameters: ["ids":ids.joined(separator: ",")], encoding: URLEncoding.default, headers: headers).responseData { (response) in
             switch response.result {
             case .success(let data):
-                guard let items = try? JSONDecoder().decode(T.self.codableClass, from: data) else {
-                    completion(nil, nil, NSError.init(domain: JLErrorDomain, code: JLErrorCode.JSONDecodeFailed, userInfo: [NSLocalizedDescriptionKey:"解析数据错误，请重试。"]))
+                guard let items = try? JSONDecoder().decode(T.self.responseCodableClass, from: data) else {
+                    completion(nil, nil, NSError.init(domain: JLErrorDomain, code: JLErrorCode.JSONDecodeFailed, userInfo: [NSLocalizedDescriptionKey:"解析数据错误。"]))
                     return
                 }
                 guard let objects = items.data else {
@@ -61,23 +67,28 @@ class AMFetchManager: NSObject {
     }
     
     
-    public func getObject<T: AMProtocol>(by id: String,
+    /// 获取Apple Music中的各类型的具体信息，包括单曲、专辑、歌手
+    /// - Parameters:
+    ///   - ids: 传入对应类型对象的id数组
+    ///   - amObject: 类型封装类  对应协议会传递类型名称
+    ///   - completion: completion
+    public func getObject<T: AMObjectProtocol>(by id: String,
                                          from amObject: T.Type,
                                          completion: @escaping (T?, Error?) -> Void) {
         guard let headers = headers else {
-            completion(nil, NSError.init(domain: JLErrorDomain, code: JLErrorCode.ValueNotFound, userInfo: [NSLocalizedDescriptionKey:"未能获得授权。"]))
+            completion(nil, JLErrorCode.AMAccountMangerHeaderNotFoundError)
             return
         }
-        guard let storefront = OMAccountManager.shared.storefront else {
-            completion(nil, NSError.init(domain: JLErrorDomain, code: JLErrorCode.ValueNotFound, userInfo: [NSLocalizedDescriptionKey:"未能从Apple Store中读取你所在的地区。"]))
+        guard let storefront = OMAppleMusicAccountManager.shared.storefront else {
+            completion(nil, JLErrorCode.AMAccountMangerStorefrontNotFoundError)
             return
         }
         let requestUrl = "https://api.music.apple.com/v1/catalog/\(storefront)"
-        Alamofire.request("\(requestUrl)/\(amObject.description)", method: .get, parameters: ["ids":id], encoding: URLEncoding.default, headers: headers).responseData { (response) in
+        Alamofire.request("\(requestUrl)/\(amObject.urlPathDescription)", method: .get, parameters: ["ids":id], encoding: URLEncoding.default, headers: headers).responseData { (response) in
             switch response.result {
             case .success(let data):
-                guard let items = try? JSONDecoder().decode(T.self.codableClass, from: data) else {
-                    completion(nil, NSError.init(domain: JLErrorDomain, code: JLErrorCode.JSONDecodeFailed, userInfo: [NSLocalizedDescriptionKey:"解析数据错误，请重试。"]))
+                guard let items = try? JSONDecoder().decode(T.self.responseCodableClass, from: data) else {
+                    completion(nil, NSError.init(domain: JLErrorDomain, code: JLErrorCode.JSONDecodeFailed, userInfo: [NSLocalizedDescriptionKey:"解析数据错误。"]))
                     return
                 }
                 guard let object = items.data?.first else {
@@ -90,6 +101,74 @@ class AMFetchManager: NSObject {
             }
         }
     }
+    
+    
+    /// 综合搜索 默认每个类型5个搜索结果
+    /// - Parameters:
+    ///   - text: 搜索关键字
+    ///   - completion: completion
+    public func requestMutiSearch(text: String,
+                            completion: @escaping (AMSearchItems?, Error?) -> Void) {
+        guard let headers = headers else {
+            completion(nil, JLErrorCode.AMAccountMangerHeaderNotFoundError)
+            return
+        }
+        guard let storefront = OMAppleMusicAccountManager.shared.storefront else {
+            completion(nil, JLErrorCode.AMAccountMangerStorefrontNotFoundError)
+            return
+        }
+        let requestUrl = "https://api.music.apple.com/v1/catalog/\(storefront)/search"
+        Alamofire.request("\(requestUrl)", method: .get, parameters: ["terms":text,"limit":5,"offset":0], encoding: URLEncoding.default, headers: headers).responseData { (response) in
+            switch response.result {
+            case .success(let data):
+                guard let items = try? JSONDecoder().decode(AMSearchResponse.self, from: data) else {
+                    completion(nil, NSError.init(domain: JLErrorDomain, code: JLErrorCode.JSONDecodeFailed, userInfo: [NSLocalizedDescriptionKey:"解析数据错误。"]))
+                    return
+                }
+                completion((items.results), nil)
+            case .failure(let error):
+                completion(nil, error)
+            }
+        }
+    }
+    
+    
+    
+    /// 搜索 适应每个类型
+    /// - Parameters:
+    ///   - text: 搜索关键字
+    ///   - limit: 每次获取数据条数 默认20
+    ///   - offset: offset
+    ///   - completion: completion
+    public func requestSearch<T: AMObjectResponseProtocol>(text: String,
+                                                          limit: NSInteger = 20,
+                                                         offset: NSInteger,
+                                                     completion: @escaping (T?, Error?) -> Void) {
+        guard let headers = headers else {
+            completion(nil, JLErrorCode.AMAccountMangerHeaderNotFoundError)
+            return
+        }
+        guard let storefront = OMAppleMusicAccountManager.shared.storefront else {
+            completion(nil, JLErrorCode.AMAccountMangerStorefrontNotFoundError)
+            return
+        }
+        let requestUrl = "https://api.music.apple.com/v1/catalog/\(storefront)/search"
+        Alamofire.request("\(requestUrl)", method: .get, parameters: ["terms":text,"limit":limit,"offset":offset, "types":T.MediaClass.urlPathDescription], encoding: URLEncoding.default, headers: headers).responseData { (response) in
+            switch response.result {
+            case .success(let data):
+                guard let item = try? JSONDecoder().decode(AMSearchResponse.self, from: data) else {
+                    completion(nil, NSError.init(domain: JLErrorDomain, code: JLErrorCode.JSONDecodeFailed, userInfo: [NSLocalizedDescriptionKey:"解析数据错误。"]))
+                    return
+                }
+                completion(item.results?.getSearchItems(), nil)
+            case .failure(let error):
+                completion(nil, error)
+            }
+        }
+    }
+    
+    
+    
     
 }
 

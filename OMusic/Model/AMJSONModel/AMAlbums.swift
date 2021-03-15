@@ -10,7 +10,7 @@ import Foundation
 
 
 // MARK: - AMAlbums
-class AMAlbums: AMResponseProtocol {
+class AMAlbums: AMObjectResponseProtocol {
     let href: String?
     let next: String?
     let data: [AMAlbum]?
@@ -23,11 +23,11 @@ class AMAlbums: AMResponseProtocol {
 }
 
 // MARK: - AMAlbum
-class AMAlbum: AMProtocol {
-    static var codableClass: AMAlbums.Type = AMAlbums.self
+class AMAlbum: AMObjectProtocol {
+    static var responseCodableClass: AMAlbums.Type = AMAlbums.self
     
-    static var description: String = "albums"
-    
+    static var urlPathDescription:urlPathDescriptionType = .albums
+
     let id, type, href: String?
     let attributes: PurpleAttributes?
     let relationships: AMAlbumRelationships?

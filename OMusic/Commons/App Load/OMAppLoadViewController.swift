@@ -44,39 +44,35 @@ class OMAppLoadViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //凭证已经拥有
+        if OMAppleMusicAccountManager.shared.developerToken != nil && OMAppleMusicAccountManager.shared.userToken != nil {
+            self.enterTabBarViewController()
+            return
+        }
+        descriptionLabel.isHidden = false;
         loadAIView.startAnimating()
         setupToken()
         _ = retryButton.rx.controlEvent( .touchUpInside).subscribe(onNext: { [unowned self] (arg0) in
             let () = arg0
             self.retryButton.isHidden = true
             self.loadAIView.startAnimating()
-            self.descriptionLabel.text = "Loading"
+            self.descriptionLabel.text = "加载中"
             self.setupToken()
             }, onError: nil, onCompleted: nil, onDisposed: nil)
     }
     
-    func setupToken() {
-        OMAccountManager.shared.setupDeveloperToken { [weak self] (t_succeed, t_error) in
+    private func setupToken() {
+        OMAppleMusicAccountManager.shared.setupDeveloperToken { [weak self] (t_succeed, t_error) in
             if t_succeed {
-                OMAccountManager.shared.getUserToken { [weak self] (u_succeed, u_error) in
+                OMAppleMusicAccountManager.shared.getUserToken { [weak self] (u_succeed, u_error) in
                     if u_succeed {
-                        print(OMAccountManager.shared.developerToken)
-                        print(OMAccountManager.shared.userToken)
+                        
+                        print(OMAppleMusicAccountManager.shared.developerToken)
+                        print(OMAppleMusicAccountManager.shared.userToken)
+                        
                         self?.loadAIView.stopAnimating()
                         self?.descriptionLabel.text = "OK"
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-                            let layout = UICollectionViewFlowLayout()
-                            layout.itemSize = .init(width: UIScreen.main.bounds.width, height: 100)
-                            layout.minimumInteritemSpacing = 20
-                            layout.scrollDirection = .vertical
-                            let vc = OMHomeViewController.init(title: "Home", backgroundColor: OMTheme.getColor(lightColor: UIColor.white, darkColor: UIColor.black), collectionViewLayout: layout)
-                            let navivc = OMBaseNavigationController.init(rootViewController: vc)
-                            let transtition = CATransition()
-                            transtition.duration = 0.3
-                            transtition.timingFunction = CAMediaTimingFunction.init(name: .easeOut)
-                            UIApplication.shared.windows.first?.layer.add(transtition, forKey: "animation")
-                            UIApplication.shared.windows.first?.rootViewController = navivc
-                        }
+                        self?.enterTabBarViewController()
                     } else {
                         DispatchQueue.main.async { [weak self] in
                             self?.loadAIView.stopAnimating()
@@ -93,6 +89,18 @@ class OMAppLoadViewController: UIViewController {
                     self?.retryButton.isHidden = false
                 }
             }
+        }
+    }
+    
+    
+    private func enterTabBarViewController() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            let tabBarViewController = OMTabBarController.init()
+            let transtition = CATransition()
+            transtition.duration = 0.3
+            transtition.timingFunction = CAMediaTimingFunction.init(name: .easeOut)
+            UIApplication.shared.windows.first?.layer.add(transtition, forKey: "animation")
+            UIApplication.shared.windows.first?.rootViewController = tabBarViewController
         }
     }
 
