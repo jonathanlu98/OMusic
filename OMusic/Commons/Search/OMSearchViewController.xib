@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="JLSearchViewController" customModule="JLSptfy" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="OMSearchViewController" customModule="OMusic" customModuleProvider="target">
             <connections>
                 <outlet property="searchBar" destination="38N-Rt-qe8" id="xNr-yG-l4D"/>
                 <outlet property="searchListTableView" destination="HGo-oy-DXF" id="5Ng-jF-niM"/>
+                <outlet property="titleLabel" destination="ue7-9h-1tt" id="fiD-KC-gqW"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -22,23 +24,29 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dee-vn-Ma7" userLabel="HeaderView">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="160"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ue7-9h-1tt">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ue7-9h-1tt">
                             <rect key="frame" x="16" y="61" width="343" height="35"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="35" id="ooB-Y2-cER"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
-                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <attributedString key="attributedText">
+                                <fragment content="搜索">
+                                    <attributes>
+                                        <color key="NSColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <font key="NSFont" size="32" name="MILanProVF-Bold"/>
+                                    </attributes>
+                                </fragment>
+                            </attributedString>
                             <nil key="highlightedColor"/>
                         </label>
                         <searchBar contentMode="redraw" barStyle="black" searchBarStyle="minimal" text="" placeholder="Search" translatesAutoresizingMaskIntoConstraints="NO" id="38N-Rt-qe8">
                             <rect key="frame" x="16" y="100" width="343" height="56"/>
-                            <color key="backgroundColor" red="0.070588235289999995" green="0.070588235289999995" blue="0.070588235289999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <color key="barTintColor" red="0.070578239858150482" green="0.070594854652881622" blue="0.070573009550571442" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <textInputTraits key="textInputTraits"/>
                         </searchBar>
                     </subviews>
-                    <color key="backgroundColor" red="0.070578239858150482" green="0.070594854652881622" blue="0.070573009550571442" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="38N-Rt-qe8" secondAttribute="trailing" constant="16" id="8BC-Ft-Tuz"/>
                         <constraint firstItem="38N-Rt-qe8" firstAttribute="top" secondItem="dee-vn-Ma7" secondAttribute="top" constant="100" id="FfE-h5-tVr"/>
@@ -51,10 +59,11 @@
                 </view>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="black" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="HGo-oy-DXF">
                     <rect key="frame" x="0.0" y="160" width="375" height="507"/>
-                    <color key="backgroundColor" red="0.070578239860000003" green="0.070594854649999997" blue="0.070573009549999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </tableView>
             </subviews>
-            <color key="backgroundColor" red="0.070578239858150482" green="0.070594854652881622" blue="0.070573009550571442" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="HGo-oy-DXF" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="AKn-4Q-mME"/>
                 <constraint firstItem="HGo-oy-DXF" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="BTx-sx-LJs"/>
@@ -64,7 +73,6 @@
                 <constraint firstItem="HGo-oy-DXF" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="wyE-sd-Wec"/>
                 <constraint firstItem="dee-vn-Ma7" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="zEc-nX-M8C"/>
             </constraints>
-            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="109.59999999999999" y="96.7016491754123"/>
         </view>
     </objects>

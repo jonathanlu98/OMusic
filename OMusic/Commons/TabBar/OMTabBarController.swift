@@ -49,7 +49,7 @@ class OMTabBarController: UITabBarController, UITabBarControllerDelegate {
         let homeNavVC = OMNavigationViewController.init(rootViewController: homeViewController)
         configTabBarItem(from: homeNavVC, icon: #imageLiteral(resourceName: "tabBar_home"))
 
-        let searchViewController = UIViewController()
+        let searchViewController = OMSearchViewController()
         searchViewController.title = ""
         let searchNavVC = OMNavigationViewController.init(rootViewController: searchViewController)
         configTabBarItem(from: searchNavVC, icon: #imageLiteral(resourceName: "tabBar_search"))

@@ -60,18 +60,18 @@
 		ED0EDD4925FDD8E10092093B /* OMTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0EDD4625FDD8E00092093B /* OMTabBarController.swift */; };
 		ED0EDD4A25FDD8E10092093B /* JLPlayerMenuBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0EDD4725FDD8E10092093B /* JLPlayerMenuBarView.swift */; };
 		ED0EDD4E25FDD9330092093B /* OMNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0EDD4D25FDD9330092093B /* OMNavigationViewController.swift */; };
+		ED178EAF260249D000A3B8B7 /* OMSearchListTableViewArtistCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED178EB1260249D000A3B8B7 /* OMSearchListTableViewArtistCell.xib */; };
+		ED178EB3260249D600A3B8B7 /* OMSearchListTableViewMoreCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED178EB5260249D600A3B8B7 /* OMSearchListTableViewMoreCell.xib */; };
+		ED178EB7260249DC00A3B8B7 /* OMSearchListTableViewSongCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED178EB9260249DC00A3B8B7 /* OMSearchListTableViewSongCell.xib */; };
+		ED178EBD26031D3A00A3B8B7 /* OMSearchListTableViewAlbumCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED178EAD260249C500A3B8B7 /* OMSearchListTableViewAlbumCell.xib */; };
 		EDB9DFD725FD10230014EB41 /* AMSearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB9DFD625FD10230014EB41 /* AMSearchModel.swift */; };
-		EDC69F3425FFA3C8007C8810 /* JLSearchMoreTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC69F3025FFA3C5007C8810 /* JLSearchMoreTableViewController.swift */; };
-		EDC69F3525FFA3C8007C8810 /* JLSearchListSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC69F3125FFA3C6007C8810 /* JLSearchListSection.swift */; };
-		EDC69F3625FFA3C8007C8810 /* JLSearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDC69F3225FFA3C7007C8810 /* JLSearchViewController.xib */; };
-		EDC69F3725FFA3C8007C8810 /* JLSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC69F3325FFA3C8007C8810 /* JLSearchViewController.swift */; };
-		EDC69F4425FFA401007C8810 /* OMSearchListTableViewArtistCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDC69F3A25FFA3FA007C8810 /* OMSearchListTableViewArtistCell.xib */; };
-		EDC69F4525FFA401007C8810 /* JLSearchListTableViewSongCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC69F3B25FFA3FB007C8810 /* JLSearchListTableViewSongCell.swift */; };
-		EDC69F4625FFA401007C8810 /* JLSearchListTableViewSongCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDC69F3C25FFA3FB007C8810 /* JLSearchListTableViewSongCell.xib */; };
+		EDC69F3425FFA3C8007C8810 /* OMSearchMoreTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC69F3025FFA3C5007C8810 /* OMSearchMoreTableViewController.swift */; };
+		EDC69F3525FFA3C8007C8810 /* OMSearchListSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC69F3125FFA3C6007C8810 /* OMSearchListSection.swift */; };
+		EDC69F3625FFA3C8007C8810 /* OMSearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDC69F3225FFA3C7007C8810 /* OMSearchViewController.xib */; };
+		EDC69F3725FFA3C8007C8810 /* OMSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC69F3325FFA3C8007C8810 /* OMSearchViewController.swift */; };
+		EDC69F4525FFA401007C8810 /* OMSearchListTableViewSongCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC69F3B25FFA3FB007C8810 /* OMSearchListTableViewSongCell.swift */; };
 		EDC69F4725FFA401007C8810 /* OMSearchListTableViewArtistCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC69F3D25FFA3FC007C8810 /* OMSearchListTableViewArtistCell.swift */; };
-		EDC69F4925FFA401007C8810 /* OMSearchListTableViewMoreCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDC69F3F25FFA3FE007C8810 /* OMSearchListTableViewMoreCell.xib */; };
 		EDC69F4A25FFA401007C8810 /* OMSearchListTableViewAlbumCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC69F4025FFA3FF007C8810 /* OMSearchListTableViewAlbumCell.swift */; };
-		EDC69F4B25FFA401007C8810 /* OMSearchListTableViewAlbumCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDC69F4125FFA3FF007C8810 /* OMSearchListTableViewAlbumCell.xib */; };
 		EDC69F4D25FFA401007C8810 /* OMSearchListTableViewMoreCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC69F4325FFA401007C8810 /* OMSearchListTableViewMoreCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -139,18 +139,18 @@
 		ED0EDD4625FDD8E00092093B /* OMTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OMTabBarController.swift; sourceTree = "<group>"; };
 		ED0EDD4725FDD8E10092093B /* JLPlayerMenuBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JLPlayerMenuBarView.swift; sourceTree = "<group>"; };
 		ED0EDD4D25FDD9330092093B /* OMNavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OMNavigationViewController.swift; sourceTree = "<group>"; };
+		ED178EAC260249C500A3B8B7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/OMSearchListTableViewAlbumCell.xib; sourceTree = "<group>"; };
+		ED178EB0260249D000A3B8B7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/OMSearchListTableViewArtistCell.xib; sourceTree = "<group>"; };
+		ED178EB4260249D600A3B8B7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/OMSearchListTableViewMoreCell.xib; sourceTree = "<group>"; };
+		ED178EB8260249DC00A3B8B7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/OMSearchListTableViewSongCell.xib; sourceTree = "<group>"; };
 		EDB9DFD625FD10230014EB41 /* AMSearchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AMSearchModel.swift; sourceTree = "<group>"; };
-		EDC69F3025FFA3C5007C8810 /* JLSearchMoreTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JLSearchMoreTableViewController.swift; sourceTree = "<group>"; };
-		EDC69F3125FFA3C6007C8810 /* JLSearchListSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JLSearchListSection.swift; sourceTree = "<group>"; };
-		EDC69F3225FFA3C7007C8810 /* JLSearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JLSearchViewController.xib; sourceTree = "<group>"; };
-		EDC69F3325FFA3C8007C8810 /* JLSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JLSearchViewController.swift; sourceTree = "<group>"; };
-		EDC69F3A25FFA3FA007C8810 /* OMSearchListTableViewArtistCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OMSearchListTableViewArtistCell.xib; sourceTree = "<group>"; };
-		EDC69F3B25FFA3FB007C8810 /* JLSearchListTableViewSongCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JLSearchListTableViewSongCell.swift; sourceTree = "<group>"; };
-		EDC69F3C25FFA3FB007C8810 /* JLSearchListTableViewSongCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JLSearchListTableViewSongCell.xib; sourceTree = "<group>"; };
+		EDC69F3025FFA3C5007C8810 /* OMSearchMoreTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OMSearchMoreTableViewController.swift; sourceTree = "<group>"; };
+		EDC69F3125FFA3C6007C8810 /* OMSearchListSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OMSearchListSection.swift; sourceTree = "<group>"; };
+		EDC69F3225FFA3C7007C8810 /* OMSearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OMSearchViewController.xib; sourceTree = "<group>"; };
+		EDC69F3325FFA3C8007C8810 /* OMSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OMSearchViewController.swift; sourceTree = "<group>"; };
+		EDC69F3B25FFA3FB007C8810 /* OMSearchListTableViewSongCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OMSearchListTableViewSongCell.swift; sourceTree = "<group>"; };
 		EDC69F3D25FFA3FC007C8810 /* OMSearchListTableViewArtistCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OMSearchListTableViewArtistCell.swift; sourceTree = "<group>"; };
-		EDC69F3F25FFA3FE007C8810 /* OMSearchListTableViewMoreCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OMSearchListTableViewMoreCell.xib; sourceTree = "<group>"; };
 		EDC69F4025FFA3FF007C8810 /* OMSearchListTableViewAlbumCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OMSearchListTableViewAlbumCell.swift; sourceTree = "<group>"; };
-		EDC69F4125FFA3FF007C8810 /* OMSearchListTableViewAlbumCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OMSearchListTableViewAlbumCell.xib; sourceTree = "<group>"; };
 		EDC69F4325FFA401007C8810 /* OMSearchListTableViewMoreCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OMSearchListTableViewMoreCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -185,7 +185,6 @@
 				22DE09C0245B054B0024EE04 /* MIFont.swift */,
 				221EAC68245E920100A5B576 /* OMTheme.swift */,
 				2225514D247556540099D62B /* JLDatabase.swift */,
-				2200AC292494FD0900E44910 /* AMFetchManager.swift */,
 				22EE7FB52534367B0055E871 /* OMAppleMusicAccountManager.swift */,
 				22970BE8249A28BA00D5B995 /* JLError.swift */,
 				2245992A25130CAA00E49132 /* JLTableView.swift */,
@@ -320,6 +319,7 @@
 		22959CB3244D86AE00571046 /* OMusic */ = {
 			isa = PBXGroup;
 			children = (
+				EDA0E5242604F83A005A8DE1 /* Service */,
 				22E4061C2513884700A53FD8 /* Commons */,
 				22D4D79B2511AE8C00593D38 /* Model */,
 				22D4D79A2511AE4000593D38 /* Application */,
@@ -430,14 +430,22 @@
 			path = TabBar;
 			sourceTree = "<group>";
 		};
+		EDA0E5242604F83A005A8DE1 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				2200AC292494FD0900E44910 /* AMFetchManager.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 		EDC69F2F25FFA3BB007C8810 /* Search */ = {
 			isa = PBXGroup;
 			children = (
 				EDC69F3925FFA3E8007C8810 /* Cell */,
-				EDC69F3125FFA3C6007C8810 /* JLSearchListSection.swift */,
-				EDC69F3025FFA3C5007C8810 /* JLSearchMoreTableViewController.swift */,
-				EDC69F3325FFA3C8007C8810 /* JLSearchViewController.swift */,
-				EDC69F3225FFA3C7007C8810 /* JLSearchViewController.xib */,
+				EDC69F3125FFA3C6007C8810 /* OMSearchListSection.swift */,
+				EDC69F3025FFA3C5007C8810 /* OMSearchMoreTableViewController.swift */,
+				EDC69F3325FFA3C8007C8810 /* OMSearchViewController.swift */,
+				EDC69F3225FFA3C7007C8810 /* OMSearchViewController.xib */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -446,13 +454,13 @@
 			isa = PBXGroup;
 			children = (
 				EDC69F4025FFA3FF007C8810 /* OMSearchListTableViewAlbumCell.swift */,
-				EDC69F4125FFA3FF007C8810 /* OMSearchListTableViewAlbumCell.xib */,
+				ED178EAD260249C500A3B8B7 /* OMSearchListTableViewAlbumCell.xib */,
 				EDC69F3D25FFA3FC007C8810 /* OMSearchListTableViewArtistCell.swift */,
-				EDC69F3A25FFA3FA007C8810 /* OMSearchListTableViewArtistCell.xib */,
+				ED178EB1260249D000A3B8B7 /* OMSearchListTableViewArtistCell.xib */,
 				EDC69F4325FFA401007C8810 /* OMSearchListTableViewMoreCell.swift */,
-				EDC69F3F25FFA3FE007C8810 /* OMSearchListTableViewMoreCell.xib */,
-				EDC69F3B25FFA3FB007C8810 /* JLSearchListTableViewSongCell.swift */,
-				EDC69F3C25FFA3FB007C8810 /* JLSearchListTableViewSongCell.xib */,
+				ED178EB5260249D600A3B8B7 /* OMSearchListTableViewMoreCell.xib */,
+				EDC69F3B25FFA3FB007C8810 /* OMSearchListTableViewSongCell.swift */,
+				ED178EB9260249DC00A3B8B7 /* OMSearchListTableViewSongCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -521,16 +529,16 @@
 				2246A894245ACD03007F5CA7 /* MI Lan Pro VF.ttf in Resources */,
 				22970BEB249A5B8300D5B995 /* load.json in Resources */,
 				22959CC1244D86B100571046 /* LaunchScreen.storyboard in Resources */,
-				EDC69F3625FFA3C8007C8810 /* JLSearchViewController.xib in Resources */,
-				EDC69F4425FFA401007C8810 /* OMSearchListTableViewArtistCell.xib in Resources */,
-				EDC69F4625FFA401007C8810 /* JLSearchListTableViewSongCell.xib in Resources */,
+				EDC69F3625FFA3C8007C8810 /* OMSearchViewController.xib in Resources */,
+				ED178EAF260249D000A3B8B7 /* OMSearchListTableViewArtistCell.xib in Resources */,
+				ED178EB7260249DC00A3B8B7 /* OMSearchListTableViewSongCell.xib in Resources */,
 				228DF2C2245AB81600E9FF1B /* JLPlayerImageCollectionViewCell.xib in Resources */,
-				EDC69F4B25FFA401007C8810 /* OMSearchListTableViewAlbumCell.xib in Resources */,
 				22468D4D2476630D001A7404 /* Localizations.strings in Resources */,
 				228DF2C6245AB81600E9FF1B /* JLPlayerViewController.xib in Resources */,
+				ED178EBD26031D3A00A3B8B7 /* OMSearchListTableViewAlbumCell.xib in Resources */,
 				22959CBE244D86B100571046 /* Assets.xcassets in Resources */,
 				22959CBC244D86AE00571046 /* Main.storyboard in Resources */,
-				EDC69F4925FFA401007C8810 /* OMSearchListTableViewMoreCell.xib in Resources */,
+				ED178EB3260249D600A3B8B7 /* OMSearchListTableViewMoreCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -585,22 +593,22 @@
 			files = (
 				228DF2C3245AB81600E9FF1B /* JLPlayer.swift in Sources */,
 				22959CB9244D86AE00571046 /* OMAppLoadViewController.swift in Sources */,
-				EDC69F3425FFA3C8007C8810 /* JLSearchMoreTableViewController.swift in Sources */,
+				EDC69F3425FFA3C8007C8810 /* OMSearchMoreTableViewController.swift in Sources */,
 				22970BE9249A28BA00D5B995 /* JLError.swift in Sources */,
 				229F567C25345B2B0092D9E1 /* OMBaseNavigationController.swift in Sources */,
 				2245992B25130CAA00E49132 /* JLTableView.swift in Sources */,
 				228D98B6246018ED009BC2A4 /* JLPlaylist.swift in Sources */,
 				22BEE532253FE67C00A810D3 /* UIViewController+OM_NavigationBar.swift in Sources */,
 				22EE7FB62534367B0055E871 /* OMAppleMusicAccountManager.swift in Sources */,
-				EDC69F4525FFA401007C8810 /* JLSearchListTableViewSongCell.swift in Sources */,
+				EDC69F4525FFA401007C8810 /* OMSearchListTableViewSongCell.swift in Sources */,
 				EDC69F4D25FFA401007C8810 /* OMSearchListTableViewMoreCell.swift in Sources */,
 				22AB175C24614F1B004C67EB /* AMAlbums.swift in Sources */,
-				EDC69F3725FFA3C8007C8810 /* JLSearchViewController.swift in Sources */,
+				EDC69F3725FFA3C8007C8810 /* OMSearchViewController.swift in Sources */,
 				EDB9DFD725FD10230014EB41 /* AMSearchModel.swift in Sources */,
 				ED0EDD4A25FDD8E10092093B /* JLPlayerMenuBarView.swift in Sources */,
 				2246A87C245AC453007F5CA7 /* ListenerCenter.swift in Sources */,
 				2289EBFA2463DEB500E0F9F5 /* AMObjectProtocol.swift in Sources */,
-				EDC69F3525FFA3C8007C8810 /* JLSearchListSection.swift in Sources */,
+				EDC69F3525FFA3C8007C8810 /* OMSearchListSection.swift in Sources */,
 				227785A62534566600D1924D /* OMBaseCollectionViewController.swift in Sources */,
 				2246A87E245AC4B9007F5CA7 /* JLExtension.swift in Sources */,
 				2245992F25130F8700E49132 /* JLHeaderViewProtocol.swift in Sources */,
@@ -664,6 +672,38 @@
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
+		ED178EAD260249C500A3B8B7 /* OMSearchListTableViewAlbumCell.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ED178EAC260249C500A3B8B7 /* Base */,
+			);
+			name = OMSearchListTableViewAlbumCell.xib;
+			sourceTree = "<group>";
+		};
+		ED178EB1260249D000A3B8B7 /* OMSearchListTableViewArtistCell.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ED178EB0260249D000A3B8B7 /* Base */,
+			);
+			name = OMSearchListTableViewArtistCell.xib;
+			sourceTree = "<group>";
+		};
+		ED178EB5260249D600A3B8B7 /* OMSearchListTableViewMoreCell.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ED178EB4260249D600A3B8B7 /* Base */,
+			);
+			name = OMSearchListTableViewMoreCell.xib;
+			sourceTree = "<group>";
+		};
+		ED178EB9260249DC00A3B8B7 /* OMSearchListTableViewSongCell.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ED178EB8260249DC00A3B8B7 /* Base */,
+			);
+			name = OMSearchListTableViewSongCell.xib;
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -725,6 +765,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -779,6 +820,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;

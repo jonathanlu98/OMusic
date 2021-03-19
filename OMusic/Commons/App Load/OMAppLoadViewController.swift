@@ -12,31 +12,7 @@ import Lottie
 import RxSwift
 import RxCocoa
 
-//precedencegroup asyncGroup {
-//    associativity: left
-//    higherThan: AdditionPrecedence
-//    lowerThan: MultiplicationPrecedence
-//}
-//
-//infix operator +>: asyncGroup
-//
-//typealias Action = ()->Void
-//typealias AsyncTask = (Action) -> Void
-
-//func +>(left: @escaping AsyncTask, right: @escaping AsyncTask) -> AsyncTask {
-//        return { complete in
-//            left {
-//                right {
-//                    complete()
-//                }
-//            }
-//        }
-//}
-
-
 class OMAppLoadViewController: UIViewController {
-    
-
     
     @IBOutlet weak var loadAIView: UIActivityIndicatorView!
     @IBOutlet weak var descriptionLabel: UILabel!
@@ -45,7 +21,7 @@ class OMAppLoadViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         //凭证已经拥有
-        if OMAppleMusicAccountManager.shared.developerToken != nil && OMAppleMusicAccountManager.shared.userToken != nil {
+        if OMAppleMusicAccountManager.shared.developerToken != nil {
             self.enterTabBarViewController()
             return
         }
@@ -64,24 +40,11 @@ class OMAppLoadViewController: UIViewController {
     private func setupToken() {
         OMAppleMusicAccountManager.shared.setupDeveloperToken { [weak self] (t_succeed, t_error) in
             if t_succeed {
-                OMAppleMusicAccountManager.shared.getUserToken { [weak self] (u_succeed, u_error) in
-                    if u_succeed {
-                        
-                        print(OMAppleMusicAccountManager.shared.developerToken)
-                        print(OMAppleMusicAccountManager.shared.userToken)
-                        
-                        self?.loadAIView.stopAnimating()
-                        self?.descriptionLabel.text = "OK"
-                        self?.enterTabBarViewController()
-                    } else {
-                        DispatchQueue.main.async { [weak self] in
-                            self?.loadAIView.stopAnimating()
-                            self?.descriptionLabel.text = u_error!.localizedDescription
-                            self?.retryButton.isHidden = false
-                        }
-                    }
-                    return
-                }
+                print(OMAppleMusicAccountManager.shared.developerToken)
+                
+                self?.loadAIView.stopAnimating()
+                self?.descriptionLabel.text = "OK"
+                self?.enterTabBarViewController()
             } else {
                 DispatchQueue.main.async { [weak self] in
                     self?.loadAIView.stopAnimating()

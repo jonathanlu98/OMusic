@@ -1,6 +1,6 @@
 //
 //  OMSearchListTableViewArtistCell.swift
-//  JLSptfy
+//  OMusic
 //
 //  Created by Jonathan Lu on 2020/2/5.
 //  Copyright © 2020 Jonathan Lu. All rights reserved.
@@ -29,12 +29,15 @@ class OMSearchListTableViewArtistCell: UITableViewCell {
         super.awakeFromNib()
         self.selectedBackgroundView = UIView.init(frame: self.frame)
         self.selectedBackgroundView?.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0.3037510702)
+        
+        self.titleLabel.textColor = OMTheme.getTextColor()
+
     }
     
     func setupCell(item: AMArtist) {
         self.item = item
         self.titleLabel.text = item.attributes?.name
-        fetchImage(URL.amCoverUrl(string: item.attributes?.url, size: CGSize.init(width: 144, height: 144)), imageView: self.iconImageView)
+        fetchImage(URL.amCoverUrl(string: item.attributes?.url ?? "", size: 144), imageView: self.iconImageView)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

@@ -317,13 +317,13 @@ extension URL{
     }
     
     static func amCoverUrl(string: String, size: Int) -> URL? {
-        guard string == "" else {
+        guard string != "" else {
             return nil
         }
         guard let range = string.range(of: "/", options: .backwards) else {
             return nil
         }
-        let urlString = string.prefix(upTo: range.lowerBound) + "\(size)x\(size).jpg"
+        let urlString = string.prefix(upTo: range.lowerBound) + "/\(size)x\(size).jpg"
         return URL.init(string: String(urlString))
     }
 }

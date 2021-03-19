@@ -46,7 +46,7 @@ class AMFetchManager: NSObject {
             return
         }
         let requestUrl = "https://api.music.apple.com/v1/catalog/\(storefront)"
-        Alamofire.request("\(requestUrl)/\(amObject.urlPathDescription)", method: .get, parameters: ["ids":ids.joined(separator: ",")], encoding: URLEncoding.default, headers: headers).responseData { (response) in
+        Alamofire.request("\(requestUrl)/\(amObject.urlPathDescription.rawValue)", method: .get, parameters: ["ids":ids.joined(separator: ",")], encoding: URLEncoding.default, headers: headers).responseData { (response) in
             switch response.result {
             case .success(let data):
                 guard let items = try? JSONDecoder().decode(T.self.responseCodableClass, from: data) else {
@@ -84,7 +84,7 @@ class AMFetchManager: NSObject {
             return
         }
         let requestUrl = "https://api.music.apple.com/v1/catalog/\(storefront)"
-        Alamofire.request("\(requestUrl)/\(amObject.urlPathDescription)", method: .get, parameters: ["ids":id], encoding: URLEncoding.default, headers: headers).responseData { (response) in
+        Alamofire.request("\(requestUrl)/\(amObject.urlPathDescription.rawValue)", method: .get, parameters: ["ids":id], encoding: URLEncoding.default, headers: headers).responseData { (response) in
             switch response.result {
             case .success(let data):
                 guard let items = try? JSONDecoder().decode(T.self.responseCodableClass, from: data) else {
@@ -118,7 +118,7 @@ class AMFetchManager: NSObject {
             return
         }
         let requestUrl = "https://api.music.apple.com/v1/catalog/\(storefront)/search"
-        Alamofire.request("\(requestUrl)", method: .get, parameters: ["terms":text,"limit":5,"offset":0], encoding: URLEncoding.default, headers: headers).responseData { (response) in
+        Alamofire.request("\(requestUrl)", method: .get, parameters: ["term":text,"limit":5,"offset":0], encoding: URLEncoding.default, headers: headers).responseData { (response) in
             switch response.result {
             case .success(let data):
                 guard let items = try? JSONDecoder().decode(AMSearchResponse.self, from: data) else {
@@ -143,6 +143,7 @@ class AMFetchManager: NSObject {
     public func requestSearch<T: AMObjectResponseProtocol>(text: String,
                                                           limit: NSInteger = 20,
                                                          offset: NSInteger,
+                                                         responseObject: T.Type,
                                                      completion: @escaping (T?, Error?) -> Void) {
         guard let headers = headers else {
             completion(nil, JLErrorCode.AMAccountMangerHeaderNotFoundError)
@@ -153,7 +154,7 @@ class AMFetchManager: NSObject {
             return
         }
         let requestUrl = "https://api.music.apple.com/v1/catalog/\(storefront)/search"
-        Alamofire.request("\(requestUrl)", method: .get, parameters: ["terms":text,"limit":limit,"offset":offset, "types":T.MediaClass.urlPathDescription], encoding: URLEncoding.default, headers: headers).responseData { (response) in
+        Alamofire.request("\(requestUrl)", method: .get, parameters: ["term":text,"limit":limit,"offset":offset, "types":T.MediaClass.urlPathDescription.rawValue], encoding: URLEncoding.default, headers: headers).responseData { (response) in
             switch response.result {
             case .success(let data):
                 guard let item = try? JSONDecoder().decode(AMSearchResponse.self, from: data) else {
@@ -168,6 +169,37 @@ class AMFetchManager: NSObject {
     }
     
     
+    /// 获取下一页搜索结果
+    /// - Parameters:
+    ///   - next: 包含在AMObjectResponseProtocol中的next字段信息，如果与泛型不匹配则返回错误
+    ///   - completion: completion description
+    public func requestSearchNextPage<T: AMObjectResponseProtocol>(next: String,
+                                                                   limit: NSInteger = 20,
+                                                                   responseObject: T.Type,
+                                                                   completion: @escaping (T?, Error?) -> Void) {
+        guard next.contains(T.MediaClass.urlPathDescription.rawValue) else {
+            completion(nil, JLErrorCode.UrlStringNotMatchError)
+            return
+        }
+        let next = next+"&limit=\(limit)"
+        guard let headers = headers else {
+            completion(nil, JLErrorCode.AMAccountMangerHeaderNotFoundError)
+            return
+        }
+        
+        Alamofire.request("https://api.music.apple.com"+next, method: .get, parameters: ["types":T.MediaClass.urlPathDescription.rawValue], encoding: URLEncoding.default, headers: headers).responseData { (response) in
+            switch response.result {
+            case .success(let data):
+                guard let item = try? JSONDecoder().decode(AMSearchResponse.self, from: data) else {
+                    completion(nil, NSError.init(domain: JLErrorDomain, code: JLErrorCode.JSONDecodeFailed, userInfo: [NSLocalizedDescriptionKey:"解析数据错误。"]))
+                    return
+                }
+                completion(item.results?.getSearchItems(), nil)
+            case .failure(let error):
+                completion(nil, error)
+            }
+        }
+    }
     
     
 }

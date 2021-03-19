@@ -29,6 +29,8 @@ target 'OMusic' do
   pod 'lottie-ios'
   
   pod 'LookinServer'
+  pod 'LeanCloud'
+
   # Pods for OMusic
 
 end

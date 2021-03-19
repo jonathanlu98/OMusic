@@ -22,6 +22,8 @@ struct JLErrorCode {
     static let AMAccountMangerStorefrontNotFound = 782
     static let AMAccountMangerStorefrontNotFoundError:NSError = NSError.init(domain: JLErrorDomain, code: JLErrorCode.AMAccountMangerStorefrontNotFound, userInfo: [NSLocalizedDescriptionKey:"未能从Apple Store中读取你所在的地区。"])
 
+    static let UrlStringNotMatch = 783
+    static let UrlStringNotMatchError:NSError = NSError.init(domain: JLErrorDomain, code: UrlStringNotMatch, userInfo: [NSLocalizedDescriptionKey:"传递的URL与规则不匹配。"])
     
     }
 

@@ -16,16 +16,18 @@ enum urlPathDescriptionType: String {
 }
 
 /// 类型协议
-protocol AMObjectProtocol: Codable {
+protocol AMObjectProtocol: class, Codable{
     associatedtype ResponseCodableClass: AMObjectResponseProtocol
     static var urlPathDescription: urlPathDescriptionType { get }
     static var responseCodableClass: ResponseCodableClass.Type { get }
     var id: String? { get }
 }
 
+
 /// 请求类型协议
-protocol AMObjectResponseProtocol: Codable {
+protocol AMObjectResponseProtocol: class, Codable{
     associatedtype MediaClass: AMObjectProtocol
     var data: [MediaClass]? { get }
+    var next: String? { get }
 }
 

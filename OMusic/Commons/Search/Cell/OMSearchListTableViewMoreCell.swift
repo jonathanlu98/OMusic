@@ -1,6 +1,6 @@
 //
 //  OMSearchListTableViewMoreCell.swift
-//  JLSptfy
+//  OMusic
 //
 //  Created by Jonathan Lu on 2020/2/7.
 //  Copyright © 2020 Jonathan Lu. All rights reserved.
@@ -13,7 +13,7 @@ enum OMSearchMoreType {
     case album
     case artist
     
-    func description() -> String {
+    func cellItemName() -> String {
         switch self {
         case .track:
             return "搜索所有单曲"
@@ -23,6 +23,20 @@ enum OMSearchMoreType {
             return "搜索所有歌手"
         }
     }
+    
+    
+    /// 关联的数据类型
+    func relevanceObjectResponseClass() -> AnyClass {
+        switch self {
+        case .track:
+            return AMTracks.self
+        case .album:
+            return AMAlbums.self
+        case .artist:
+            return AMArtists.self
+        }
+    }
+    
 }
 
 class OMSearchListTableViewMoreCell: UITableViewCell {
@@ -30,7 +44,7 @@ class OMSearchListTableViewMoreCell: UITableViewCell {
     @IBOutlet weak private var titleLabel: UILabel!
     var type: OMSearchMoreType! {
         didSet {
-            self.titleLabel.text = type.description()
+            self.titleLabel.text = type.cellItemName()
         }
     }
     
@@ -38,14 +52,13 @@ class OMSearchListTableViewMoreCell: UITableViewCell {
         super.awakeFromNib()
         self.selectedBackgroundView = UIView.init(frame: self.frame)
         self.selectedBackgroundView?.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0.3037510702)
-        // Initialization code
+        
+        self.titleLabel.textColor = OMTheme.getTextColor()
     }
     
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
 }

@@ -1,5 +1,5 @@
 //
-//  OMSearchListTableViewAlbumCell.swift
+//  OMSearchListTableViewSongCell.swift
 //  OMusic
 //
 //  Created by Jonathan Lu on 2020/2/7.
@@ -9,12 +9,11 @@
 import UIKit
 
 
-class OMSearchListTableViewAlbumCell: UITableViewCell {
-
+class OMSearchListTableViewSongCell: UITableViewCell {
     @IBOutlet weak private var iconImageView: UIImageView!
     @IBOutlet weak private var titleLabel: UILabel!
     @IBOutlet weak private var subTitleLabel: UILabel!
-    private(set) var item: AMAlbum!
+    private(set) var item:AMTrack!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -24,13 +23,13 @@ class OMSearchListTableViewAlbumCell: UITableViewCell {
         self.titleLabel.textColor = OMTheme.getTextColor()
     }
     
-    func setupCell(item: AMAlbum) {
+    func setupCell(item: AMTrack) {
         self.item = item
         self.titleLabel.text = item.attributes?.name
-        self.subTitleLabel.text! = "专辑 · "+(item.attributes?.artistName ?? "-")
-        let url = URL.amCoverUrl(string: item.attributes?.artwork?.url ?? "", size: 144)
-        fetchImage(url, imageView: self.iconImageView)
+        self.subTitleLabel.text! = ("单曲 · "+(item.attributes?.artistName ?? "-"))
+        fetchImage(URL.amCoverUrl(string: item.attributes?.artwork?.url ?? "", size: 144), imageView: self.iconImageView)
     }
+
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
