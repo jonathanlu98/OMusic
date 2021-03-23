@@ -1,0 +1,13 @@
+#workspace
+*.xcworkspace
+!*.xcworkspace/contents.xcworkspacedata
+
+#cocoapods
+Pods/
+
+# build
+Build/
+
+# proj
+.DS_Store
+
