@@ -35,9 +35,9 @@ class OMPlayer: NSObject {
     private(set) var isPause: Bool = true {
         didSet {
             if isPause {
-                ListenerCenter.shared.notifyPlayerControllerEventDetected(event: .paused)
+                OMPlayerListenerCenter.shared.notifyPlayerControllerEventDetected(event: .paused)
             } else {
-                ListenerCenter.shared.notifyPlayerControllerEventDetected(event: .playing)
+                OMPlayerListenerCenter.shared.notifyPlayerControllerEventDetected(event: .playing)
             }
         }
     }
@@ -74,7 +74,7 @@ class OMPlayer: NSObject {
                     self.recoverList()
                 }
             }
-            ListenerCenter.shared.notifyPlayerControllerEventDetected(event:  PlayerControllerEventType.init(rawValue: 20+self.listMode.rawValue)!)
+            OMPlayerListenerCenter.shared.notifyPlayerControllerEventDetected(event:  OMPlayerControllerEventType.init(rawValue: 20+self.listMode.rawValue)!)
         }
     }
     
@@ -222,7 +222,7 @@ class OMPlayer: NSObject {
             self.currentTime = 0
             self.mediaPlayer.reset()
             self.mediaPlayer.play()
-            ListenerCenter.shared.notifyPlayerControllerEventDetected(event: .playing)
+            OMPlayerListenerCenter.shared.notifyPlayerControllerEventDetected(event: .playing)
             return
         }
         self.mediaPlayer.play()
@@ -290,11 +290,11 @@ extension OMPlayer: JLMediaPlayerDelegate {
         switch status {
         case .loading:
             self.isPause = false
-            ListenerCenter.shared.notifyPlayerControllerEventDetected(event: .loading)
+            OMPlayerListenerCenter.shared.notifyPlayerControllerEventDetected(event: .loading)
             break
         case .loadingFailed:
             self.isPause = true
-            ListenerCenter.shared.notifyPlayerControllerEventDetected(event: .failed)
+            OMPlayerListenerCenter.shared.notifyPlayerControllerEventDetected(event: .failed)
             break
         case .readyToPlay:
             self.currentTrack?.value.recentPlayTime = Date()
@@ -302,15 +302,15 @@ extension OMPlayer: JLMediaPlayerDelegate {
         case .playEnd:
             self.isPause = true
             self.next(isAuto: true)
-            ListenerCenter.shared.notifyPlayerControllerEventDetected(event: .playEnd)
+            OMPlayerListenerCenter.shared.notifyPlayerControllerEventDetected(event: .playEnd)
             break
         case .playbackStalled:
             self.isPause = true
-            ListenerCenter.shared.notifyPlayerControllerEventDetected(event: .stalled)
+            OMPlayerListenerCenter.shared.notifyPlayerControllerEventDetected(event: .stalled)
             break
         case .bufferBegin:
             self.play()
-            ListenerCenter.shared.notifyPlayerControllerEventDetected(event: .playing)
+            OMPlayerListenerCenter.shared.notifyPlayerControllerEventDetected(event: .playing)
             self.updatePlayingCenter()
             break
         case .bufferEnd:
@@ -322,19 +322,19 @@ extension OMPlayer: JLMediaPlayerDelegate {
         switch remoteCommand {
         case .play:
             self.play()
-            ListenerCenter.shared.notifyPlayerControllerEventDetected(event: .playing)
+            OMPlayerListenerCenter.shared.notifyPlayerControllerEventDetected(event: .playing)
             break
         case .pause:
             self.pause()
-            ListenerCenter.shared.notifyPlayerControllerEventDetected(event: .paused)
+            OMPlayerListenerCenter.shared.notifyPlayerControllerEventDetected(event: .paused)
             break
         case .next:
             self.next(isAuto: false)
-            ListenerCenter.shared.notifyPlayerControllerEventDetected(event: .next)
+            OMPlayerListenerCenter.shared.notifyPlayerControllerEventDetected(event: .next)
             break
         case .previous:
             self.previous()
-            ListenerCenter.shared.notifyPlayerControllerEventDetected(event: .previous)
+            OMPlayerListenerCenter.shared.notifyPlayerControllerEventDetected(event: .previous)
             break
         }
         return true

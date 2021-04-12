@@ -65,14 +65,14 @@ class OMPlayerViewController: UIViewController {
     
     override internal func viewDidLoad() {
         super.viewDidLoad()
-        ListenerCenter.shared.addListener(listener: self, type: .playerStatusEvent)
+        OMPlayerListenerCenter.shared.addListener(listener: self, type: .playerStatusEvent)
         self.setupUI()
         
     }
     
     
     deinit {
-        ListenerCenter.shared.addListener(listener: self, type: .playerStatusEvent)
+        OMPlayerListenerCenter.shared.addListener(listener: self, type: .playerStatusEvent)
     }
     
     
@@ -221,10 +221,10 @@ class OMPlayerViewController: UIViewController {
     
 }
 
-//MARK: PlayerControllerEventListenerProtocol
+//MARK: OMPlayerControllerEventListenerProtocol
 
-extension OMPlayerViewController: PlayerControllerEventListenerProtocol {
-    func onPlayerControllerEventDetected(event: PlayerControllerEventType) {
+extension OMPlayerViewController: OMPlayerControllerEventListenerProtocol {
+    func onPlayerControllerEventDetected(event: OMPlayerControllerEventType) {
         self.updateView()
     }
 }

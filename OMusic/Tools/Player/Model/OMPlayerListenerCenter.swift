@@ -1,21 +1,20 @@
 //
-//  ListenerCenter.swift
+//  OMPlayerListenerCenter.swift
 //
-//  Created by CaiSanze on 2020/01/05.
 //
 
 import UIKit
 
-class ListenerCenter {
+class OMPlayerListenerCenter {
     
-    public static let shared = ListenerCenter()
+    public static let shared = OMPlayerListenerCenter()
     
     private(set) lazy var recursiveLock: NSRecursiveLock = NSRecursiveLock()
-    private lazy var systemEventListeners: [ListenerNode] = []
-    private(set) lazy var playerControllerEventListeners: [ListenerNode] = []
+    private lazy var systemEventListeners: [OMPlayerListenerNode] = []
+    private(set) lazy var playerControllerEventListeners: [OMPlayerListenerNode] = []
 
     //保存监听者，不让其自动释放，监听完毕以后再手动删除
-    private lazy var preserveListeners: [ListenerBaseProtocol] = []
+    private lazy var preserveListeners: [OMPlayerListenerBaseProtocol] = []
     
     enum ListenerType: CaseIterable {
         case systemEvent
@@ -26,9 +25,9 @@ class ListenerCenter {
 
 // MARK: - Public
 
-extension ListenerCenter {
+extension OMPlayerListenerCenter {
     
-    func addListener(listener: ListenerBaseProtocol, type: ListenerType, preserve: Bool = false) {
+    func addListener(listener: OMPlayerListenerBaseProtocol, type: ListenerType, preserve: Bool = false) {
         removeListener(listener: listener, type: type)
         
         recursiveLock.lock()
@@ -36,9 +35,9 @@ extension ListenerCenter {
         
         switch type {
         case .systemEvent:
-            ListenerNode.add(listener: listener, to: &systemEventListeners)
+            OMPlayerListenerNode.add(listener: listener, to: &systemEventListeners)
         case .playerStatusEvent:
-            ListenerNode.add(listener: listener, to: &playerControllerEventListeners)
+            OMPlayerListenerNode.add(listener: listener, to: &playerControllerEventListeners)
         }
         
         if preserve {
@@ -52,9 +51,9 @@ extension ListenerCenter {
         
         switch type {
         case .systemEvent:
-            ListenerNode.remove(listener: listener, from: &systemEventListeners)
+            OMPlayerListenerNode.remove(listener: listener, from: &systemEventListeners)
         case .playerStatusEvent:
-            ListenerNode.remove(listener: listener, from: &playerControllerEventListeners)
+            OMPlayerListenerNode.remove(listener: listener, from: &playerControllerEventListeners)
         }
         
         for (index, preserveListener) in preserveListeners.enumerated() {
@@ -77,7 +76,7 @@ extension ListenerCenter {
 
 // MARK: - SystemEvent
 
-extension ListenerCenter {
+extension OMPlayerListenerCenter {
     
     public func notifySystemEventDetected(application: UIApplication, type: SystemEventType) {
         recursiveLock.lock()
@@ -94,14 +93,14 @@ extension ListenerCenter {
 
 // MARK: - PlayerStatus
 
-extension ListenerCenter {
+extension OMPlayerListenerCenter {
 
-    public func notifyPlayerControllerEventDetected(event: PlayerControllerEventType) {
+    public func notifyPlayerControllerEventDetected(event: OMPlayerControllerEventType) {
         recursiveLock.lock()
         defer { recursiveLock.unlock() }
 
         for node in playerControllerEventListeners {
-            if let listener = node.listener as? PlayerControllerEventListenerProtocol {
+            if let listener = node.listener as? OMPlayerControllerEventListenerProtocol {
                 listener.onPlayerControllerEventDetected(event: event)
             }
         }

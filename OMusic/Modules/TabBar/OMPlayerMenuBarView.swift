@@ -28,12 +28,12 @@ class OMPlayerMenuBarView: UIView {
     @IBOutlet weak var playButton: UIButton!
     
     deinit {
-        ListenerCenter.shared.removeListener(listener: self, type: .playerStatusEvent)
+        OMPlayerListenerCenter.shared.removeListener(listener: self, type: .playerStatusEvent)
     }
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        ListenerCenter.shared.addListener(listener: self, type: .playerStatusEvent)
+        OMPlayerListenerCenter.shared.addListener(listener: self, type: .playerStatusEvent)
         self.trackNameLabelView.addSubview(self.trackNameLabel)
         self.trackNameLabel.mas_makeConstraints { (make) in
             make?.edges.equalTo()(self.trackNameLabelView)
@@ -90,9 +90,9 @@ class OMPlayerMenuBarView: UIView {
     
 }
 
-//MARK: - ListenerBaseProtocol
-extension OMPlayerMenuBarView: PlayerControllerEventListenerProtocol {
-    func onPlayerControllerEventDetected(event: PlayerControllerEventType) {
+//MARK: - OMPlayerListenerBaseProtocol
+extension OMPlayerMenuBarView: OMPlayerControllerEventListenerProtocol {
+    func onPlayerControllerEventDetected(event: OMPlayerControllerEventType) {
         self.updateView()
     }
 }

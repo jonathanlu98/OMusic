@@ -11,9 +11,9 @@
 		221EAC69245E920100A5B576 /* OMTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221EAC68245E920100A5B576 /* OMTheme.swift */; };
 		2225514E247556540099D62B /* JLDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2225514D247556540099D62B /* JLDatabase.swift */; };
 		22468D4D2476630D001A7404 /* Localizations.strings in Resources */ = {isa = PBXBuildFile; fileRef = 22468D4F2476630D001A7404 /* Localizations.strings */; };
-		2246A879245AC453007F5CA7 /* ListenerNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2246A875245AC453007F5CA7 /* ListenerNode.swift */; };
-		2246A87B245AC453007F5CA7 /* ListenerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2246A877245AC453007F5CA7 /* ListenerProtocol.swift */; };
-		2246A87C245AC453007F5CA7 /* ListenerCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2246A878245AC453007F5CA7 /* ListenerCenter.swift */; };
+		2246A879245AC453007F5CA7 /* OMPlayerListenerNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2246A875245AC453007F5CA7 /* OMPlayerListenerNode.swift */; };
+		2246A87B245AC453007F5CA7 /* OMPlayerListenerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2246A877245AC453007F5CA7 /* OMPlayerListenerProtocol.swift */; };
+		2246A87C245AC453007F5CA7 /* OMPlayerListenerCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2246A878245AC453007F5CA7 /* OMPlayerListenerCenter.swift */; };
 		2246A87E245AC4B9007F5CA7 /* JLExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2246A87D245AC4B9007F5CA7 /* JLExtension.swift */; };
 		2246A894245ACD03007F5CA7 /* MI Lan Pro VF.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 228DF2B4245AABF100E9FF1B /* MI Lan Pro VF.ttf */; };
 		2289EBFA2463DEB500E0F9F5 /* AMObjectProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2289EBF92463DEB500E0F9F5 /* AMObjectProtocol.swift */; };
@@ -88,9 +88,9 @@
 		22468D48247661FA001A7404 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		22468D4E2476630D001A7404 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizations.strings"; sourceTree = "<group>"; };
 		22468D5024766324001A7404 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizations.strings; sourceTree = "<group>"; };
-		2246A875245AC453007F5CA7 /* ListenerNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListenerNode.swift; sourceTree = "<group>"; };
-		2246A877245AC453007F5CA7 /* ListenerProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListenerProtocol.swift; sourceTree = "<group>"; };
-		2246A878245AC453007F5CA7 /* ListenerCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListenerCenter.swift; sourceTree = "<group>"; };
+		2246A875245AC453007F5CA7 /* OMPlayerListenerNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OMPlayerListenerNode.swift; sourceTree = "<group>"; };
+		2246A877245AC453007F5CA7 /* OMPlayerListenerProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OMPlayerListenerProtocol.swift; sourceTree = "<group>"; };
+		2246A878245AC453007F5CA7 /* OMPlayerListenerCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OMPlayerListenerCenter.swift; sourceTree = "<group>"; };
 		2246A87D245AC4B9007F5CA7 /* JLExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JLExtension.swift; sourceTree = "<group>"; };
 		224D2B802536CEC200E0736D /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		224D2B832536CED200E0736D /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
@@ -476,9 +476,9 @@
 		ED9EE267261F318C0048FB8D /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				2246A875245AC453007F5CA7 /* ListenerNode.swift */,
-				2246A877245AC453007F5CA7 /* ListenerProtocol.swift */,
-				2246A878245AC453007F5CA7 /* ListenerCenter.swift */,
+				2246A875245AC453007F5CA7 /* OMPlayerListenerNode.swift */,
+				2246A877245AC453007F5CA7 /* OMPlayerListenerProtocol.swift */,
+				2246A878245AC453007F5CA7 /* OMPlayerListenerCenter.swift */,
 				ED75BBA0260B8334009AC472 /* OMPlaylistListNode.swift */,
 			);
 			path = Model;
@@ -676,7 +676,7 @@
 				EDC69F3725FFA3C8007C8810 /* OMSearchViewController.swift in Sources */,
 				EDB9DFD725FD10230014EB41 /* AMSearchModel.swift in Sources */,
 				ED0EDD4A25FDD8E10092093B /* OMPlayerMenuBarView.swift in Sources */,
-				2246A87C245AC453007F5CA7 /* ListenerCenter.swift in Sources */,
+				2246A87C245AC453007F5CA7 /* OMPlayerListenerCenter.swift in Sources */,
 				ED75BB8B260B02A0009AC472 /* JLMediaPlayer.swift in Sources */,
 				2289EBFA2463DEB500E0F9F5 /* AMObjectProtocol.swift in Sources */,
 				EDC69F3525FFA3C8007C8810 /* OMSearchListSection.swift in Sources */,
@@ -697,7 +697,7 @@
 				EDE52FBB2622D09000D02E36 /* OMBaseViewController.swift in Sources */,
 				22DE09C1245B054B0024EE04 /* MIFont.swift in Sources */,
 				228DF2C7245AB81600E9FF1B /* OMPlayerProgressView.swift in Sources */,
-				2246A87B245AC453007F5CA7 /* ListenerProtocol.swift in Sources */,
+				2246A87B245AC453007F5CA7 /* OMPlayerListenerProtocol.swift in Sources */,
 				22AB176024615B90004C67EB /* AMModel.swift in Sources */,
 				22AB175A24614203004C67EB /* AMTracks.swift in Sources */,
 				22AB175724613BD9004C67EB /* JLTrack.swift in Sources */,
@@ -707,7 +707,7 @@
 				ED0EDD4E25FDD9330092093B /* OMNavigationViewController.swift in Sources */,
 				ED75BB93260B02A0009AC472 /* JLMediaPlayerSeekItem.swift in Sources */,
 				2289EC002463EA6600E0F9F5 /* JLMedia.swift in Sources */,
-				2246A879245AC453007F5CA7 /* ListenerNode.swift in Sources */,
+				2246A879245AC453007F5CA7 /* OMPlayerListenerNode.swift in Sources */,
 				22D4D79F2511B2D800593D38 /* OMHomeViewController.swift in Sources */,
 				22AB175E246150C3004C67EB /* AMArtists.swift in Sources */,
 			);

@@ -1,12 +1,11 @@
 //
 //  ListenerProtocol.swift
 //
-//  Created by CaiSanze on 2020/01/05.
 //
 
 import UIKit
 
-protocol ListenerBaseProtocol: AnyObject {
+protocol OMPlayerListenerBaseProtocol: AnyObject {
     
 }
 
@@ -20,13 +19,13 @@ enum SystemEventType {
     case willTerminate
 }
 
-protocol SystemEventListenerProtocol: ListenerBaseProtocol {
+protocol SystemEventListenerProtocol: OMPlayerListenerBaseProtocol {
     func onSystemEventDetected(application: UIApplication, type: SystemEventType) -> Void
 }
 
 // MARK: - PlayerControllerEvent
 
-@objc enum PlayerControllerEventType: Int {
+@objc enum OMPlayerControllerEventType: Int {
     /**Player Control*/
     case none
     case loading
@@ -45,6 +44,6 @@ protocol SystemEventListenerProtocol: ListenerBaseProtocol {
     case noneMode = 23
 }
 
-protocol PlayerControllerEventListenerProtocol: ListenerBaseProtocol {
-    func onPlayerControllerEventDetected(event: PlayerControllerEventType) -> Void
+protocol OMPlayerControllerEventListenerProtocol: OMPlayerListenerBaseProtocol {
+    func onPlayerControllerEventDetected(event: OMPlayerControllerEventType) -> Void
 }

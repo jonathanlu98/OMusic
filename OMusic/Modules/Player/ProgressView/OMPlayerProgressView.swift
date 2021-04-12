@@ -83,11 +83,11 @@ class OMPlayerProgressView: UIView {
         super.awakeFromNib()
         self.backgroundColor = .clear
         addSubviews()
-        ListenerCenter.shared.addListener(listener: self, type: .playerStatusEvent)
+        OMPlayerListenerCenter.shared.addListener(listener: self, type: .playerStatusEvent)
     }
     
     deinit {
-        ListenerCenter.shared.removeAllListener(listener: self)
+        OMPlayerListenerCenter.shared.removeAllListener(listener: self)
     }
     
     private func addSubviews() {
@@ -197,9 +197,9 @@ extension OMPlayerProgressView {
 
 // MARK: - PlayerStatusListenerProtocol
 
-extension OMPlayerProgressView: PlayerControllerEventListenerProtocol {
+extension OMPlayerProgressView: OMPlayerControllerEventListenerProtocol {
 
-    func onPlayerControllerEventDetected(event: PlayerControllerEventType) {
+    func onPlayerControllerEventDetected(event: OMPlayerControllerEventType) {
         shouldIgnoreProgress = event != .playing
     }
 
