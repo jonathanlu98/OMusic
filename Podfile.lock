@@ -1,31 +1,17 @@
 PODS:
   - Alamofire (4.9.1)
-  - Differentiator (4.0.1)
-  - ID3TagEditor (3.2.0)
-  - IQKeyboardManagerSwift (6.5.5)
   - LookinServer (1.0.0)
-  - lottie-ios (3.1.8)
-  - MarqueeLabel (4.0.2)
+  - MarqueeLabel (4.0.5)
   - Masonry (1.1.0)
-  - MJRefresh (3.4.3)
+  - MJRefresh (3.5.0)
   - PanModal (1.2.7)
-  - RxCocoa (5.1.1):
-    - RxRelay (~> 5)
-    - RxSwift (~> 5)
-  - RxDataSources (4.0.1):
-    - Differentiator (~> 4.0)
-    - RxCocoa (~> 5.0)
-    - RxSwift (~> 5.0)
-  - RxRelay (5.1.1):
-    - RxSwift (~> 5)
-  - RxSwift (5.1.1)
-  - SDWebImage (5.8.0):
-    - SDWebImage/Core (= 5.8.0)
-  - SDWebImage/Core (5.8.0)
+  - ProgressHUD (13.6)
+  - SDWebImage (5.11.0):
+    - SDWebImage/Core (= 5.11.0)
+  - SDWebImage/Core (5.11.0)
   - SQLiteRepairKit (1.2.2):
     - WCDBOptimizedSQLCipher (~> 1.2.0)
-  - SwiftHEXColors (1.4.0)
-  - SZAVPlayer (1.1.4)
+  - UIAlertController_Blocks.swift (1.0.1)
   - WCDB.swift (1.0.8.2):
     - SQLiteRepairKit (~> 1.2.0)
     - WCDBOptimizedSQLCipher (~> 1.2.0)
@@ -33,67 +19,45 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (= 4.9.1)
-  - ID3TagEditor (~> 3.0)
-  - IQKeyboardManagerSwift
   - LookinServer
-  - lottie-ios
   - MarqueeLabel
   - Masonry
   - MJRefresh
   - PanModal
-  - RxCocoa
-  - RxDataSources
-  - RxSwift
+  - ProgressHUD
   - SDWebImage
-  - SwiftHEXColors
-  - SZAVPlayer
+  - UIAlertController_Blocks.swift
   - WCDB.swift
 
 SPEC REPOS:
   trunk:
     - Alamofire
-    - Differentiator
-    - ID3TagEditor
-    - IQKeyboardManagerSwift
     - LookinServer
-    - lottie-ios
     - MarqueeLabel
     - Masonry
     - MJRefresh
     - PanModal
-    - RxCocoa
-    - RxDataSources
-    - RxRelay
-    - RxSwift
+    - ProgressHUD
     - SDWebImage
     - SQLiteRepairKit
-    - SwiftHEXColors
-    - SZAVPlayer
+    - UIAlertController_Blocks.swift
     - WCDB.swift
     - WCDBOptimizedSQLCipher
 
 SPEC CHECKSUMS:
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
-  Differentiator: 886080237d9f87f322641dedbc5be257061b0602
-  ID3TagEditor: e8146a966a05d06f791be39669a0cf517809628a
-  IQKeyboardManagerSwift: 0fb93310284665245591f50f7a5e38de615960b7
   LookinServer: 0002891cd3cec5e082a910e897dfe71b4f06b89e
-  lottie-ios: 48fac6be217c76937e36e340e2d09cf7b10b7f5f
-  MarqueeLabel: f762aa681ae201f66c1d511858b171f75d83013a
+  MarqueeLabel: 00cc0bcd087111dca575878b3531af980559707d
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
-  MJRefresh: 53e3e3219f204425ee6d3e62e8733d3295944cd6
+  MJRefresh: 6afc955813966afb08305477dd7a0d9ad5e79a16
   PanModal: 3e16ead1a907fb06f4df3f13492fd00149fa4974
-  RxCocoa: 32065309a38d29b5b0db858819b5bf9ef038b601
-  RxDataSources: efee07fa4de48477eca0a4611e6d11e2da9c1114
-  RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
-  RxSwift: 81470a2074fa8780320ea5fe4102807cb7118178
-  SDWebImage: 84000f962cbfa70c07f19d2234cbfcf5d779b5dc
+  ProgressHUD: 4bdaa0d2ddf676b23324b199f9facffb5c3a1620
+  SDWebImage: 7acbb57630ac7db4a495547fb73916ff3e432f6b
   SQLiteRepairKit: 35aaae5a8838adb85f5b1eb4d796055be6060a4b
-  SwiftHEXColors: c5baa53cf2412ce6391633ce74999437cc025efc
-  SZAVPlayer: 04b6302410b60f39653ad64e139472a5dcc0c677
+  UIAlertController_Blocks.swift: 05777fea2fe148d3fa2024f3f57712dc90f89d34
   WCDB.swift: 05d509d7a0e60fb6e11c34eb7e4027c0fab5849f
   WCDBOptimizedSQLCipher: baf44493b0c7a3d49e97bc5b64a3856f6428ddd1
 
-PODFILE CHECKSUM: 1f991ec29454b3f1364732cf2b08ce24bb8d40fc
+PODFILE CHECKSUM: 2479c11346a7f4bb0fb8d7efd7881a8dd62d2554
 
 COCOAPODS: 1.10.1

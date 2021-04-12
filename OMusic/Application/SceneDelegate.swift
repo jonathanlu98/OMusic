@@ -10,24 +10,12 @@ import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
-    var window: UIWindow?
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-//        guard let _ = (scene as? UIWindowScene) else { return }
-//        if OMAppleMusicAccountManager.shared.developerToken != nil && OMAppleMusicAccountManager.shared.userToken != nil {
-//            let layout = UICollectionViewFlowLayout()
-//            layout.itemSize = .init(width: UIScreen.main.bounds.width, height: 100)
-//            layout.minimumInteritemSpacing = 20
-//            layout.scrollDirection = .vertical
-//            layout.headerReferenceSize = .init(width: UIScreen.main.bounds.width, height: 116)
-//            let vc = OMHomeViewController.init(title: "Home", backgroundColor: OMTheme.getColor(lightColor: UIColor.white, darkColor: UIColor.black), collectionViewLayout: layout)
-//            let navivc = OMBaseNavigationController.init(rootViewController: vc)
-//            window?.rootViewController = navivc
-//            window?.makeKeyAndVisible()
-//        }
+
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="OMHomeViewController" customModule="OMusic" customModuleProvider="target">
+            <connections>
+                <outlet property="collectionBottom" destination="gd7-ON-JpK" id="rjE-zk-wyz"/>
+                <outlet property="largeImageGradView" destination="BI5-HC-7KJ" id="C5U-nh-Q9u"/>
+                <outlet property="largeImageView" destination="QS7-gF-U7h" id="opT-9X-fIA"/>
+                <outlet property="recentPlayCollectionView" destination="ljG-p9-adR" id="dWO-8D-pYv"/>
+                <outlet property="subTitleLabel" destination="Gfa-Y9-xqR" id="qCm-en-tKP"/>
+                <outlet property="titleLabel" destination="qe4-UL-nJe" id="acT-jc-hof"/>
+                <outlet property="view" destination="iN0-l3-epB" id="i3U-RY-ISz"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QS7-gF-U7h">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="200"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </imageView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BI5-HC-7KJ">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="200"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qe4-UL-nJe">
+                    <rect key="frame" x="16" y="105" width="382" height="35"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="35" id="Uxe-7q-Tyf"/>
+                    </constraints>
+                    <attributedString key="attributedText">
+                        <fragment content="首页">
+                            <attributes>
+                                <color key="NSColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <font key="NSFont" size="32" name="MILanProVF-Bold"/>
+                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                            </attributes>
+                        </fragment>
+                    </attributedString>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gfa-Y9-xqR">
+                    <rect key="frame" x="16" y="220" width="72" height="24"/>
+                    <attributedString key="attributedText">
+                        <fragment content="最近播放">
+                            <attributes>
+                                <color key="NSColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <font key="NSFont" size="18" name="MILanProVF-SemiBold"/>
+                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                            </attributes>
+                        </fragment>
+                    </attributedString>
+                    <nil key="highlightedColor"/>
+                </label>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="ljG-p9-adR">
+                    <rect key="frame" x="0.0" y="264" width="414" height="598"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="0.0" id="nZu-bI-QvF">
+                        <size key="itemSize" width="134" height="144"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                </collectionView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="QS7-gF-U7h" secondAttribute="trailing" id="4re-47-znJ"/>
+                <constraint firstItem="BI5-HC-7KJ" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="5Na-Tp-5Qd"/>
+                <constraint firstItem="Gfa-Y9-xqR" firstAttribute="top" secondItem="qe4-UL-nJe" secondAttribute="bottom" constant="80" id="A6k-q0-wes"/>
+                <constraint firstItem="BI5-HC-7KJ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Dtd-hJ-PJy"/>
+                <constraint firstItem="ljG-p9-adR" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="GiV-hK-ZR9"/>
+                <constraint firstItem="qe4-UL-nJe" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="H87-hY-XNR"/>
+                <constraint firstItem="qe4-UL-nJe" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="61" id="IAc-NM-zYa"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="qe4-UL-nJe" secondAttribute="trailing" constant="16" id="QMI-gq-gPR"/>
+                <constraint firstItem="BI5-HC-7KJ" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="T3F-5Q-EGP"/>
+                <constraint firstItem="Gfa-Y9-xqR" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="X8j-kd-rVS"/>
+                <constraint firstItem="ljG-p9-adR" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="ZI1-1H-EUz"/>
+                <constraint firstItem="Gfa-Y9-xqR" firstAttribute="top" secondItem="BI5-HC-7KJ" secondAttribute="bottom" constant="20" id="e2J-aO-lBf"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="ljG-p9-adR" secondAttribute="bottom" id="gd7-ON-JpK"/>
+                <constraint firstItem="QS7-gF-U7h" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="mF4-VU-8jz"/>
+                <constraint firstItem="QS7-gF-U7h" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="mJX-F9-odx"/>
+                <constraint firstItem="Gfa-Y9-xqR" firstAttribute="top" secondItem="QS7-gF-U7h" secondAttribute="bottom" constant="20" id="p5Z-dB-V1b"/>
+                <constraint firstItem="ljG-p9-adR" firstAttribute="top" secondItem="Gfa-Y9-xqR" secondAttribute="bottom" constant="20" id="uaa-Zj-5Ie"/>
+            </constraints>
+            <point key="canvasLocation" x="137.68115942028987" y="105.80357142857143"/>
+        </view>
+    </objects>
+</document>

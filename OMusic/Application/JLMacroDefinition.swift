@@ -16,4 +16,35 @@ let THEME_LIGHTGRAY_COLOR = #colorLiteral(red: 0.968627451, green: 0.968627451, 
 let THEME_RED_COLOR = #colorLiteral(red: 0.9960784314, green: 0.2862745098, blue: 0.2352941176, alpha: 1)
 let THEME_BLACK_COLOR = #colorLiteral(red: 0.1411764706, green: 0.1411764706, blue: 0.1411764706, alpha: 1)
 
+let PLAYER_MENU_VIEW_HEIGHT = 94
 
+let SCREEN_WIDTH = UIScreen.main.bounds.width
+let SCREEN_HEIGHT = UIScreen.main.bounds.height
+
+let SAFE_AREA_BOTTOM = UIApplication.shared.windows.first!.safeAreaInsets.bottom
+
+/// 字符串是否为空
+func OMStringIsEmpty(_ string: String?) -> Bool {
+    return (string == nil || string!.isEmpty)
+}
+
+/// 数组是否为空
+func OMArrayIsEmpty(_ array: Array<Any>?) -> Bool {
+    return (array == nil || array!.isEmpty)
+}
+
+/// 字典是否为空，这里需要传递Key类型
+func OMDictionaryIsEmpty<T: Hashable>(_ dictionary: Dictionary<T, Any>?) -> Bool {
+    return (dictionary == nil || dictionary!.keys.isEmpty)
+}
+
+
+
+let SongCellReuseIdentifier = NSStringFromClass(OMSearchListTableViewSongCell.self).components(separatedBy: ".").last!
+let ArtistCellReuseIdentifier = NSStringFromClass(OMSearchListTableViewArtistCell.self).components(separatedBy: ".").last!
+let AlbumCellReuseIdentifier = NSStringFromClass(OMSearchListTableViewAlbumCell.self).components(separatedBy: ".").last!
+let MoreCellReuseIdentifier = NSStringFromClass(OMSearchListTableViewMoreCell.self).components(separatedBy: ".").last!
+
+let PlayerImageCollectionViewCellReuseIdentifier = NSStringFromClass(OMPlayerImageCollectionViewCell.self).components(separatedBy: ".").last!
+
+let HomeRecentPlayCollectionViewCellReuseIdentifier = NSStringFromClass(OMHomeRecentPlayCollectionViewCell.self).components(separatedBy: ".").last!
