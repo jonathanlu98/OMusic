@@ -106,6 +106,7 @@ extension OMLibraryViewController: UITableViewDelegate, UITableViewDataSource {
         guard let data = items[indexPath.row].amjsonData, let item = try? JSONDecoder().decode(AMTrack.self, from: data) else {
             return cell
         }
+        self.items[indexPath.row].amTrack = item
         cell.setupCell(item: item)
         return cell
     }
@@ -130,6 +131,10 @@ extension OMLibraryViewController: UITableViewDelegate, UITableViewDataSource {
         self.items.remove(at: indexPath.row)
         tableView.reloadData()
         tableView.layoutIfNeeded()
+    }
+    
+    func tableView(_ tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: IndexPath) -> String? {
+        return "取消收藏"
     }
     
 }
