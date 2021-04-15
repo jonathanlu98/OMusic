@@ -20,7 +20,7 @@ class OMPlaylistListNode: Equatable {
     
     fileprivate(set) var value: JLTrack
     fileprivate(set) var next: OMPlaylistListNode?
-    fileprivate(set) var previous: OMPlaylistListNode?
+    fileprivate(set) weak var previous: OMPlaylistListNode?
     
     weak fileprivate var list: OMPlaylistList?
         

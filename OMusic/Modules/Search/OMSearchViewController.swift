@@ -168,7 +168,7 @@ extension OMSearchViewController: UITableViewDelegate, UITableViewDataSource {
             break
             
         case .AlbumSectionItem(let item):
-            ProgressHUD.show()
+            ProgressHUD.show(interaction: false)
             AMFetchManager.shared.getObject(by: item.id, from: AMAlbum.self) { (object, error) in
                 guard let object = object else {
                     return
@@ -187,10 +187,10 @@ extension OMSearchViewController: UITableViewDelegate, UITableViewDataSource {
             break
             
         case .SongSectionItem(let item):
-            ProgressHUD.show()
+            ProgressHUD.show(interaction: false)
             AMFetchManager.shared.getObject(by: item.id, from: AMTrack.self) { (object, error) in
                 if error != nil {
-                    ProgressHUD.showError(error?.localizedDescription, image: nil, interaction: true)
+                    ProgressHUD.showError(error?.localizedDescription, image: nil, interaction: false)
                 } else {
                     guard let object = object else {
                         return
@@ -243,7 +243,9 @@ extension OMSearchViewController: UISearchBarDelegate {
         if (searchBar.text != nil && searchBar.text != "") {
             let text = searchBar.text!
             self.searchText = text
+            ProgressHUD.show(interaction: false)
             AMFetchManager.shared.requestMutiSearch(text: text) { [weak self] (items, error) in
+                ProgressHUD.dismiss()
                 guard let weakSelf = self else {
                     return;
                 }

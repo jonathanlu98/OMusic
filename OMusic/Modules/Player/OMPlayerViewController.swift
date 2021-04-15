@@ -12,6 +12,7 @@ import PanModal
 import AVKit
 import Masonry
 import UIAlertController_Blocks_swift
+import ProgressHUD
 
 class OMPlayerViewController: UIViewController {
         
@@ -174,6 +175,7 @@ class OMPlayerViewController: UIViewController {
         } tapBlock: { (controller, action, index) in
             if controller.firstOtherButtonIndex == index {
                 track.isLiked = !(track.isLiked ?? false)
+                ProgressHUD.showSucceed(interaction: false)
             }
         }
 

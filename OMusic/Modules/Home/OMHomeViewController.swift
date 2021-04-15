@@ -41,6 +41,7 @@ class OMHomeViewController: UIViewController {
         super.viewWillAppear(true)
         self.navigationController?.setNavigationBarHidden(true, animated: true)
         self.pullData(offset: 0)
+        self.recentPlayCollectionView.mj_footer?.isHidden = false
         self.collectionBottom.constant = CGFloat(OMPlayer.shared.menuView.isHidden ? 0:PLAYER_MENU_VIEW_HEIGHT)
     }
     

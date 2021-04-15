@@ -80,6 +80,20 @@
 		EDE52FC7262327A400D02E36 /* OMLibraryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDE52FC5262327A400D02E36 /* OMLibraryViewController.xib */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXBuildRule section */
+		EDEACCCB26281DAB002689A6 /* PBXBuildRule */ = {
+			isa = PBXBuildRule;
+			compilerSpec = com.apple.compilers.proxy.script;
+			fileType = pattern.proxy;
+			inputFiles = (
+			);
+			isEditable = 1;
+			outputFiles = (
+			);
+			script = "# Type a script or drag a script file from your workspace to insert its path.\n";
+		};
+/* End PBXBuildRule section */
+
 /* Begin PBXFileReference section */
 		2200AC292494FD0900E44910 /* AMFetchManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AMFetchManager.swift; sourceTree = "<group>"; };
 		221EAC68245E920100A5B576 /* OMTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OMTheme.swift; sourceTree = "<group>"; };
@@ -543,6 +557,7 @@
 				3AA986602D682891930233ED /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
+				EDEACCCB26281DAB002689A6 /* PBXBuildRule */,
 			);
 			dependencies = (
 			);

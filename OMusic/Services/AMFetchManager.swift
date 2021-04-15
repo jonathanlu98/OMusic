@@ -131,8 +131,6 @@ class AMFetchManager: NSObject {
         }
     }
     
-    
-    
     /// 搜索 适应每个类型
     /// - Parameters:
     ///   - text: 搜索关键字

@@ -32,6 +32,7 @@ class OMLibraryViewController: UIViewController {
         super.viewWillAppear(true)
         self.navigationController?.setNavigationBarHidden(true, animated: true)
         self.pullData(offset: 0)
+        self.trackTableView.mj_footer?.isHidden = false
         self.tableViewBottom.constant = CGFloat(OMPlayer.shared.menuView.isHidden ? 0:PLAYER_MENU_VIEW_HEIGHT)
     }
     
@@ -56,6 +57,7 @@ class OMLibraryViewController: UIViewController {
             weakSelf.pullData(offset: weakSelf.items.count)
         })
     }
+    
     
     
     private func pullData(offset: Int) {

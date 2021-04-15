@@ -195,7 +195,7 @@ class OMSearchMoreTableViewController<T: AMObjectResponseProtocol>: UITableViewC
         case .ArtistSectionItem(_):
             break
         case .AlbumSectionItem(let item):
-            ProgressHUD.show()
+            ProgressHUD.show(interaction: false)
             AMFetchManager.shared.getObject(by: item.id, from: AMAlbum.self) { (object, error) in
                 guard let object = object else {
                     return
@@ -213,10 +213,10 @@ class OMSearchMoreTableViewController<T: AMObjectResponseProtocol>: UITableViewC
             }
             break
         case .SongSectionItem(let item):
-            ProgressHUD.show()
+            ProgressHUD.show(interaction: false)
             AMFetchManager.shared.getObject(by: item.id, from: AMTrack.self) { (object, error) in
                 if error != nil {
-                    ProgressHUD.showError(error?.localizedDescription, image: nil, interaction: true)
+                    ProgressHUD.showError(error?.localizedDescription, image: nil, interaction: false)
                 } else {
                     guard let object = object else {
                         return
