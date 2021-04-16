@@ -46,6 +46,15 @@ class OMHomeViewController: UIViewController {
     }
     
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        if self.items.count > 20 {
+            self.items.removeSubrange(20..<self.items.count)
+        }
+        self.recentPlayCollectionView.reloadData()
+    }
+    
+    
     private func setupUI() {
         self.view.backgroundColor = OMTheme.getColor(lightColor: .white, darkColor: .black)
         self.titleLabel.textColor = OMTheme.getTextColor()

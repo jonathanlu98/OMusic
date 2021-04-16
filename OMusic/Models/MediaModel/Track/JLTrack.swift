@@ -116,8 +116,16 @@ class JLTrack: JLMediaProtocol {
             return nil
         }
         self.id = NSInteger.init(dictionary["id"] ?? "-1") ?? -1
-        
-        guard let object: JLTrack = JLDatabase.shared.getObject(id: id!) else {
+        var property = Self.CodingKeys.all
+        //自定义映射不再映射属性中的自定义映射
+        property = property.filter { (item) -> Bool in
+            if item.codingTableKey as! JLTrack.CodingKeys == Self.CodingKeys.album || item.codingTableKey as! JLTrack.CodingKeys == Self.CodingKeys.artists {
+                return false
+            } else {
+                return true
+            }
+        }
+        guard let object: JLTrack = JLDatabase.shared.getObject(id: id!, on: property) else {
             return nil
         }
         self.createTime = object.createTime
@@ -125,8 +133,8 @@ class JLTrack: JLMediaProtocol {
         self.amjsonData = object.amjsonData
         self.amId = object.amId
         self.name = object.name
-        self.artists = object.artists
-        self.album = object.album
+//        self.artists = object.artists
+//        self.album = object.album
         self.isrc = object.isrc
         self.url = object.url
         self.isLiked = object.isLiked

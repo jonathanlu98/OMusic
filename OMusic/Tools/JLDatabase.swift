@@ -39,10 +39,15 @@ class JLDatabase: NSObject {
         }
     }
     
-    func getObject<T: JLMediaProtocol>(id:Int) -> T? {
+    func getObject<T: JLMediaProtocol>(id:Int, on: [PropertyConvertible]? = nil) -> T? {
         var object: T?
         do {
-            object = try JLDatabase.database.getObject(fromTable: T.tableDescription, where: T.Properties.init(stringValue: "id")! == id)
+            if on != nil {
+                object = try JLDatabase.database.getObject(on: on!, fromTable: T.tableDescription, where: T.Properties.init(stringValue: "id")! == id)
+            } else {
+                object = try JLDatabase.database.getObject(fromTable: T.tableDescription, where: T.Properties.init(stringValue: "id")! == id)
+            }
+            
         } catch _ {
             return nil
         }

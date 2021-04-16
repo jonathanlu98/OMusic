@@ -36,6 +36,13 @@ class OMLibraryViewController: UIViewController {
         self.tableViewBottom.constant = CGFloat(OMPlayer.shared.menuView.isHidden ? 0:PLAYER_MENU_VIEW_HEIGHT)
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        if self.items.count > 20 {
+            self.items.removeSubrange(20..<self.items.count)
+        }
+        self.trackTableView.reloadData()
+    }
     
     private func setupUI() {
         self.view.backgroundColor = OMTheme.getColor(lightColor: .white, darkColor: .black)

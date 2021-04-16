@@ -109,7 +109,17 @@ class JLAlbum: JLMediaProtocol {
             return nil
         }
         self.id = NSInteger.init(dictionary["id"] ?? "-1") ?? -1
-        guard let object: JLAlbum = JLDatabase.shared.getObject(id: id!) else {
+        var property = Self.CodingKeys.all
+        //自定义映射不再映射属性中的自定义映射
+        property = property.filter { (item) -> Bool in
+            if item.codingTableKey as! JLAlbum.CodingKeys == Self.CodingKeys.tracks || item.codingTableKey as! JLAlbum.CodingKeys == Self.CodingKeys.artist {
+                return false
+            } else {
+                return true
+            }
+        }
+
+        guard let object: JLAlbum = JLDatabase.shared.getObject(id: id!, on: property) else {
             return nil
         }
         
@@ -117,8 +127,6 @@ class JLAlbum: JLMediaProtocol {
         self.createTime = object.createTime
         self.name = object.name
         self.amjsonData = object.amjsonData
-        self.tracks = object.tracks
-        self.artist = object.artist
         self.coverUrl = object.coverUrl
         self.isLiked = object.isLiked
         self.likedTime = object.likedTime

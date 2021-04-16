@@ -101,8 +101,16 @@ class JLArtist: JLMediaProtocol {
             return nil
         }
         self.id = NSInteger.init(dictionary["id"] ?? "-1") ?? -1
-        
-        guard let object: JLArtist = JLDatabase.shared.getObject(id: id!) else {
+        var property = Self.CodingKeys.all
+        //自定义映射不再映射属性中的自定义映射
+        property = property.filter { (item) -> Bool in
+            if item.codingTableKey as! JLArtist.CodingKeys == Self.CodingKeys.albums {
+                return false
+            } else {
+                return true
+            }
+        }
+        guard let object: JLArtist = JLDatabase.shared.getObject(id: id!, on: property) else {
             return nil
         }
         self.createTime = object.createTime
@@ -111,7 +119,7 @@ class JLArtist: JLMediaProtocol {
         self.coverUrl = object.coverUrl
         self.name = object.name
         self.amId = object.amId
-        self.albums = object.albums
+//        self.albums = object.albums
         self.isLiked = object.isLiked
         self.likedTime = object.likedTime
         self.lastInsertedRowID = object.lastInsertedRowID
