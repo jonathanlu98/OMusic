@@ -21,7 +21,10 @@ extension UITableViewCell {
     func fetchImage(_ url:URL?,imageView:UIImageView) {
         imageView.alpha = 0
         if (url != nil) {
-            imageView.sd_setImage(with: url, placeholderImage: nil, options: .retryFailed) { image, error, type, uurl in
+            imageView.sd_setImage(with: url, placeholderImage: nil, options: .retryFailed) { [weak imageView] image, error, type, uurl in
+                guard let imageView = imageView else {
+                    return
+                }
                 //对于图片的渐出效果，通过判断图片来源（内存还是磁盘还是刚下载的），来选择效果
                 if (image != nil) {
                 switch type {
@@ -55,7 +58,10 @@ extension UICollectionViewCell {
     func fetchImage(_ url:URL?,imageView:UIImageView) {
         imageView.alpha = 0
         if (url != nil) {
-            imageView.sd_setImage(with: url, placeholderImage: nil, options: .retryFailed) { image, error, type, uurl in
+            imageView.sd_setImage(with: url, placeholderImage: nil, options: .retryFailed) {[weak imageView] image, error, type, uurl in
+                guard let imageView = imageView else {
+                    return
+                }
                 //对于图片的渐出效果，通过判断图片来源（内存还是磁盘还是刚下载的），来选择效果
                 if (image != nil) {
                 switch type {

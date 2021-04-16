@@ -47,7 +47,7 @@ class JLMediaPlayerContentInfoRequest: JLMediaPlayerRequest {
 
 }
 
-class JLMediaPlayerDataRequest: JLMediaPlayerRequest {
+class JLMediaPlayerDataRequest: JLMediaPlayerRequest  {
     
     let resourceUrl: URL
     let loadingRequest: AVAssetResourceLoadingRequest

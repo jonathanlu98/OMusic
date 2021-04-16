@@ -89,27 +89,6 @@ class OMPlayer: NSObject {
     @objc public static let shared = OMPlayer.init()
     
     
-//    public func play(from amTrack: AMTrack) {
-//        var track = JLTrack.init(amTrack: amTrack)
-//        guard let track = track else {
-//            return
-//        }
-//
-//        self.pause()
-//        self.mediaPlayer.setupPlayer(config: JLMediaPlayerConfig.init(urlStr: amTrack.attributes?.previews?.first?.url ?? "", uniqueID: nil))
-//
-//        self.tracks = OMPlaylistList.init(track)
-//        self.origialTracks = [track]
-//        self.currentTrack = self.tracks.head
-//        self.currentIndex = 0
-//
-//        self.currentTime = 0
-//        self.totalTime = 0
-//
-//        self.isPause = false
-//
-//    }
-    
     public func play(from track: JLTrack) {
         self.pause()
         self.mediaPlayer.setupPlayer(config: JLMediaPlayerConfig.init(urlStr: track.url?.absoluteString ?? "", uniqueID: nil))
@@ -125,34 +104,6 @@ class OMPlayer: NSObject {
         self.isPause = false
 
     }
-    
-//    public func play(from amAlbum: AMAlbum) {
-//        self.pause()
-//        guard let amTrack = amAlbum.relationships?.tracks?.data?.first else {
-//            return
-//        }
-//        self.mediaPlayer.setupPlayer(config: JLMediaPlayerConfig.init(urlStr: amTrack.attributes?.previews?.first?.url ?? "", uniqueID: nil))
-//
-//        let array:[JLTrack] = (amAlbum.relationships?.tracks?.data!.map({ (amTrack) -> JLTrack in
-//            return JLTrack.init(amTrack: amTrack)
-//        }))!
-//        let list:OMPlaylistList = OMPlaylistList()
-//        for item in array {
-//            list.append(item)
-//        }
-//        self.tracks = list
-//        self.origialTracks = array
-//
-//        self.playListName = amAlbum.attributes?.name
-//
-//        self.currentTrack = list.head
-//        self.currentIndex = 0
-//
-//        self.currentTime = 0
-//        self.totalTime = 0
-//
-//        self.isPause = false
-//    }
     
     public func play(from album: JLAlbum) {
         self.pause()

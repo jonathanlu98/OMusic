@@ -8,6 +8,7 @@
 
 import Foundation
 import Alamofire
+import LifetimeTracker
 
 public protocol JLMediaPlayerRequestOperationDelegate: AnyObject {
     
@@ -19,7 +20,12 @@ public protocol JLMediaPlayerRequestOperationDelegate: AnyObject {
     
 }
 
-public class JLMediaPlayerRequestOperation: Operation {
+public class JLMediaPlayerRequestOperation: Operation, LifetimeTrackable {
+    
+    public static var lifetimeConfiguration: LifetimeConfiguration {
+        return .init(maxCount: 1000)
+    }
+    
     
     public typealias CompletionHandler = () -> Void
     public weak var delegate: JLMediaPlayerRequestOperationDelegate?
@@ -38,6 +44,12 @@ public class JLMediaPlayerRequestOperation: Operation {
         super.init()
 
         self.task = self.dataRequest(url: url, range: range)
+        
+        trackLifetime()
+    }
+    
+    deinit {
+        print("\(Unmanaged<AnyObject>.passUnretained(self as AnyObject).toOpaque())--------------释放了")
     }
 
     private func work(completion: @escaping CompletionHandler) {
@@ -53,13 +65,16 @@ public class JLMediaPlayerRequestOperation: Operation {
             return
         }
         self.markAsRunning()
+        weak var weakSelf = self
         self.performQueue.async {
-            self.work {
-                DispatchQueue.main.async { [weak self] in
-                    guard  let weakSelf = self, !(weakSelf.isCancelled) else {
+            weakSelf?.work {
+                //调用该方法使得对象完成后结束，不调用会无法释放该对象
+                weakSelf?.session.finishTasksAndInvalidate()
+                DispatchQueue.main.async {
+                    guard !(weakSelf?.isCancelled ?? false) else {
                         return
                     }
-                    weakSelf.markAsFinished()
+                    weakSelf?.markAsFinished()
                 }
             }
         }

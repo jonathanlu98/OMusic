@@ -44,7 +44,7 @@ class JLMediaPlayerDataLoader: NSObject {
         self.callbackQueue = callbackQueue
         self.operationQueue = {
             let queue = OperationQueue()
-            queue.maxConcurrentOperationCount = 1
+            queue.maxConcurrentOperationCount = 2
             return queue
         }()
         super.init()
@@ -97,18 +97,24 @@ extension JLMediaPlayerDataLoader: JLMediaPlayerRequestOperationDelegate {
 
     func requestOperation(_ operation: JLMediaPlayerRequestOperation, didReceive data: Data) {
         mediaData?.append(data)
-        callbackQueue.sync {
-            delegate?.dataLoader(self, didReceive: data)
+        callbackQueue.sync { [weak self] in
+            guard let weakSelf = self else {
+                return
+            }
+            weakSelf.delegate?.dataLoader(weakSelf, didReceive: data)
         }
     }
 
     func requestOperation(_ operation: JLMediaPlayerRequestOperation, didCompleteWithError error: Error?) {
         var shouldSaveData = false
-        callbackQueue.sync {
+        callbackQueue.sync {[weak self] in
+            guard let weakSelf = self else {
+                return
+            }
             if let error = error {
-                delegate?.dataLoader(self, didFailWithError: error)
+                delegate?.dataLoader(weakSelf, didFailWithError: error)
             } else {
-                delegate?.dataLoaderDidFinish(self)
+                delegate?.dataLoaderDidFinish(weakSelf)
                 shouldSaveData = true
             }
         }

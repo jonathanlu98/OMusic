@@ -8,6 +8,7 @@
 
 import UIKit
 import ProgressHUD
+import LifetimeTracker
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -28,7 +29,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window?.rootViewController = vc
         self.window?.makeKeyAndVisible()
         
-        
+        #if DEBUG
+            LifetimeTracker.setup(onUpdate: LifetimeTrackerDashboardIntegration(visibility: .alwaysVisible, style: .bar).refreshUI)
+        #endif
         
         return true
     }

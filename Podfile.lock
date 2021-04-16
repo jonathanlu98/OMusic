@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (4.9.1)
+  - LifetimeTracker (1.8.0)
   - LookinServer (1.0.0)
   - MarqueeLabel (4.0.5)
   - Masonry (1.1.0)
@@ -19,6 +20,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (= 4.9.1)
+  - LifetimeTracker
   - LookinServer
   - MarqueeLabel
   - Masonry
@@ -32,6 +34,7 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - Alamofire
+    - LifetimeTracker
     - LookinServer
     - MarqueeLabel
     - Masonry
@@ -46,6 +49,7 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
+  LifetimeTracker: a7a0fcf35bbf933f83b1c1020e267996d17cdcea
   LookinServer: 0002891cd3cec5e082a910e897dfe71b4f06b89e
   MarqueeLabel: 00cc0bcd087111dca575878b3531af980559707d
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
@@ -58,6 +62,6 @@ SPEC CHECKSUMS:
   WCDB.swift: 05d509d7a0e60fb6e11c34eb7e4027c0fab5849f
   WCDBOptimizedSQLCipher: baf44493b0c7a3d49e97bc5b64a3856f6428ddd1
 
-PODFILE CHECKSUM: 2479c11346a7f4bb0fb8d7efd7881a8dd62d2554
+PODFILE CHECKSUM: 0ea46a3be3ef8ef08f48c6dfcf6cfd9f50dae6e4
 
 COCOAPODS: 1.10.1

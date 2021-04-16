@@ -22,7 +22,9 @@ target 'OMusic' do
   pod 'ProgressHUD'
   
   pod 'UIAlertController_Blocks.swift'
-
+  
+  pod 'LifetimeTracker'
+  
   
   # Pods for OMusic
 
