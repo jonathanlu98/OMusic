@@ -10,9 +10,8 @@ import CoreAudio
 import MediaPlayer
 import CoreGraphics
 
-/// 对于 AVPlayer 的监听键
+/* 对于 AVPlayer 的监听键 */
 private let JLMediaPlayerItemStatus = "status"
-private let JLMediaPlayerLoadedTimeRanges = "loadedTimeRanges"
 private let JLMediaPlayerPlaybackBufferEmpty = "playbackBufferEmpty"
 private let JLMediaPlayerPlaybackLikelyToKeepUp = "playbackLikelyToKeepUp"
 
@@ -39,29 +38,32 @@ public enum JLMediaPlayerRemoteCommand {
 public protocol JLMediaPlayerDelegate: AnyObject {
 
     /// 进度条时间代理
-    func avplayer(_ avplayer: JLMediaPlayer, refreshed currentTime: Float64, loadedTime: Float64, totalTime: Float64)
+    func avplayer(_ avplayer: JLMediaPlayer, refreshed currentTime: Float64, totalTime: Float64)
 
     /// Player状态变化代理
     func avplayer(_ avplayer: JLMediaPlayer, didChanged status: JLMediaPlayerStatus)
 
     /// 外部控制代理
     func avplayer(_ avplayer: JLMediaPlayer, didReceived remoteCommand: JLMediaPlayerRemoteCommand) -> Bool
-
 }
+
 
 public class JLMediaPlayer: NSObject {
     
-    public weak var delegate: JLMediaPlayerDelegate?
-    
     public typealias SeekCompletion = (Bool) -> Void
 
+    /// 代理对象
+    public weak var delegate: JLMediaPlayerDelegate?
+    
+    /// 总时间
     public var totalTime: Float64 {
         guard let player = player, let currentItem = player.currentItem else {
             return 0
         }
         return CMTimeGetSeconds(currentItem.duration)
     }
-
+    
+    /// 当前时间
     public var currentTime: Float64 {
         guard let player = player, let currentItem = player.currentItem else {
             return 0
@@ -69,13 +71,14 @@ public class JLMediaPlayer: NSObject {
         return CMTimeGetSeconds(currentItem.currentTime())
     }
     
+    /// AVPlayer对象
     private(set) public var player: AVPlayer?
     
+    /// AVPlayerItem对象
     private(set) public var playerItem: AVPlayerItem?
     
+    /// 当前播放资源地址
     private(set) public var currentURLStr: String?
-    
-    private(set) public var loadedTime: Float64 = 0
     
     private var config: JLMediaPlayerConfig = JLMediaPlayerConfig.default
 
@@ -106,45 +109,38 @@ public class JLMediaPlayer: NSObject {
 
     deinit {
         self.removeNotifications()
-        
         self.removePlayerObserver()
-                
         if let player = player {
             if let currentItem = playerItem {
                 self.removePlayerItemObserver(playerItem: currentItem)
             }
-
             player.replaceCurrentItem(with: nil)
         }
-
         self.delegate = nil
         self.playerItem = nil
     }
-
+    
 }
+
 
 // MARK: - Actions
 
 extension JLMediaPlayer {
-
-    // MARK: Public
-
+    
     /// 配置Player需要播放的地址, 成功加载后，会进入准备播放的状态
+    /// - Parameter config: 配置信息
     public func setupPlayer(config: JLMediaPlayerConfig) {
         guard let url = URL(string: config.urlStr) else {
             return
         }
-
         if let _ = self.player, let oldAssetLoader = self.assetLoader {
             //清除之前的assetLoader
             oldAssetLoader.cleanup()
             self.assetLoader = nil
         }
-
         self.config = config
         self.isReadyToPlay = false
         self.currentURLStr = config.urlStr
-        
         //创建并加载assetLoader
         let assetLoader = self.createAssetLoader(url: url, uniqueID: config.uniqueID)
         assetLoader.loadAsset { [weak self] (asset) in
@@ -159,8 +155,11 @@ extension JLMediaPlayer {
         }
         self.assetLoader = assetLoader
     }
-
+    
     /// 替换playerItem
+    /// - Parameters:
+    ///   - urlStr: 播放资源地址
+    ///   - uniqueID: 播放唯一标识符
     public func replace(urlStr: String, uniqueID: String?) {
         self.config.urlStr = urlStr
         self.config.uniqueID = uniqueID
@@ -172,7 +171,6 @@ extension JLMediaPlayer {
         guard let player = self.player, player.rate == 0 else {
             return
         }
-
         player.play()
     }
 
@@ -181,7 +179,6 @@ extension JLMediaPlayer {
         guard let player = self.player, player.rate == 1.0 else {
             return
         }
-
         player.pause()
     }
 
@@ -190,17 +187,14 @@ extension JLMediaPlayer {
         guard let player = self.player else {
             return
         }
-
         player.pause()
-        
         self.seekPlayerToTime(time: 0, autoPlay: false) { [weak self] (finished) in
             guard let weakSelf = self, finished else {
                 return
             }
-
             if let playerItem = weakSelf.player?.currentItem {
                 let total = CMTimeGetSeconds(playerItem.duration)
-                weakSelf.delegate?.avplayer(weakSelf, refreshed: 0, loadedTime: 0, totalTime: total)
+                weakSelf.delegate?.avplayer(weakSelf, refreshed: 0, totalTime: total)
             }
         }
     }
@@ -210,13 +204,11 @@ extension JLMediaPlayer {
         guard let player = self.player, let playerItem = self.playerItem else {
             return
         }
-
         guard self.isReadyToPlay else {
             //还没加载好，但是预存进度
             self.seekItem = JLMediaPlayerSeekItem(time: time, autoPlay: autoPlay, completion: completion)
             return
         }
-
         self.seekItem = nil
         let total = CMTimeGetSeconds(playerItem.duration)
         let didReachEnd = total > 0 && (time >= total || abs(time - total) <= 0.5)
@@ -228,22 +220,18 @@ extension JLMediaPlayer {
             self.handlePlayerStatus(status: .playEnd)
             return
         }
-
         self.pause()
         self.isSeeking = true
-
         let toTime = CMTimeMakeWithSeconds(time, preferredTimescale: player.currentTime().timescale)
-        
+        //进行操作
         player.seek(to: toTime, toleranceBefore: .zero, toleranceAfter: .zero) { [weak self] (finished) in
             guard let weakSelf = self else {
                 return
             }
             weakSelf.isSeeking = false
-
             if finished && autoPlay {
                 weakSelf.play()
             }
-
             if let completion = completion {
                 completion(finished)
             }
@@ -251,27 +239,21 @@ extension JLMediaPlayer {
     }
 
 
-    // MARK: Private
+    // MARK: Private Method
 
     private func replacePalyerItem(asset: AVURLAsset) {
         guard let player = player else {
             return
         }
-        
         self.pause()
-
         if let playerItem = self.playerItem {
-
             if self.isObserverAdded {
                 //移除之前的监听
                 self.removePlayerItemObserver(playerItem: playerItem)
             }
-
             self.playerItem = nil
         }
-
         self.handlePlayerStatus(status: .loading)
-
         self.playerItem = AVPlayerItem(asset: asset)
         if let playerItem = self.playerItem {
             player.replaceCurrentItem(with: playerItem)
@@ -281,12 +263,10 @@ extension JLMediaPlayer {
     
     private func createPlayer(asset: AVURLAsset) {
         self.handlePlayerStatus(status: .loading)
-
         self.playerItem = AVPlayerItem(asset: asset)
         self.player = AVPlayer(playerItem: self.playerItem)
         //解决新系统可能播放不了的问题
         self.player?.automaticallyWaitsToMinimizeStalling = false
-
         self.addPlayerObserver()
         self.addPlayerItemObserver(playerItem: self.playerItem!)
         self.addNotificationsForPlayer()
@@ -296,10 +276,10 @@ extension JLMediaPlayer {
         let loader = JLMediaPlayerAssetLoader(url: url)
         loader.uniqueID = uniqueID ?? url.absoluteString
         loader.delegate = self
-
         return loader
     }
 }
+
 
 // MARK: - Handles Notification And Player Status
 
@@ -310,7 +290,6 @@ extension JLMediaPlayer {
         guard playerItem == self.playerItem else {
             return
         }
-
         switch playerItem.status {
         case .readyToPlay:
             if !self.isReadyToPlay {
@@ -335,22 +314,11 @@ extension JLMediaPlayer {
     private func handlePlayerStatus(status: JLMediaPlayerStatus) {
         self.delegate?.avplayer(self, didChanged: status)
     }
-    
-    private func handleLoadedTimeRanges(playerItem: AVPlayerItem) {
-        guard let firstRange = playerItem.loadedTimeRanges.first else {
-            return
-        }
-
-        let start = CMTimeGetSeconds(firstRange.timeRangeValue.start)
-        let duration = CMTimeGetSeconds(firstRange.timeRangeValue.duration)
-        self.loadedTime = start + duration
-    }
 
     @objc func handlePlayToEnd(_ notification: Notification) {
         if let playerItem = self.playerItem,
             let item = notification.object as? AVPlayerItem,
-            playerItem == item
-        {
+            playerItem == item {
             self.handlePlayerStatus(status: .playEnd)
         }
     }
@@ -358,11 +326,11 @@ extension JLMediaPlayer {
     @objc func handlePlaybackStalled(_ notification: Notification) {
         if let playerItem = self.playerItem,
             let item = notification.object as? AVPlayerItem,
-            playerItem == item
-        {
+            playerItem == item {
             self.handlePlayerStatus(status: .playbackStalled)
         }
     }
+    
 }
 
 // MARK: - Observer
@@ -379,14 +347,12 @@ extension JLMediaPlayer {
             guard let weakSelf = self, let playerItem = weakSelf.player?.currentItem else {
                 return
             }
-
             if weakSelf.isSeeking {
                 return
             }
-
             let current = CMTimeGetSeconds(time)
             let total = CMTimeGetSeconds(playerItem.duration)
-            weakSelf.delegate?.avplayer(weakSelf, refreshed: current, loadedTime: weakSelf.loadedTime, totalTime: total)
+            weakSelf.delegate?.avplayer(weakSelf, refreshed: current, totalTime: total)
         })
     }
 
@@ -394,7 +360,6 @@ extension JLMediaPlayer {
         guard let player = self.player, let timeObserver = self.timeObserver else {
             return
         }
-
         player.removeTimeObserver(timeObserver)
     }
     
@@ -402,7 +367,6 @@ extension JLMediaPlayer {
     private func addPlayerItemObserver(playerItem: AVPlayerItem) {
         self.isObserverAdded = true
         playerItem.addObserver(self, forKeyPath: JLMediaPlayerItemStatus, options: .new, context: nil)
-        playerItem.addObserver(self, forKeyPath: JLMediaPlayerLoadedTimeRanges, options: .new, context: nil)
         playerItem.addObserver(self, forKeyPath: JLMediaPlayerPlaybackBufferEmpty, options: .new, context: nil)
         playerItem.addObserver(self, forKeyPath: JLMediaPlayerPlaybackLikelyToKeepUp, options: .new, context: nil)
     }
@@ -411,11 +375,9 @@ extension JLMediaPlayer {
     private func removePlayerItemObserver(playerItem: AVPlayerItem) {
         self.isObserverAdded = false
         playerItem.removeObserver(self, forKeyPath: JLMediaPlayerItemStatus)
-        playerItem.removeObserver(self, forKeyPath: JLMediaPlayerLoadedTimeRanges)
         playerItem.removeObserver(self, forKeyPath: JLMediaPlayerPlaybackBufferEmpty)
         playerItem.removeObserver(self, forKeyPath: JLMediaPlayerPlaybackLikelyToKeepUp)
     }
-
     
     /// 重写父类方法observeValue 让外部支持监听相关状态
     override public func observeValue(forKeyPath keyPath: String?,
@@ -426,12 +388,9 @@ extension JLMediaPlayer {
         guard let playerItem = object as? AVPlayerItem else {
             return
         }
-
         switch keyPath {
         case JLMediaPlayerItemStatus:
             self.handlePlayerItemStatus(playerItem: playerItem)
-        case JLMediaPlayerLoadedTimeRanges:
-            self.handleLoadedTimeRanges(playerItem: playerItem)
         case JLMediaPlayerPlaybackBufferEmpty:
             if isReadyToPlay {
                 self.isBufferBegin = true
@@ -492,13 +451,11 @@ extension JLMediaPlayer {
         }
     }
 
-    
     /// 设置外部控件信息
     public func setupNowPlaying(title: String, description: String, image: UIImage?) {
         var nowPlayingInfo = [String : Any]()
         nowPlayingInfo[MPMediaItemPropertyTitle] = title
         nowPlayingInfo[MPMediaItemPropertyAlbumTitle] = description
-
         if let image = image {
             let mediaItem = MPMediaItemArtwork(boundsSize: image.size) { size in
                 return image
@@ -508,43 +465,34 @@ extension JLMediaPlayer {
         nowPlayingInfo[MPNowPlayingInfoPropertyElapsedPlaybackTime] = self.playerItem?.currentTime().seconds
         nowPlayingInfo[MPMediaItemPropertyPlaybackDuration] = self.playerItem?.asset.duration.seconds
         nowPlayingInfo[MPNowPlayingInfoPropertyPlaybackRate] = self.player?.rate
-
         MPNowPlayingInfoCenter.default().nowPlayingInfo = nowPlayingInfo
     }
 
     /// 部署外部控件，他在锁屏和通知界面展示音乐控件
     private func setupRemoteTransportControls() {
         let commandCenter = MPRemoteCommandCenter.shared()
-
         commandCenter.playCommand.addTarget { [weak self] event in
             guard let weakSelf = self else {
                 return .commandFailed
             }
-
             return weakSelf.handleRemoteCommand(remoteCommand: .play)
         }
-
         commandCenter.pauseCommand.addTarget { [weak self] event in
             guard let weakSelf = self else {
                 return .commandFailed
             }
-
             return weakSelf.handleRemoteCommand(remoteCommand: .pause)
         }
-
         commandCenter.nextTrackCommand.addTarget { [weak self] event in
             guard let weakSelf = self else {
                 return .commandFailed
             }
-
             return weakSelf.handleRemoteCommand(remoteCommand: .next)
         }
-
         commandCenter.previousTrackCommand.addTarget { [weak self] event in
             guard let weakSelf = self else {
                 return .commandFailed
             }
-
             return weakSelf.handleRemoteCommand(remoteCommand: .next)
         }
     }
@@ -553,7 +501,6 @@ extension JLMediaPlayer {
         if let executeSucceed = delegate?.avplayer(self, didReceived: remoteCommand), executeSucceed {
             return .success
         }
-
         return .commandFailed
     }
 

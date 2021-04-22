@@ -24,15 +24,18 @@ class AMFetchManager: NSObject {
         }
     }
     
+    /// 单例对象
     static let shared = AMFetchManager()
     
+    
+    //MARK: Public Method
 
     
     /// 获取Apple Music中的各类型的具体信息，包括单曲、专辑、歌手
     /// - Parameters:
     ///   - ids: 传入对应类型对象的id数组
-    ///   - amObject: 类型封装类  对应协议会传递类型名称
-    ///   - completion: completion
+    ///   - amObject: 类型封装类，须符合AMObjectProtocol协议
+    ///   - completion: completion，提供资源对象数组，id数组，错误信息
     public func getAMObjects<T: AMObjectProtocol>(by ids: [String],
                                             from amObject: T.Type,
                                             completion: @escaping ([T]?, [String]?, Error?) -> Void) {
@@ -48,6 +51,7 @@ class AMFetchManager: NSObject {
         Alamofire.request("\(requestUrl)/\(amObject.urlPathDescription.rawValue)", method: .get, parameters: ["ids":ids.joined(separator: ",")], encoding: URLEncoding.default, headers: headers).responseData { (response) in
             switch response.result {
             case .success(let data):
+                //JSON解析
                 guard let items = try? JSONDecoder().decode(T.self.responseCodableClass, from: data) else {
                     completion(nil, nil, NSError.init(domain: JLErrorDomain, code: JLErrorCode.JSONDecodeFailed, userInfo: [NSLocalizedDescriptionKey:"解析数据错误。"]))
                     return
@@ -68,9 +72,9 @@ class AMFetchManager: NSObject {
     
     /// 获取Apple Music中的各类型的具体信息，包括单曲、专辑、歌手
     /// - Parameters:
-    ///   - ids: 传入对应类型对象的id数组
-    ///   - amObject: 类型封装类  对应协议会传递类型名称
-    ///   - completion: completion
+    ///   - id: 传入对应类型对象的id
+    ///   - amObject: 类型封装类，须符合AMObjectProtocol协议
+    ///   - completion: completion，提供资源对象，错误信息
     public func getObject<T: AMObjectProtocol>(by id: String,
                                          from amObject: T.Type,
                                          completion: @escaping (T?, Error?) -> Void) {
@@ -86,6 +90,7 @@ class AMFetchManager: NSObject {
         Alamofire.request("\(requestUrl)/\(amObject.urlPathDescription.rawValue)", method: .get, parameters: ["ids":id], encoding: URLEncoding.default, headers: headers).responseData { (response) in
             switch response.result {
             case .success(let data):
+                //JSON解析
                 guard let items = try? JSONDecoder().decode(T.self.responseCodableClass, from: data) else {
                     completion(nil, NSError.init(domain: JLErrorDomain, code: JLErrorCode.JSONDecodeFailed, userInfo: [NSLocalizedDescriptionKey:"解析数据错误。"]))
                     return
@@ -105,7 +110,7 @@ class AMFetchManager: NSObject {
     /// 综合搜索 默认每个类型5个搜索结果
     /// - Parameters:
     ///   - text: 搜索关键字
-    ///   - completion: completion
+    ///   - completion: completion，返回AMSearchItems对象，错误信息
     public func requestMutiSearch(text: String,
                             completion: @escaping (AMSearchItems?, Error?) -> Void) {
         guard let headers = headers else {
@@ -120,6 +125,7 @@ class AMFetchManager: NSObject {
         Alamofire.request("\(requestUrl)", method: .get, parameters: ["term":text,"limit":5,"offset":0], encoding: URLEncoding.default, headers: headers).responseData { (response) in
             switch response.result {
             case .success(let data):
+                //JSON解析
                 guard let items = try? JSONDecoder().decode(AMSearchResponse.self, from: data) else {
                     completion(nil, NSError.init(domain: JLErrorDomain, code: JLErrorCode.JSONDecodeFailed, userInfo: [NSLocalizedDescriptionKey:"解析数据错误。"]))
                     return
@@ -131,12 +137,12 @@ class AMFetchManager: NSObject {
         }
     }
     
-    /// 搜索 适应每个类型
+    /// 详细搜索 适应每个类型，类型需符合AMObjectResponseProtocol协议
     /// - Parameters:
     ///   - text: 搜索关键字
     ///   - limit: 每次获取数据条数 默认20
     ///   - offset: offset
-    ///   - completion: completion
+    ///   - completion: completion，返回对象，错误信息
     public func requestSearch<T: AMObjectResponseProtocol>(text: String,
                                                           limit: NSInteger = 20,
                                                          offset: NSInteger,
@@ -154,6 +160,7 @@ class AMFetchManager: NSObject {
         Alamofire.request("\(requestUrl)", method: .get, parameters: ["term":text,"limit":limit,"offset":offset, "types":T.MediaClass.urlPathDescription.rawValue], encoding: URLEncoding.default, headers: headers).responseData { (response) in
             switch response.result {
             case .success(let data):
+                //JSON解析
                 guard let item = try? JSONDecoder().decode(AMSearchResponse.self, from: data) else {
                     completion(nil, NSError.init(domain: JLErrorDomain, code: JLErrorCode.JSONDecodeFailed, userInfo: [NSLocalizedDescriptionKey:"解析数据错误。"]))
                     return
@@ -166,10 +173,10 @@ class AMFetchManager: NSObject {
     }
     
     
-    /// 获取下一页搜索结果
+    /// 获取下一页搜索结果，类型需符合AMObjectResponseProtocol协议
     /// - Parameters:
     ///   - next: 包含在AMObjectResponseProtocol中的next字段信息，如果与泛型不匹配则返回错误
-    ///   - completion: completion description
+    ///   - completion: completion，返回对象，错误信息
     public func requestSearchNextPage<T: AMObjectResponseProtocol>(next: String,
                                                                    limit: NSInteger = 20,
                                                                    responseObject: T.Type,
@@ -183,10 +190,10 @@ class AMFetchManager: NSObject {
             completion(nil, JLErrorCode.AMAccountMangerHeaderNotFoundError)
             return
         }
-        
         Alamofire.request("https://api.music.apple.com"+next, method: .get, parameters: ["types":T.MediaClass.urlPathDescription.rawValue], encoding: URLEncoding.default, headers: headers).responseData { (response) in
             switch response.result {
             case .success(let data):
+                //JSON解析
                 guard let item = try? JSONDecoder().decode(AMSearchResponse.self, from: data) else {
                     completion(nil, NSError.init(domain: JLErrorDomain, code: JLErrorCode.JSONDecodeFailed, userInfo: [NSLocalizedDescriptionKey:"解析数据错误。"]))
                     return
@@ -197,7 +204,6 @@ class AMFetchManager: NSObject {
             }
         }
     }
-    
     
 }
 

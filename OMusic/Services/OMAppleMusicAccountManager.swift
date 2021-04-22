@@ -12,6 +12,7 @@ import StoreKit
 
 class OMAppleMusicAccountManager: NSObject {
     
+    /// Developer Token，用于请求Apple Music API的主要令牌
     private(set) var developerToken: String? {
         didSet {
             guard let amToken = developerToken else {
@@ -23,7 +24,8 @@ class OMAppleMusicAccountManager: NSObject {
             defaults.synchronize()
         }
     }
-
+    
+    /// User Token，用于针对用户个人资料库的请求令牌，需要Developer Token
     private(set) var userToken: String? {
         didSet {
             guard let token = userToken else {
@@ -34,9 +36,11 @@ class OMAppleMusicAccountManager: NSObject {
             defaults.synchronize()
         }
     }
-
+    
+    /// 令牌过期时间
     private(set) var expiredAt: Date?
-
+    
+    /// 地区
     private(set) var storefront: String?  {
         didSet {
             guard let storefront = storefront else {
@@ -48,9 +52,8 @@ class OMAppleMusicAccountManager: NSObject {
         }
     }
     
+    /// 单例对象
     static let shared = OMAppleMusicAccountManager()
-    
-    
     
     override private init() {
         super.init()
@@ -65,6 +68,12 @@ class OMAppleMusicAccountManager: NSObject {
         userToken = UserDefaults.standard.string(forKey: "AM_USER_TOKEN")
     }
     
+    
+    //MARK: Public Method
+    
+    
+    /// 获取Developer Token
+    /// - Parameter completion: completion，提供错误信息
     public func setupDeveloperToken(_ completion: @escaping (Bool, Error?) -> Void) {
         if let _ = developerToken, let expired = expiredAt, let _ = storefront {
             if expired.timeIntervalSinceNow < 24*60*60 {
@@ -76,7 +85,9 @@ class OMAppleMusicAccountManager: NSObject {
             helper_setupToken(completion)
         }
     }
-        
+    
+    /// 获取当前地区，通过用户Apple账户所在地区判断
+    /// - Parameter completion: completion，提供错误信息
     public func getStorefront(_ completion: @escaping (Bool, Error?) -> Void = {_,_ in }) {
         SKCloudServiceController.requestAuthorization { (status) in
             switch status {
@@ -107,6 +118,8 @@ class OMAppleMusicAccountManager: NSObject {
         }
     }
     
+    /// 获取User Token
+    /// - Parameter completion: completion，提供错误信息
     public func getUserToken(_ completion: @escaping (Bool, Error?) -> Void = {_,_ in }) {
         SKCloudServiceController.requestAuthorization { (status) in
             switch status {
@@ -142,11 +155,12 @@ class OMAppleMusicAccountManager: NSObject {
     }
     
     
-    
     //MARK: Private Method
     
+    
     private func helper_setupToken(_ completion: @escaping (Bool, Error?) -> Void) {
-        getStorefront { [unowned self] (s_succeed, s_error) in
+        //获取Token前先获取地区
+        self.getStorefront { [unowned self] (s_succeed, s_error) in
             if s_succeed {
                 self.getToken { (t_succeed, t_error) in
                     if t_succeed {
@@ -162,6 +176,7 @@ class OMAppleMusicAccountManager: NSObject {
     }
     
     private func getToken(_ completion: @escaping (Bool, Error?) -> Void = {_,_  in }) {
+        //从云服务器中获取账户信息
         Alamofire.request("https://omusic-developer-token.herokuapp.com/getToken", method: .post, parameters: nil, encoding: URLEncoding.default, headers: nil).responseString { [unowned self] (response) in
             switch response.result {
             case .success(let value):
@@ -176,8 +191,6 @@ class OMAppleMusicAccountManager: NSObject {
             }
         }
     }
-
-
     
 }
 

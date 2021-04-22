@@ -8,7 +8,6 @@
 
 import Foundation
 import Alamofire
-import LifetimeTracker
 
 public protocol JLMediaPlayerRequestOperationDelegate: AnyObject {
     
@@ -20,32 +19,28 @@ public protocol JLMediaPlayerRequestOperationDelegate: AnyObject {
     
 }
 
-public class JLMediaPlayerRequestOperation: Operation, LifetimeTrackable {
-    
-    public static var lifetimeConfiguration: LifetimeConfiguration {
-        return .init(maxCount: 1000)
-    }
-    
+
+public class JLMediaPlayerRequestOperation: Operation {
     
     public typealias CompletionHandler = () -> Void
     public weak var delegate: JLMediaPlayerRequestOperationDelegate?
+    /// 开始位移
     private(set) public var startOffset: Int64 = 0
-    
+    /// 线程队列
     private let performQueue: DispatchQueue
+    /// 请求回调
     private var requestCompletion: CompletionHandler?
+    /// URLSession对象
     private lazy var session: URLSession = createSession()
+    /// URLSessionDataTask对象
     private var task: URLSessionDataTask?
-
     private var _finished: Bool = false
     private var _executing: Bool = false
     
     public init(url: URL, range: JLMediaPlayerRange?) {
         self.performQueue = DispatchQueue(label: "com.JLMediaPlayer.RequestOperation", qos: .background)
         super.init()
-
         self.task = self.dataRequest(url: url, range: range)
-        
-        trackLifetime()
     }
     
     deinit {
@@ -152,7 +147,6 @@ extension JLMediaPlayerRequestOperation: URLSessionDataDelegate {
 
     public func urlSession(_ session: URLSession, task: URLSessionTask, didCompleteWithError error: Error?) {
         self.delegate?.requestOperation(self, didCompleteWithError: error)
-
         if let completion = requestCompletion {
             completion()
         }
@@ -171,7 +165,6 @@ extension JLMediaPlayerRequestOperation {
             request.setValue(rangeHeader, forHTTPHeaderField: "Range")
             self.startOffset = range.lowerBound
         }
-        
         return self.session.dataTask(with: request)
     }
     
@@ -180,7 +173,6 @@ extension JLMediaPlayerRequestOperation {
         let configuration = URLSessionConfiguration.default
         configuration.requestCachePolicy = .reloadIgnoringLocalCacheData
         let session = URLSession(configuration: configuration, delegate: self, delegateQueue: nil)
-
         return session
     }
 

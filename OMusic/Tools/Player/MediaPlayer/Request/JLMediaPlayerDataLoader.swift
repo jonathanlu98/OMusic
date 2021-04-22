@@ -7,7 +7,9 @@
 
 import UIKit
 
+
 public typealias JLMediaPlayerRange = Range<Int64>
+
 
 protocol JLMediaPlayerDataLoaderDelegate: AnyObject {
     func dataLoader(_ loader: JLMediaPlayerDataLoader, didReceive data: Data)
@@ -17,18 +19,25 @@ protocol JLMediaPlayerDataLoaderDelegate: AnyObject {
     func dataLoader(_ loader: JLMediaPlayerDataLoader, didFailWithError error: Error)
 }
 
+
 class JLMediaPlayerDataLoader: NSObject {
-
+    
+    /// 代理对象
     public weak var delegate: JLMediaPlayerDataLoaderDelegate?
-
+    
+    /// 回调线程队列
     private let callbackQueue: DispatchQueue
     
+    /// 操作线程队列
     private let operationQueue: OperationQueue
     
+    /// 歌曲唯一标识符
     private let uniqueID: String
     
+    /// URL
     private let url: URL
     
+    /// 请求数据范围
     private let requestedRange: JLMediaPlayerRange
     
     private var mediaData: Data?
@@ -37,7 +46,7 @@ class JLMediaPlayerDataLoader: NSObject {
     
     private var failed: Bool = false
 
-    init(uniqueID: String, url: URL, range: JLMediaPlayerRange, callbackQueue: DispatchQueue) {
+    public init(uniqueID: String, url: URL, range: JLMediaPlayerRange, callbackQueue: DispatchQueue) {
         self.uniqueID = uniqueID
         self.url = url
         self.requestedRange = range
@@ -53,26 +62,27 @@ class JLMediaPlayerDataLoader: NSObject {
     deinit {
         print("deinit")
     }
-
+    
+    /// 开始加载
     public func start() {
         guard !self.cancelled && !self.failed else {
             return
         }
         let startOffset = self.requestedRange.lowerBound
-         
         let endOffset = self.requestedRange.upperBound
-
         let notEnded = startOffset < endOffset
         if notEnded {
             self.addRemoteRequest(startOffset: startOffset, endOffset: endOffset)
         }
     }
-
+    
+    /// 取消加载
     public func cancel() {
         self.cancelled = true
         self.operationQueue.cancelAllOperations()
     }
 }
+
 
 // MARK: - Request
 
@@ -81,11 +91,25 @@ extension JLMediaPlayerDataLoader {
     private func remoteRequestOperation(range: JLMediaPlayerRange) -> Operation {
         let operation = JLMediaPlayerRequestOperation(url: self.url, range: range)
         operation.delegate = self
-
         return operation
     }
 
 }
+
+// MARK: - Private
+
+private extension JLMediaPlayerDataLoader {
+
+    func addRemoteRequest(startOffset: Int64, endOffset: Int64) {
+        guard startOffset < endOffset else {
+            return
+        }
+        let range = startOffset..<endOffset
+        self.operationQueue.addOperation(self.remoteRequestOperation(range: range))
+    }
+
+}
+
 
 // MARK: - JLMediaPlayerRequestOperationDelegate
 
@@ -118,7 +142,6 @@ extension JLMediaPlayerDataLoader: JLMediaPlayerRequestOperationDelegate {
                 shouldSaveData = true
             }
         }
-
         if shouldSaveData, let mediaData = self.mediaData, mediaData.count > 0 {
             self.mediaData = nil
         }
@@ -126,18 +149,3 @@ extension JLMediaPlayerDataLoader: JLMediaPlayerRequestOperationDelegate {
 
 }
 
-// MARK: - Private
-
-private extension JLMediaPlayerDataLoader {
-
-
-    func addRemoteRequest(startOffset: Int64, endOffset: Int64) {
-        guard startOffset < endOffset else {
-            return
-        }
-
-        let range = startOffset..<endOffset
-        self.operationQueue.addOperation(self.remoteRequestOperation(range: range))
-    }
-
-}

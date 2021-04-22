@@ -11,8 +11,9 @@ import AVFoundation
 import CoreServices
 import Alamofire
 
-/// AVPlayerItem custom schema
+/// AVPlayerItem 自定义 schema
 private let JLMediaPlayerItemScheme = "JLMediaPlayerItemScheme"
+
 
 public protocol JLMediaPlayerAssetLoaderDelegate: AnyObject {
     func assetLoaderDidFinishDownloading(_ assetLoader: JLMediaPlayerAssetLoader)
@@ -20,18 +21,25 @@ public protocol JLMediaPlayerAssetLoaderDelegate: AnyObject {
     func assetLoader(_ assetLoader: JLMediaPlayerAssetLoader, downloadingFailed error: Error)
 }
 
-public class JLMediaPlayerAssetLoader: NSObject {
 
+public class JLMediaPlayerAssetLoader: NSObject {
+    
+    /// 代理对象
     public weak var delegate: JLMediaPlayerAssetLoaderDelegate?
     
+    /// 歌曲唯一标识符
     public var uniqueID: String = "defaultUniqueID"
     
+    /// 资源路径
     public let url: URL
     
+    /// AVURLAsset对象
     public var urlAsset: AVURLAsset?
-
+    
+    /// 加载器线程队列
     private let loaderQueue = DispatchQueue(label: "com.OMusic.JLMediaPlayer.loaderQueue")
     
+    /// 当期请求
     private var currentRequest: JLMediaPlayerRequest? {
         didSet {
             oldValue?.cancel()
@@ -50,7 +58,9 @@ public class JLMediaPlayerAssetLoader: NSObject {
     deinit {
         print("deinit")
     }
-
+    
+    /// 加载Asset资源
+    /// - Parameter completion: completion
     public func loadAsset(completion: @escaping (AVURLAsset) -> Void) {
         var asset: AVURLAsset
         if let urlWithScheme = self.url.withScheme(JLMediaPlayerItemScheme) {
@@ -59,20 +69,17 @@ public class JLMediaPlayerAssetLoader: NSObject {
             assertionFailure("URL scheme is empty, please make sure to use the correct initilization func.")
             asset = AVURLAsset(url: self.url)
         }
-
-        
         asset.resourceLoader.setDelegate(self, queue: self.loaderQueue)
-        
         // 异步捕捉playable属性
         asset.loadValuesAsynchronously(forKeys: ["playable"]) {
             DispatchQueue.main.async {
                 completion(asset)
             }
         }
-
         self.urlAsset = asset
     }
     
+    /// 清理状态
     public func cleanup() {
         self.loadedLength = 0
         self.isCancelled = true
@@ -85,59 +92,47 @@ public class JLMediaPlayerAssetLoader: NSObject {
 
 extension JLMediaPlayerAssetLoader {
 
-
     private func handleContentInfoRequest(loadingRequest: AVAssetResourceLoadingRequest) -> Bool {
         guard let infoRequest = loadingRequest.contentInformationRequest else {
             return false
         }
-
         let request = self.contentInfoRequest(loadingRequest: loadingRequest)
-
         Alamofire.download(request).response { [weak self] (responseObject) in
             self?.handleContentInfoResponse(loadingRequest: loadingRequest,
                                            infoRequest: infoRequest,
                                            response: responseObject.response,
                                            error: responseObject.error)
         }
-        
         self.currentRequest = JLMediaPlayerContentInfoRequest(
             resourceUrl: url,
             loadingRequest: loadingRequest,
             infoRequest: infoRequest
         )
-
         return true
     }
 
     private func handleContentInfoResponse(loadingRequest: AVAssetResourceLoadingRequest,
                                            infoRequest: AVAssetResourceLoadingContentInformationRequest,
                                            response: URLResponse?,
-                                           error: Error?)
-    {
+                                           error: Error?) {
         //异步加载
         self.loaderQueue.async { [unowned self] in
             if self.isCancelled || loadingRequest.isCancelled {
                 return
             }
-
             guard let request = self.currentRequest as? JLMediaPlayerContentInfoRequest,
-                loadingRequest === request.loadingRequest else
-            {
+                loadingRequest === request.loadingRequest else {
                 return
             }
-
             if let error = error {
                 print("Failed with error: \(String(describing: error))")
                 loadingRequest.finishLoading(with: error)
-
                 return
             }
-
             if let response = response {
                 self.fillInWithRemoteResponse(infoRequest, response: response)
                 loadingRequest.finishLoading()
             }
-
             if self.currentRequest === request {
                 self.currentRequest = nil
             }
@@ -148,11 +143,9 @@ extension JLMediaPlayerAssetLoader {
         if self.isCancelled || loadingRequest.isCancelled {
             return false
         }
-
         guard let avDataRequest = loadingRequest.dataRequest else {
             return false
         }
-
         let lowerBound = avDataRequest.requestedOffset
         let length = Int64(avDataRequest.requestedLength)
         let upperBound = lowerBound + length
@@ -164,7 +157,6 @@ extension JLMediaPlayerAssetLoader {
                 lastRequest.cancel()
             }
         }
-
         let loader = JLMediaPlayerDataLoader(uniqueID: self.uniqueID,
                                           url: self.url,
                                           range: requestedRange,
@@ -179,17 +171,14 @@ extension JLMediaPlayerAssetLoader {
                 range: requestedRange
             )
         }()
-
         self.currentRequest = dataRequest
         loader.start()
-
         return true
     }
 
     private func fillInWithRemoteResponse(_ request: AVAssetResourceLoadingContentInformationRequest, response: URLResponse) {
         if let mimeType = response.mimeType,
-            let contentType = UTTypeCreatePreferredIdentifierForTag(kUTTagClassMIMEType, mimeType as CFString, nil)
-        {
+            let contentType = UTTypeCreatePreferredIdentifierForTag(kUTTagClassMIMEType, mimeType as CFString, nil) {
             request.contentType = contentType.takeRetainedValue() as String
         }
         request.contentLength = response.jl_expectedContentLength
@@ -199,13 +188,13 @@ extension JLMediaPlayerAssetLoader {
 
 }
 
+
 // MARK: - AVAssetResourceLoaderDelegate
 
 extension JLMediaPlayerAssetLoader: AVAssetResourceLoaderDelegate {
 
     public func resourceLoader(_ resourceLoader: AVAssetResourceLoader,
-                               shouldWaitForLoadingOfRequestedResource loadingRequest: AVAssetResourceLoadingRequest) -> Bool
-    {
+                               shouldWaitForLoadingOfRequestedResource loadingRequest: AVAssetResourceLoadingRequest) -> Bool {
         if let _ = loadingRequest.contentInformationRequest {
             //请求信息,获取currentRequest
             return self.handleContentInfoRequest(loadingRequest: loadingRequest)
@@ -218,8 +207,7 @@ extension JLMediaPlayerAssetLoader: AVAssetResourceLoaderDelegate {
     }
 
     public func resourceLoader(_ resourceLoader: AVAssetResourceLoader,
-                               didCancel loadingRequest: AVAssetResourceLoadingRequest)
-    {
+                               didCancel loadingRequest: AVAssetResourceLoadingRequest) {
         self.currentRequest?.cancel()
     }
 
@@ -233,7 +221,6 @@ extension JLMediaPlayerAssetLoader: JLMediaPlayerDataLoaderDelegate {
         if let dataRequest = self.currentRequest?.loadingRequest.dataRequest {
             dataRequest.respond(with: data)
         }
-
         self.loadedLength = self.loadedLength + Int64(data.count)
         self.delegate?.assetLoader(self, didDownload: self.loadedLength)
     }
@@ -241,14 +228,12 @@ extension JLMediaPlayerAssetLoader: JLMediaPlayerDataLoaderDelegate {
     func dataLoaderDidFinish(_ loader: JLMediaPlayerDataLoader) {
         self.currentRequest?.loadingRequest.finishLoading()
         self.currentRequest = nil
-
         self.delegate?.assetLoaderDidFinishDownloading(self)
     }
 
     func dataLoader(_ loader: JLMediaPlayerDataLoader, didFailWithError error: Error) {
         self.currentRequest?.loadingRequest.finishLoading(with: error)
         self.currentRequest = nil
-
         self.delegate?.assetLoader(self, downloadingFailed: error)
     }
 
@@ -264,7 +249,6 @@ extension JLMediaPlayerAssetLoader {
             NSURLErrorNetworkConnectionLost,
             NSURLErrorTimedOut,
         ]
-
         return errorCodes.contains(code)
     }
 
@@ -276,7 +260,6 @@ extension JLMediaPlayerAssetLoader {
             let rangeHeader = "bytes=\(lowerBound)-\(upperBound)"
             request.setValue(rangeHeader, forHTTPHeaderField: "Range")
         }
-
         return request
     }
 
@@ -291,7 +274,6 @@ fileprivate extension URL {
         guard var components = URLComponents(url: self, resolvingAgainstBaseURL: false) else {
             return nil
         }
-
         components.scheme = scheme
         return components.url
     }
@@ -304,7 +286,6 @@ fileprivate extension URLResponse {
         guard let response = self as? HTTPURLResponse else {
             return expectedContentLength
         }
-
         let contentRangeKeys: [String] = [
             "Content-Range",
             "content-range",
@@ -318,11 +299,9 @@ fileprivate extension URLResponse {
                 break
             }
         }
-
         if let rangeString = rangeString,
             let bytesString = rangeString.split(separator: "/").map({String($0)}).last,
-            let bytes = Int64(bytesString)
-        {
+            let bytes = Int64(bytesString) {
             return bytes
         } else {
             return expectedContentLength
@@ -333,22 +312,18 @@ fileprivate extension URLResponse {
         guard let response = self as? HTTPURLResponse else {
             return false
         }
-
         let rangeAccessKeys: [String] = [
             "Accept-Ranges",
             "accept-ranges",
             "Accept-ranges",
             "accept-Ranges",
         ]
-
         for key in rangeAccessKeys {
             if let value = response.allHeaderFields[key] as? String,
-                value == "bytes"
-            {
+                value == "bytes" {
                 return true
             }
         }
-
         return false
     }
 

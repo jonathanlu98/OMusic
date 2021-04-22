@@ -12,6 +12,7 @@ import AVFoundation
 protocol JLMediaPlayerRequest: AnyObject {
 
     var resourceUrl: URL { get }
+    
     var loadingRequest: AVAssetResourceLoadingRequest { get }
 
     func cancel()
@@ -19,15 +20,11 @@ protocol JLMediaPlayerRequest: AnyObject {
 }
 
 
-
-
 class JLMediaPlayerContentInfoRequest: JLMediaPlayerRequest {
 
     let resourceUrl: URL
-    
     /// 一个对象，它封装了资源加载器对象发出的资源请求的信息。
     let loadingRequest: AVAssetResourceLoadingRequest
-    
     /// 用于获取资产资源加载请求所引用的资源的基本信息的查询。
     let infoRequest: AVAssetResourceLoadingContentInformationRequest
         
@@ -59,8 +56,7 @@ class JLMediaPlayerDataRequest: JLMediaPlayerRequest  {
          loadingRequest: AVAssetResourceLoadingRequest,
          dataRequest: AVAssetResourceLoadingDataRequest,
          loader: JLMediaPlayerDataLoader,
-         range: JLMediaPlayerRange)
-    {
+         range: JLMediaPlayerRange) {
         self.resourceUrl = resourceUrl
         self.loadingRequest = loadingRequest
         self.dataRequest = dataRequest
