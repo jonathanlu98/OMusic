@@ -51,10 +51,8 @@ public protocol JLMediaPlayerDelegate: AnyObject {
 public class JLMediaPlayer: NSObject {
     
     public typealias SeekCompletion = (Bool) -> Void
-
     /// 代理对象
     public weak var delegate: JLMediaPlayerDelegate?
-    
     /// 总时间
     public var totalTime: Float64 {
         guard let player = player, let currentItem = player.currentItem else {
@@ -62,7 +60,6 @@ public class JLMediaPlayer: NSObject {
         }
         return CMTimeGetSeconds(currentItem.duration)
     }
-    
     /// 当前时间
     public var currentTime: Float64 {
         guard let player = player, let currentItem = player.currentItem else {
@@ -70,32 +67,29 @@ public class JLMediaPlayer: NSObject {
         }
         return CMTimeGetSeconds(currentItem.currentTime())
     }
-    
     /// AVPlayer对象
     private(set) public var player: AVPlayer?
-    
     /// AVPlayerItem对象
     private(set) public var playerItem: AVPlayerItem?
-    
     /// 当前播放资源地址
     private(set) public var currentURLStr: String?
-    
+    /// 播放器资源配置
     private var config: JLMediaPlayerConfig = JLMediaPlayerConfig.default
-
+    /// AVURLAsset对象
     private var urlAsset: AVURLAsset?
-    
+    /// JLMediaPlayerAssetLoader对象
     private var assetLoader: JLMediaPlayerAssetLoader?
-    
+    /// 是否添加观察者
     private var isObserverAdded: Bool = false
-
+    /// 时间观察者
     private var timeObserver: Any?
-    
+    /// 是否拖动进度
     private var isSeeking: Bool = false
-    
+    /// 是否准备播放
     private var isReadyToPlay: Bool = false
-    
+    /// 是否开始加载
     private var isBufferBegin: Bool = false
-    
+    /// 拖动进度JLMediaPlayerSeekItem对象
     private var seekItem: JLMediaPlayerSeekItem?
     
     public override init() {

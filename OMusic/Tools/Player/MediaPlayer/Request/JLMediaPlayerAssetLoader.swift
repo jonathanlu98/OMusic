@@ -6,7 +6,6 @@
 //
 
 
-import UIKit
 import AVFoundation
 import CoreServices
 import Alamofire
@@ -26,28 +25,23 @@ public class JLMediaPlayerAssetLoader: NSObject {
     
     /// 代理对象
     public weak var delegate: JLMediaPlayerAssetLoaderDelegate?
-    
     /// 歌曲唯一标识符
     public var uniqueID: String = "defaultUniqueID"
-    
     /// 资源路径
     public let url: URL
-    
     /// AVURLAsset对象
     public var urlAsset: AVURLAsset?
-    
     /// 加载器线程队列
     private let loaderQueue = DispatchQueue(label: "com.OMusic.JLMediaPlayer.loaderQueue")
-    
     /// 当期请求
     private var currentRequest: JLMediaPlayerRequest? {
         didSet {
             oldValue?.cancel()
         }
     }
-    
+    /// 是否取消
     private var isCancelled: Bool = false
-    
+    /// 加载长度
     private var loadedLength: Int64 = 0
 
     init(url: URL) {

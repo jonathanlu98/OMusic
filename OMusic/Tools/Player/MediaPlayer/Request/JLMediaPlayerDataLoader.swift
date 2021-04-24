@@ -24,26 +24,21 @@ class JLMediaPlayerDataLoader: NSObject {
     
     /// 代理对象
     public weak var delegate: JLMediaPlayerDataLoaderDelegate?
-    
     /// 回调线程队列
     private let callbackQueue: DispatchQueue
-    
     /// 操作线程队列
     private let operationQueue: OperationQueue
-    
     /// 歌曲唯一标识符
     private let uniqueID: String
-    
     /// URL
     private let url: URL
-    
     /// 请求数据范围
     private let requestedRange: JLMediaPlayerRange
-    
+    /// 媒体数据
     private var mediaData: Data?
-    
+    /// 是否取消
     private var cancelled: Bool = false
-    
+    /// 是否失败
     private var failed: Bool = false
 
     public init(uniqueID: String, url: URL, range: JLMediaPlayerRange, callbackQueue: DispatchQueue) {

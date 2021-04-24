@@ -13,31 +13,23 @@ import PanModal
 class OMPlayer: NSObject {
     
     public typealias SeekCompletion = (Bool) -> Void
-    
     /// 播放列表枚举结构类
     public struct ListMode: Hashable, Equatable, RawRepresentable {
         public let rawValue: Int
-        
         internal init(rawValue: Int) {
             self.rawValue = rawValue
         }
     }
-    
     /// 播放主界面
     public let viewController: OMPlayerViewController = OMPlayerViewController()
-    
     /// 播放控制栏
     public let menuView: OMPlayerMenuBarView = OMPlayerMenuBarView.loadFromXib()!
-    
     /// mediaPlayer
     private let mediaPlayer = JLMediaPlayer()
-    
     /// 当前播放队列的名称
     private(set) var playListName:String?
-    
     /// 播放队列
     private(set) var tracks:OMPlaylistList = OMPlaylistList()
-    
     /// 是否暂停
     private(set) var isPause: Bool = true {
         didSet {
@@ -48,22 +40,16 @@ class OMPlayer: NSObject {
             }
         }
     }
-    
     /// 当前播放歌曲
     private(set) var currentTrack: OMPlaylistListNode?
-    
     /// 原始播放歌曲数组
     private var origialTracks:[JLTrack] = []
-    
     /// 当前歌曲在列表中的下标
     private(set) var currentIndex = -1
-    
     /// 当前播放进度
     private(set) var currentTime: Float64 = 0
-    
     /// 当前歌曲播放总时长
     private(set) var totalTime: Float64 = 0
-    
     /// 播放模式
     public var listMode: ListMode = .none {
         didSet {
@@ -88,10 +74,8 @@ class OMPlayer: NSObject {
             OMPlayerListenerCenter.shared.notifyPlayerControllerEventDetected(event:  OMPlayerControllerEventType.init(rawValue: 20+self.listMode.rawValue)!)
         }
     }
-    
     /// 当前歌曲状态
     private(set) var trackStatus: JLMediaPlayerStatus?
-    
     /// 单例对象
     @objc public static let shared = OMPlayer.init()
     
