@@ -111,9 +111,9 @@ class OMPlayer: NSObject {
         }
         self.tracks = list
         self.origialTracks = Array.init(album.tracks!)
-        self.playListName = album.name
         self.currentTrack = list.head
         self.reset()
+        self.playListName = album.name
     }
     
     /// 弹出播放主界面
@@ -198,6 +198,7 @@ class OMPlayer: NSObject {
         self.currentIndex = 0
         self.currentTime = 0
         self.totalTime = 0
+        self.playListName = ""
         self.pause()
     }
     

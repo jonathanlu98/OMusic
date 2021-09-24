@@ -1,6 +1,7 @@
 #workspace
 *.xcworkspace
 !*.xcworkspace/contents.xcworkspacedata
+.DS_Store
 
 #cocoapods
 Pods/
