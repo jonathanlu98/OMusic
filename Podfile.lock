@@ -1,0 +1,67 @@
+PODS:
+  - Alamofire (4.9.1)
+  - LifetimeTracker (1.8.0)
+  - LookinServer (1.0.0)
+  - MarqueeLabel (4.0.5)
+  - Masonry (1.1.0)
+  - MJRefresh (3.5.0)
+  - PanModal (1.2.7)
+  - ProgressHUD (13.6)
+  - SDWebImage (5.11.0):
+    - SDWebImage/Core (= 5.11.0)
+  - SDWebImage/Core (5.11.0)
+  - SQLiteRepairKit (1.2.2):
+    - WCDBOptimizedSQLCipher (~> 1.2.0)
+  - UIAlertController_Blocks.swift (1.0.1)
+  - WCDB.swift (1.0.8.2):
+    - SQLiteRepairKit (~> 1.2.0)
+    - WCDBOptimizedSQLCipher (~> 1.2.0)
+  - WCDBOptimizedSQLCipher (1.2.1)
+
+DEPENDENCIES:
+  - Alamofire (= 4.9.1)
+  - LifetimeTracker
+  - LookinServer
+  - MarqueeLabel
+  - Masonry
+  - MJRefresh
+  - PanModal
+  - ProgressHUD
+  - SDWebImage
+  - UIAlertController_Blocks.swift
+  - WCDB.swift
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - LifetimeTracker
+    - LookinServer
+    - MarqueeLabel
+    - Masonry
+    - MJRefresh
+    - PanModal
+    - ProgressHUD
+    - SDWebImage
+    - SQLiteRepairKit
+    - UIAlertController_Blocks.swift
+    - WCDB.swift
+    - WCDBOptimizedSQLCipher
+
+SPEC CHECKSUMS:
+  Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
+  LifetimeTracker: a7a0fcf35bbf933f83b1c1020e267996d17cdcea
+  LookinServer: 0002891cd3cec5e082a910e897dfe71b4f06b89e
+  MarqueeLabel: 00cc0bcd087111dca575878b3531af980559707d
+  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+  MJRefresh: 6afc955813966afb08305477dd7a0d9ad5e79a16
+  PanModal: 3e16ead1a907fb06f4df3f13492fd00149fa4974
+  ProgressHUD: 4bdaa0d2ddf676b23324b199f9facffb5c3a1620
+  SDWebImage: 7acbb57630ac7db4a495547fb73916ff3e432f6b
+  SQLiteRepairKit: 35aaae5a8838adb85f5b1eb4d796055be6060a4b
+  UIAlertController_Blocks.swift: 05777fea2fe148d3fa2024f3f57712dc90f89d34
+  WCDB.swift: 05d509d7a0e60fb6e11c34eb7e4027c0fab5849f
+  WCDBOptimizedSQLCipher: baf44493b0c7a3d49e97bc5b64a3856f6428ddd1
+
+PODFILE CHECKSUM: 0ea46a3be3ef8ef08f48c6dfcf6cfd9f50dae6e4
+
+COCOAPODS: 1.10.1

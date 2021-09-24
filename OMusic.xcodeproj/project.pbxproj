@@ -1,0 +1,1059 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2200AC2A2494FD0900E44910 /* AMFetchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2200AC292494FD0900E44910 /* AMFetchManager.swift */; };
+		221EAC69245E920100A5B576 /* OMTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221EAC68245E920100A5B576 /* OMTheme.swift */; };
+		2225514E247556540099D62B /* JLDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2225514D247556540099D62B /* JLDatabase.swift */; };
+		22468D4D2476630D001A7404 /* Localizations.strings in Resources */ = {isa = PBXBuildFile; fileRef = 22468D4F2476630D001A7404 /* Localizations.strings */; };
+		2246A879245AC453007F5CA7 /* OMPlayerListenerNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2246A875245AC453007F5CA7 /* OMPlayerListenerNode.swift */; };
+		2246A87B245AC453007F5CA7 /* OMPlayerListenerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2246A877245AC453007F5CA7 /* OMPlayerListenerProtocol.swift */; };
+		2246A87C245AC453007F5CA7 /* OMPlayerListenerCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2246A878245AC453007F5CA7 /* OMPlayerListenerCenter.swift */; };
+		2246A87E245AC4B9007F5CA7 /* JLExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2246A87D245AC4B9007F5CA7 /* JLExtension.swift */; };
+		2246A894245ACD03007F5CA7 /* MI Lan Pro VF.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 228DF2B4245AABF100E9FF1B /* MI Lan Pro VF.ttf */; };
+		2289EBFA2463DEB500E0F9F5 /* AMObjectProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2289EBF92463DEB500E0F9F5 /* AMObjectProtocol.swift */; };
+		2289EBFC2463E5B200E0F9F5 /* JLAlbum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2289EBFB2463E5B200E0F9F5 /* JLAlbum.swift */; };
+		2289EBFE2463E6BA00E0F9F5 /* JLArtist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2289EBFD2463E6BA00E0F9F5 /* JLArtist.swift */; };
+		2289EC002463EA6600E0F9F5 /* JLMedia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2289EBFF2463EA6600E0F9F5 /* JLMedia.swift */; };
+		228D98B6246018ED009BC2A4 /* JLPlaylist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228D98B5246018ED009BC2A4 /* JLPlaylist.swift */; };
+		228DF2C2245AB81600E9FF1B /* OMPlayerImageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 228DF2B9245AB81600E9FF1B /* OMPlayerImageCollectionViewCell.xib */; };
+		228DF2C3245AB81600E9FF1B /* OMPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228DF2BA245AB81600E9FF1B /* OMPlayer.swift */; };
+		228DF2C4245AB81600E9FF1B /* OMPlayerImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228DF2BB245AB81600E9FF1B /* OMPlayerImageCollectionViewCell.swift */; };
+		228DF2C6245AB81600E9FF1B /* OMPlayerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 228DF2BD245AB81600E9FF1B /* OMPlayerViewController.xib */; };
+		228DF2C7245AB81600E9FF1B /* OMPlayerProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228DF2BF245AB81600E9FF1B /* OMPlayerProgressView.swift */; };
+		22959CB5244D86AE00571046 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22959CB4244D86AE00571046 /* AppDelegate.swift */; };
+		22959CB9244D86AE00571046 /* OMAppLoadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22959CB8244D86AE00571046 /* OMAppLoadViewController.swift */; };
+		22959CBE244D86B100571046 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22959CBD244D86B100571046 /* Assets.xcassets */; };
+		22959CC1244D86B100571046 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22959CBF244D86B100571046 /* LaunchScreen.storyboard */; };
+		22970BE9249A28BA00D5B995 /* JLError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22970BE8249A28BA00D5B995 /* JLError.swift */; };
+		22AB175724613BD9004C67EB /* JLTrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AB175624613BD9004C67EB /* JLTrack.swift */; };
+		22AB175A24614203004C67EB /* AMTracks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AB175924614203004C67EB /* AMTracks.swift */; };
+		22AB175C24614F1B004C67EB /* AMAlbums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AB175B24614F1B004C67EB /* AMAlbums.swift */; };
+		22AB175E246150C3004C67EB /* AMArtists.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AB175D246150C3004C67EB /* AMArtists.swift */; };
+		22AB176024615B90004C67EB /* AMModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AB175F24615B90004C67EB /* AMModel.swift */; };
+		22D4D79F2511B2D800593D38 /* OMHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D4D79D2511B2D800593D38 /* OMHomeViewController.swift */; };
+		22DE09BF245B03320024EE04 /* JLMacroDefinition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DE09BE245B03320024EE04 /* JLMacroDefinition.swift */; };
+		22DE09C1245B054B0024EE04 /* MIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DE09C0245B054B0024EE04 /* MIFont.swift */; };
+		22EE7FB62534367B0055E871 /* OMAppleMusicAccountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22EE7FB52534367B0055E871 /* OMAppleMusicAccountManager.swift */; };
+		4E0E7D05CE76F81912217C4E /* Pods_OMusic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 822315A5CFED1B7D920BDD7D /* Pods_OMusic.framework */; };
+		ED0EDD4925FDD8E10092093B /* OMTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0EDD4625FDD8E00092093B /* OMTabBarController.swift */; };
+		ED0EDD4A25FDD8E10092093B /* OMPlayerMenuBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0EDD4725FDD8E10092093B /* OMPlayerMenuBarView.swift */; };
+		ED0EDD4E25FDD9330092093B /* OMNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0EDD4D25FDD9330092093B /* OMNavigationViewController.swift */; };
+		ED178EAF260249D000A3B8B7 /* OMSearchListTableViewArtistCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED178EB1260249D000A3B8B7 /* OMSearchListTableViewArtistCell.xib */; };
+		ED178EB3260249D600A3B8B7 /* OMSearchListTableViewMoreCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED178EB5260249D600A3B8B7 /* OMSearchListTableViewMoreCell.xib */; };
+		ED178EB7260249DC00A3B8B7 /* OMSearchListTableViewSongCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED178EB9260249DC00A3B8B7 /* OMSearchListTableViewSongCell.xib */; };
+		ED178EBD26031D3A00A3B8B7 /* OMSearchListTableViewAlbumCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED178EAD260249C500A3B8B7 /* OMSearchListTableViewAlbumCell.xib */; };
+		ED72293B26076E06001003B1 /* OMPlayerMenuBarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED72293A26076E06001003B1 /* OMPlayerMenuBarView.xib */; };
+		ED75BB8B260B02A0009AC472 /* JLMediaPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED75BB75260B02A0009AC472 /* JLMediaPlayer.swift */; };
+		ED75BB90260B02A0009AC472 /* JLMediaBaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED75BB7C260B02A0009AC472 /* JLMediaBaseModel.swift */; };
+		ED75BB91260B02A0009AC472 /* JLMediaPlayerConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED75BB7D260B02A0009AC472 /* JLMediaPlayerConfig.swift */; };
+		ED75BB93260B02A0009AC472 /* JLMediaPlayerSeekItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED75BB7F260B02A0009AC472 /* JLMediaPlayerSeekItem.swift */; };
+		ED75BB95260B02A0009AC472 /* JLMediaPlayerContentInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED75BB81260B02A0009AC472 /* JLMediaPlayerContentInfo.swift */; };
+		ED75BB96260B02A0009AC472 /* JLMediaPlayerDataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED75BB83260B02A0009AC472 /* JLMediaPlayerDataLoader.swift */; };
+		ED75BB97260B02A0009AC472 /* JLMediaPlayerItemRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED75BB84260B02A0009AC472 /* JLMediaPlayerItemRequest.swift */; };
+		ED75BB98260B02A0009AC472 /* JLMediaPlayerRequestOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED75BB85260B02A0009AC472 /* JLMediaPlayerRequestOperation.swift */; };
+		ED75BB99260B02A0009AC472 /* JLMediaPlayerAssetLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED75BB86260B02A0009AC472 /* JLMediaPlayerAssetLoader.swift */; };
+		ED75BBA1260B8334009AC472 /* OMPlaylistListNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED75BBA0260B8334009AC472 /* OMPlaylistListNode.swift */; };
+		ED7C5CEC2609E6DB0032256F /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED7C5CEB2609E6DB0032256F /* CoreServices.framework */; };
+		ED7C5CEE2609E6E40032256F /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED7C5CED2609E6E40032256F /* AVFoundation.framework */; };
+		ED8A852526208EB200E3AF4E /* OMAppLoadViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED8A852426208EB200E3AF4E /* OMAppLoadViewController.xib */; };
+		EDB9DFD725FD10230014EB41 /* AMSearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB9DFD625FD10230014EB41 /* AMSearchModel.swift */; };
+		EDC3F3A926161B5F00BE4CE8 /* OMPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC3F3A826161B5F00BE4CE8 /* OMPlayerViewController.swift */; };
+		EDC69F3425FFA3C8007C8810 /* OMSearchMoreTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC69F3025FFA3C5007C8810 /* OMSearchMoreTableViewController.swift */; };
+		EDC69F3525FFA3C8007C8810 /* OMSearchListSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC69F3125FFA3C6007C8810 /* OMSearchListSection.swift */; };
+		EDC69F3625FFA3C8007C8810 /* OMSearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDC69F3225FFA3C7007C8810 /* OMSearchViewController.xib */; };
+		EDC69F3725FFA3C8007C8810 /* OMSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC69F3325FFA3C8007C8810 /* OMSearchViewController.swift */; };
+		EDC69F4525FFA401007C8810 /* OMSearchListTableViewSongCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC69F3B25FFA3FB007C8810 /* OMSearchListTableViewSongCell.swift */; };
+		EDC69F4725FFA401007C8810 /* OMSearchListTableViewArtistCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC69F3D25FFA3FC007C8810 /* OMSearchListTableViewArtistCell.swift */; };
+		EDC69F4A25FFA401007C8810 /* OMSearchListTableViewAlbumCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC69F4025FFA3FF007C8810 /* OMSearchListTableViewAlbumCell.swift */; };
+		EDC69F4D25FFA401007C8810 /* OMSearchListTableViewMoreCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC69F4325FFA401007C8810 /* OMSearchListTableViewMoreCell.swift */; };
+		EDE52FB82622CA5C00D02E36 /* OMHomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDE52FB72622CA5C00D02E36 /* OMHomeViewController.xib */; };
+		EDE52FBB2622D09000D02E36 /* OMBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE52FBA2622D09000D02E36 /* OMBaseViewController.swift */; };
+		EDE52FC02622E10000D02E36 /* OMHomeRecentPlayCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE52FBE2622E10000D02E36 /* OMHomeRecentPlayCollectionViewCell.swift */; };
+		EDE52FC12622E10000D02E36 /* OMHomeRecentPlayCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDE52FBF2622E10000D02E36 /* OMHomeRecentPlayCollectionViewCell.xib */; };
+		EDE52FC6262327A400D02E36 /* OMLibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE52FC4262327A400D02E36 /* OMLibraryViewController.swift */; };
+		EDE52FC7262327A400D02E36 /* OMLibraryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDE52FC5262327A400D02E36 /* OMLibraryViewController.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXBuildRule section */
+		EDEACCCB26281DAB002689A6 /* PBXBuildRule */ = {
+			isa = PBXBuildRule;
+			compilerSpec = com.apple.compilers.proxy.script;
+			fileType = pattern.proxy;
+			inputFiles = (
+			);
+			isEditable = 1;
+			outputFiles = (
+			);
+			script = "# Type a script or drag a script file from your workspace to insert its path.\n";
+		};
+/* End PBXBuildRule section */
+
+/* Begin PBXFileReference section */
+		2200AC292494FD0900E44910 /* AMFetchManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AMFetchManager.swift; sourceTree = "<group>"; };
+		221EAC68245E920100A5B576 /* OMTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OMTheme.swift; sourceTree = "<group>"; };
+		2225514D247556540099D62B /* JLDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JLDatabase.swift; sourceTree = "<group>"; };
+		2230BEBB2536B0310083C96A /* KSCrash.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KSCrash.framework; path = ../Framework/KSCrash.framework; sourceTree = "<group>"; };
+		22468D48247661FA001A7404 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		22468D4E2476630D001A7404 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizations.strings"; sourceTree = "<group>"; };
+		22468D5024766324001A7404 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizations.strings; sourceTree = "<group>"; };
+		2246A875245AC453007F5CA7 /* OMPlayerListenerNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OMPlayerListenerNode.swift; sourceTree = "<group>"; };
+		2246A877245AC453007F5CA7 /* OMPlayerListenerProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OMPlayerListenerProtocol.swift; sourceTree = "<group>"; };
+		2246A878245AC453007F5CA7 /* OMPlayerListenerCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OMPlayerListenerCenter.swift; sourceTree = "<group>"; };
+		2246A87D245AC4B9007F5CA7 /* JLExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JLExtension.swift; sourceTree = "<group>"; };
+		224D2B802536CEC200E0736D /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		224D2B832536CED200E0736D /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		224D2B862536CEE000E0736D /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		224D2B882536CEED00E0736D /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		2289EBF92463DEB500E0F9F5 /* AMObjectProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AMObjectProtocol.swift; sourceTree = "<group>"; };
+		2289EBFB2463E5B200E0F9F5 /* JLAlbum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JLAlbum.swift; sourceTree = "<group>"; };
+		2289EBFD2463E6BA00E0F9F5 /* JLArtist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JLArtist.swift; sourceTree = "<group>"; };
+		2289EBFF2463EA6600E0F9F5 /* JLMedia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JLMedia.swift; sourceTree = "<group>"; };
+		228D98B5246018ED009BC2A4 /* JLPlaylist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JLPlaylist.swift; sourceTree = "<group>"; };
+		228DF2B4245AABF100E9FF1B /* MI Lan Pro VF.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MI Lan Pro VF.ttf"; sourceTree = "<group>"; };
+		228DF2B9245AB81600E9FF1B /* OMPlayerImageCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OMPlayerImageCollectionViewCell.xib; sourceTree = "<group>"; };
+		228DF2BA245AB81600E9FF1B /* OMPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OMPlayer.swift; sourceTree = "<group>"; };
+		228DF2BB245AB81600E9FF1B /* OMPlayerImageCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OMPlayerImageCollectionViewCell.swift; sourceTree = "<group>"; };
+		228DF2BD245AB81600E9FF1B /* OMPlayerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OMPlayerViewController.xib; sourceTree = "<group>"; };
+		228DF2BF245AB81600E9FF1B /* OMPlayerProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OMPlayerProgressView.swift; sourceTree = "<group>"; };
+		22959CB1244D86AE00571046 /* OMusic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OMusic.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		22959CB4244D86AE00571046 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		22959CB8244D86AE00571046 /* OMAppLoadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OMAppLoadViewController.swift; sourceTree = "<group>"; };
+		22959CBD244D86B100571046 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		22959CC0244D86B100571046 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		22959CC2244D86B100571046 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		22970BE8249A28BA00D5B995 /* JLError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JLError.swift; sourceTree = "<group>"; };
+		229E8DF0247017F300D47458 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		229E8DF12470181E00D47458 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		22AB175624613BD9004C67EB /* JLTrack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JLTrack.swift; sourceTree = "<group>"; };
+		22AB175924614203004C67EB /* AMTracks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AMTracks.swift; sourceTree = "<group>"; };
+		22AB175B24614F1B004C67EB /* AMAlbums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AMAlbums.swift; sourceTree = "<group>"; };
+		22AB175D246150C3004C67EB /* AMArtists.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AMArtists.swift; sourceTree = "<group>"; };
+		22AB175F24615B90004C67EB /* AMModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AMModel.swift; sourceTree = "<group>"; };
+		22D4D79D2511B2D800593D38 /* OMHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OMHomeViewController.swift; sourceTree = "<group>"; };
+		22DE09BE245B03320024EE04 /* JLMacroDefinition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JLMacroDefinition.swift; sourceTree = "<group>"; };
+		22DE09C0245B054B0024EE04 /* MIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIFont.swift; sourceTree = "<group>"; };
+		22EE7FB52534367B0055E871 /* OMAppleMusicAccountManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OMAppleMusicAccountManager.swift; sourceTree = "<group>"; };
+		822315A5CFED1B7D920BDD7D /* Pods_OMusic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OMusic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C3E7E9C64CC22453DC3D86AC /* Pods-OMusic.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OMusic.debug.xcconfig"; path = "Target Support Files/Pods-OMusic/Pods-OMusic.debug.xcconfig"; sourceTree = "<group>"; };
+		C539F81E8DCFFC63F5350502 /* Pods-OMusic.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OMusic.release.xcconfig"; path = "Target Support Files/Pods-OMusic/Pods-OMusic.release.xcconfig"; sourceTree = "<group>"; };
+		ED0EDD4625FDD8E00092093B /* OMTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OMTabBarController.swift; sourceTree = "<group>"; };
+		ED0EDD4725FDD8E10092093B /* OMPlayerMenuBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OMPlayerMenuBarView.swift; sourceTree = "<group>"; };
+		ED0EDD4D25FDD9330092093B /* OMNavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OMNavigationViewController.swift; sourceTree = "<group>"; };
+		ED178EAC260249C500A3B8B7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/OMSearchListTableViewAlbumCell.xib; sourceTree = "<group>"; };
+		ED178EB0260249D000A3B8B7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/OMSearchListTableViewArtistCell.xib; sourceTree = "<group>"; };
+		ED178EB4260249D600A3B8B7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/OMSearchListTableViewMoreCell.xib; sourceTree = "<group>"; };
+		ED178EB8260249DC00A3B8B7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/OMSearchListTableViewSongCell.xib; sourceTree = "<group>"; };
+		ED72293A26076E06001003B1 /* OMPlayerMenuBarView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OMPlayerMenuBarView.xib; sourceTree = "<group>"; };
+		ED72296F2608DAD1001003B1 /* WCDBSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = WCDBSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		ED75BB75260B02A0009AC472 /* JLMediaPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JLMediaPlayer.swift; sourceTree = "<group>"; };
+		ED75BB7C260B02A0009AC472 /* JLMediaBaseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JLMediaBaseModel.swift; sourceTree = "<group>"; };
+		ED75BB7D260B02A0009AC472 /* JLMediaPlayerConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JLMediaPlayerConfig.swift; sourceTree = "<group>"; };
+		ED75BB7F260B02A0009AC472 /* JLMediaPlayerSeekItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JLMediaPlayerSeekItem.swift; sourceTree = "<group>"; };
+		ED75BB81260B02A0009AC472 /* JLMediaPlayerContentInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JLMediaPlayerContentInfo.swift; sourceTree = "<group>"; };
+		ED75BB83260B02A0009AC472 /* JLMediaPlayerDataLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JLMediaPlayerDataLoader.swift; sourceTree = "<group>"; };
+		ED75BB84260B02A0009AC472 /* JLMediaPlayerItemRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JLMediaPlayerItemRequest.swift; sourceTree = "<group>"; };
+		ED75BB85260B02A0009AC472 /* JLMediaPlayerRequestOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JLMediaPlayerRequestOperation.swift; sourceTree = "<group>"; };
+		ED75BB86260B02A0009AC472 /* JLMediaPlayerAssetLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JLMediaPlayerAssetLoader.swift; sourceTree = "<group>"; };
+		ED75BBA0260B8334009AC472 /* OMPlaylistListNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OMPlaylistListNode.swift; sourceTree = "<group>"; };
+		ED7C5CEB2609E6DB0032256F /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = System/Library/Frameworks/CoreServices.framework; sourceTree = SDKROOT; };
+		ED7C5CED2609E6E40032256F /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		ED8A852426208EB200E3AF4E /* OMAppLoadViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OMAppLoadViewController.xib; sourceTree = "<group>"; };
+		EDB9DFD625FD10230014EB41 /* AMSearchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AMSearchModel.swift; sourceTree = "<group>"; };
+		EDC3F3A826161B5F00BE4CE8 /* OMPlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OMPlayerViewController.swift; sourceTree = "<group>"; };
+		EDC69F3025FFA3C5007C8810 /* OMSearchMoreTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OMSearchMoreTableViewController.swift; sourceTree = "<group>"; };
+		EDC69F3125FFA3C6007C8810 /* OMSearchListSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OMSearchListSection.swift; sourceTree = "<group>"; };
+		EDC69F3225FFA3C7007C8810 /* OMSearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OMSearchViewController.xib; sourceTree = "<group>"; };
+		EDC69F3325FFA3C8007C8810 /* OMSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OMSearchViewController.swift; sourceTree = "<group>"; };
+		EDC69F3B25FFA3FB007C8810 /* OMSearchListTableViewSongCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OMSearchListTableViewSongCell.swift; sourceTree = "<group>"; };
+		EDC69F3D25FFA3FC007C8810 /* OMSearchListTableViewArtistCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OMSearchListTableViewArtistCell.swift; sourceTree = "<group>"; };
+		EDC69F4025FFA3FF007C8810 /* OMSearchListTableViewAlbumCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OMSearchListTableViewAlbumCell.swift; sourceTree = "<group>"; };
+		EDC69F4325FFA401007C8810 /* OMSearchListTableViewMoreCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OMSearchListTableViewMoreCell.swift; sourceTree = "<group>"; };
+		EDDDF4BE2609BD5300ED5AFB /* sqlcipher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = sqlcipher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EDE52FB72622CA5C00D02E36 /* OMHomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OMHomeViewController.xib; sourceTree = "<group>"; };
+		EDE52FBA2622D09000D02E36 /* OMBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OMBaseViewController.swift; sourceTree = "<group>"; };
+		EDE52FBE2622E10000D02E36 /* OMHomeRecentPlayCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OMHomeRecentPlayCollectionViewCell.swift; sourceTree = "<group>"; };
+		EDE52FBF2622E10000D02E36 /* OMHomeRecentPlayCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OMHomeRecentPlayCollectionViewCell.xib; sourceTree = "<group>"; };
+		EDE52FC4262327A400D02E36 /* OMLibraryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OMLibraryViewController.swift; sourceTree = "<group>"; };
+		EDE52FC5262327A400D02E36 /* OMLibraryViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OMLibraryViewController.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		22959CAE244D86AE00571046 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ED7C5CEE2609E6E40032256F /* AVFoundation.framework in Frameworks */,
+				ED7C5CEC2609E6DB0032256F /* CoreServices.framework in Frameworks */,
+				4E0E7D05CE76F81912217C4E /* Pods_OMusic.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0B7D33444401C09FCFACBB5F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C3E7E9C64CC22453DC3D86AC /* Pods-OMusic.debug.xcconfig */,
+				C539F81E8DCFFC63F5350502 /* Pods-OMusic.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		2225514C247555FA0099D62B /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				2246A874245AC453007F5CA7 /* Player */,
+				22DE09C0245B054B0024EE04 /* MIFont.swift */,
+				221EAC68245E920100A5B576 /* OMTheme.swift */,
+				2225514D247556540099D62B /* JLDatabase.swift */,
+				22970BE8249A28BA00D5B995 /* JLError.swift */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		222937F7245DA4DD0090467C /* NavigationBar */ = {
+			isa = PBXGroup;
+			children = (
+				ED0EDD4D25FDD9330092093B /* OMNavigationViewController.swift */,
+			);
+			path = NavigationBar;
+			sourceTree = "<group>";
+		};
+		2246A873245AC443007F5CA7 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				2246A87D245AC4B9007F5CA7 /* JLExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		2246A874245AC453007F5CA7 /* Player */ = {
+			isa = PBXGroup;
+			children = (
+				228DF2BA245AB81600E9FF1B /* OMPlayer.swift */,
+				ED9EE267261F318C0048FB8D /* Model */,
+				ED9EE253261D589F0048FB8D /* MediaPlayer */,
+			);
+			path = Player;
+			sourceTree = "<group>";
+		};
+		227785A32534547F00D1924D /* App Load */ = {
+			isa = PBXGroup;
+			children = (
+				22959CB8244D86AE00571046 /* OMAppLoadViewController.swift */,
+				ED8A852426208EB200E3AF4E /* OMAppLoadViewController.xib */,
+			);
+			path = "App Load";
+			sourceTree = "<group>";
+		};
+		2289EBF62463D6BF00E0F9F5 /* Album */ = {
+			isa = PBXGroup;
+			children = (
+				2289EBFB2463E5B200E0F9F5 /* JLAlbum.swift */,
+			);
+			path = Album;
+			sourceTree = "<group>";
+		};
+		2289EBF72463D6D000E0F9F5 /* Artist */ = {
+			isa = PBXGroup;
+			children = (
+				2289EBFD2463E6BA00E0F9F5 /* JLArtist.swift */,
+			);
+			path = Artist;
+			sourceTree = "<group>";
+		};
+		2289EBF82463DD5A00E0F9F5 /* MediaModel */ = {
+			isa = PBXGroup;
+			children = (
+				22AB175524613B9A004C67EB /* Track */,
+				228D98B42460183C009BC2A4 /* Playlist */,
+				2289EBF72463D6D000E0F9F5 /* Artist */,
+				2289EBF62463D6BF00E0F9F5 /* Album */,
+				2289EBFF2463EA6600E0F9F5 /* JLMedia.swift */,
+			);
+			path = MediaModel;
+			sourceTree = "<group>";
+		};
+		228D98B42460183C009BC2A4 /* Playlist */ = {
+			isa = PBXGroup;
+			children = (
+				228D98B5246018ED009BC2A4 /* JLPlaylist.swift */,
+			);
+			path = Playlist;
+			sourceTree = "<group>";
+		};
+		228DF2B3245AABD800E9FF1B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				228DF2B4245AABF100E9FF1B /* MI Lan Pro VF.ttf */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		228DF2B7245AB81600E9FF1B /* Player */ = {
+			isa = PBXGroup;
+			children = (
+				228DF2B9245AB81600E9FF1B /* OMPlayerImageCollectionViewCell.xib */,
+				228DF2BB245AB81600E9FF1B /* OMPlayerImageCollectionViewCell.swift */,
+				EDC3F3A826161B5F00BE4CE8 /* OMPlayerViewController.swift */,
+				228DF2BD245AB81600E9FF1B /* OMPlayerViewController.xib */,
+				228DF2BE245AB81600E9FF1B /* ProgressView */,
+			);
+			path = Player;
+			sourceTree = "<group>";
+		};
+		228DF2BE245AB81600E9FF1B /* ProgressView */ = {
+			isa = PBXGroup;
+			children = (
+				228DF2BF245AB81600E9FF1B /* OMPlayerProgressView.swift */,
+			);
+			path = ProgressView;
+			sourceTree = "<group>";
+		};
+		22959CA8244D86AE00571046 = {
+			isa = PBXGroup;
+			children = (
+				22468D4F2476630D001A7404 /* Localizations.strings */,
+				22959CB3244D86AE00571046 /* OMusic */,
+				22959CB2244D86AE00571046 /* Products */,
+				0B7D33444401C09FCFACBB5F /* Pods */,
+				4AF9CB240D0590E5FD08110D /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		22959CB2244D86AE00571046 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				22959CB1244D86AE00571046 /* OMusic.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		22959CB3244D86AE00571046 /* OMusic */ = {
+			isa = PBXGroup;
+			children = (
+				EDA0E5242604F83A005A8DE1 /* Services */,
+				22E4061C2513884700A53FD8 /* Modules */,
+				22D4D79B2511AE8C00593D38 /* Models */,
+				22D4D79A2511AE4000593D38 /* Application */,
+				2225514C247555FA0099D62B /* Tools */,
+				2246A873245AC443007F5CA7 /* Extensions */,
+				228DF2B3245AABD800E9FF1B /* Resources */,
+			);
+			path = OMusic;
+			sourceTree = "<group>";
+		};
+		22AB175524613B9A004C67EB /* Track */ = {
+			isa = PBXGroup;
+			children = (
+				22AB175624613BD9004C67EB /* JLTrack.swift */,
+			);
+			path = Track;
+			sourceTree = "<group>";
+		};
+		22AB1758246140A8004C67EB /* AMJSONModel */ = {
+			isa = PBXGroup;
+			children = (
+				22AB175924614203004C67EB /* AMTracks.swift */,
+				22AB175B24614F1B004C67EB /* AMAlbums.swift */,
+				22AB175D246150C3004C67EB /* AMArtists.swift */,
+				22AB175F24615B90004C67EB /* AMModel.swift */,
+				2289EBF92463DEB500E0F9F5 /* AMObjectProtocol.swift */,
+				EDB9DFD625FD10230014EB41 /* AMSearchModel.swift */,
+			);
+			path = AMJSONModel;
+			sourceTree = "<group>";
+		};
+		22D4D79A2511AE4000593D38 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				22DE09BE245B03320024EE04 /* JLMacroDefinition.swift */,
+				22959CB4244D86AE00571046 /* AppDelegate.swift */,
+				22959CBD244D86B100571046 /* Assets.xcassets */,
+				22959CBF244D86B100571046 /* LaunchScreen.storyboard */,
+				22959CC2244D86B100571046 /* Info.plist */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		22D4D79B2511AE8C00593D38 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				2289EBF82463DD5A00E0F9F5 /* MediaModel */,
+				22AB1758246140A8004C67EB /* AMJSONModel */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		22D4D79C2511B29600593D38 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				EDE52FBD2622E0D300D02E36 /* Cells */,
+				22D4D79D2511B2D800593D38 /* OMHomeViewController.swift */,
+				EDE52FB72622CA5C00D02E36 /* OMHomeViewController.xib */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		22E4061C2513884700A53FD8 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				ED8A84DC26201D1900E3AF4E /* Library */,
+				EDC69F2F25FFA3BB007C8810 /* Search */,
+				ED0EDD4425FDD8CA0092093B /* TabBar */,
+				227785A32534547F00D1924D /* App Load */,
+				22D4D79C2511B29600593D38 /* Home */,
+				228DF2B7245AB81600E9FF1B /* Player */,
+				222937F7245DA4DD0090467C /* NavigationBar */,
+				EDE52FBA2622D09000D02E36 /* OMBaseViewController.swift */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		4AF9CB240D0590E5FD08110D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				ED7C5CED2609E6E40032256F /* AVFoundation.framework */,
+				ED7C5CEB2609E6DB0032256F /* CoreServices.framework */,
+				EDDDF4BE2609BD5300ED5AFB /* sqlcipher.framework */,
+				ED72296F2608DAD1001003B1 /* WCDBSwift.framework */,
+				224D2B882536CEED00E0736D /* SystemConfiguration.framework */,
+				224D2B862536CEE000E0736D /* MessageUI.framework */,
+				224D2B832536CED200E0736D /* libz.tbd */,
+				224D2B802536CEC200E0736D /* libc++.tbd */,
+				2230BEBB2536B0310083C96A /* KSCrash.framework */,
+				229E8DF12470181E00D47458 /* libsqlite3.0.tbd */,
+				229E8DF0247017F300D47458 /* libsqlite3.tbd */,
+				822315A5CFED1B7D920BDD7D /* Pods_OMusic.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		ED0EDD4425FDD8CA0092093B /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				ED0EDD4725FDD8E10092093B /* OMPlayerMenuBarView.swift */,
+				ED72293A26076E06001003B1 /* OMPlayerMenuBarView.xib */,
+				ED0EDD4625FDD8E00092093B /* OMTabBarController.swift */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
+		ED75BB7B260B02A0009AC472 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				ED75BB7C260B02A0009AC472 /* JLMediaBaseModel.swift */,
+				ED75BB7D260B02A0009AC472 /* JLMediaPlayerConfig.swift */,
+				ED75BB7F260B02A0009AC472 /* JLMediaPlayerSeekItem.swift */,
+				ED75BB81260B02A0009AC472 /* JLMediaPlayerContentInfo.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		ED75BB82260B02A0009AC472 /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				ED75BB86260B02A0009AC472 /* JLMediaPlayerAssetLoader.swift */,
+				ED75BB83260B02A0009AC472 /* JLMediaPlayerDataLoader.swift */,
+				ED75BB84260B02A0009AC472 /* JLMediaPlayerItemRequest.swift */,
+				ED75BB85260B02A0009AC472 /* JLMediaPlayerRequestOperation.swift */,
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
+		ED8A84DC26201D1900E3AF4E /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				EDE52FC4262327A400D02E36 /* OMLibraryViewController.swift */,
+				EDE52FC5262327A400D02E36 /* OMLibraryViewController.xib */,
+			);
+			path = Library;
+			sourceTree = "<group>";
+		};
+		ED9EE253261D589F0048FB8D /* MediaPlayer */ = {
+			isa = PBXGroup;
+			children = (
+				ED75BB75260B02A0009AC472 /* JLMediaPlayer.swift */,
+				ED75BB7B260B02A0009AC472 /* Model */,
+				ED75BB82260B02A0009AC472 /* Request */,
+			);
+			path = MediaPlayer;
+			sourceTree = "<group>";
+		};
+		ED9EE267261F318C0048FB8D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2246A875245AC453007F5CA7 /* OMPlayerListenerNode.swift */,
+				2246A877245AC453007F5CA7 /* OMPlayerListenerProtocol.swift */,
+				2246A878245AC453007F5CA7 /* OMPlayerListenerCenter.swift */,
+				ED75BBA0260B8334009AC472 /* OMPlaylistListNode.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		EDA0E5242604F83A005A8DE1 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				22EE7FB52534367B0055E871 /* OMAppleMusicAccountManager.swift */,
+				2200AC292494FD0900E44910 /* AMFetchManager.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		EDC69F2F25FFA3BB007C8810 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				EDC69F3925FFA3E8007C8810 /* Cell */,
+				EDC69F3125FFA3C6007C8810 /* OMSearchListSection.swift */,
+				EDC69F3025FFA3C5007C8810 /* OMSearchMoreTableViewController.swift */,
+				EDC69F3325FFA3C8007C8810 /* OMSearchViewController.swift */,
+				EDC69F3225FFA3C7007C8810 /* OMSearchViewController.xib */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		EDC69F3925FFA3E8007C8810 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				EDC69F4025FFA3FF007C8810 /* OMSearchListTableViewAlbumCell.swift */,
+				ED178EAD260249C500A3B8B7 /* OMSearchListTableViewAlbumCell.xib */,
+				EDC69F3D25FFA3FC007C8810 /* OMSearchListTableViewArtistCell.swift */,
+				ED178EB1260249D000A3B8B7 /* OMSearchListTableViewArtistCell.xib */,
+				EDC69F4325FFA401007C8810 /* OMSearchListTableViewMoreCell.swift */,
+				ED178EB5260249D600A3B8B7 /* OMSearchListTableViewMoreCell.xib */,
+				EDC69F3B25FFA3FB007C8810 /* OMSearchListTableViewSongCell.swift */,
+				ED178EB9260249DC00A3B8B7 /* OMSearchListTableViewSongCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		EDE52FBD2622E0D300D02E36 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				EDE52FBE2622E10000D02E36 /* OMHomeRecentPlayCollectionViewCell.swift */,
+				EDE52FBF2622E10000D02E36 /* OMHomeRecentPlayCollectionViewCell.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		22959CB0244D86AE00571046 /* OMusic */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 22959CC5244D86B100571046 /* Build configuration list for PBXNativeTarget "OMusic" */;
+			buildPhases = (
+				0C3C2F88BBFE5C7748346455 /* [CP] Check Pods Manifest.lock */,
+				22959CAD244D86AE00571046 /* Sources */,
+				22959CAE244D86AE00571046 /* Frameworks */,
+				22959CAF244D86AE00571046 /* Resources */,
+				3AA986602D682891930233ED /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+				EDEACCCB26281DAB002689A6 /* PBXBuildRule */,
+			);
+			dependencies = (
+			);
+			name = OMusic;
+			productName = OMusic;
+			productReference = 22959CB1244D86AE00571046 /* OMusic.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		22959CA9244D86AE00571046 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1120;
+				LastUpgradeCheck = 1120;
+				ORGANIZATIONNAME = "Jonathan Lu";
+				TargetAttributes = {
+					22959CB0244D86AE00571046 = {
+						CreatedOnToolsVersion = 11.2.1;
+					};
+				};
+			};
+			buildConfigurationList = 22959CAC244D86AE00571046 /* Build configuration list for PBXProject "OMusic" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+				"zh-Hans",
+			);
+			mainGroup = 22959CA8244D86AE00571046;
+			productRefGroup = 22959CB2244D86AE00571046 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				22959CB0244D86AE00571046 /* OMusic */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		22959CAF244D86AE00571046 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2246A894245ACD03007F5CA7 /* MI Lan Pro VF.ttf in Resources */,
+				EDE52FB82622CA5C00D02E36 /* OMHomeViewController.xib in Resources */,
+				22959CC1244D86B100571046 /* LaunchScreen.storyboard in Resources */,
+				EDC69F3625FFA3C8007C8810 /* OMSearchViewController.xib in Resources */,
+				ED178EAF260249D000A3B8B7 /* OMSearchListTableViewArtistCell.xib in Resources */,
+				ED178EB7260249DC00A3B8B7 /* OMSearchListTableViewSongCell.xib in Resources */,
+				ED72293B26076E06001003B1 /* OMPlayerMenuBarView.xib in Resources */,
+				228DF2C2245AB81600E9FF1B /* OMPlayerImageCollectionViewCell.xib in Resources */,
+				22468D4D2476630D001A7404 /* Localizations.strings in Resources */,
+				EDE52FC12622E10000D02E36 /* OMHomeRecentPlayCollectionViewCell.xib in Resources */,
+				228DF2C6245AB81600E9FF1B /* OMPlayerViewController.xib in Resources */,
+				ED178EBD26031D3A00A3B8B7 /* OMSearchListTableViewAlbumCell.xib in Resources */,
+				EDE52FC7262327A400D02E36 /* OMLibraryViewController.xib in Resources */,
+				22959CBE244D86B100571046 /* Assets.xcassets in Resources */,
+				ED8A852526208EB200E3AF4E /* OMAppLoadViewController.xib in Resources */,
+				ED178EB3260249D600A3B8B7 /* OMSearchListTableViewMoreCell.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0C3C2F88BBFE5C7748346455 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-OMusic-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3AA986602D682891930233ED /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-OMusic/Pods-OMusic-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-OMusic/Pods-OMusic-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-OMusic/Pods-OMusic-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		22959CAD244D86AE00571046 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EDE52FC6262327A400D02E36 /* OMLibraryViewController.swift in Sources */,
+				228DF2C3245AB81600E9FF1B /* OMPlayer.swift in Sources */,
+				22959CB9244D86AE00571046 /* OMAppLoadViewController.swift in Sources */,
+				ED75BB99260B02A0009AC472 /* JLMediaPlayerAssetLoader.swift in Sources */,
+				EDC69F3425FFA3C8007C8810 /* OMSearchMoreTableViewController.swift in Sources */,
+				22970BE9249A28BA00D5B995 /* JLError.swift in Sources */,
+				ED75BB95260B02A0009AC472 /* JLMediaPlayerContentInfo.swift in Sources */,
+				228D98B6246018ED009BC2A4 /* JLPlaylist.swift in Sources */,
+				22EE7FB62534367B0055E871 /* OMAppleMusicAccountManager.swift in Sources */,
+				EDC3F3A926161B5F00BE4CE8 /* OMPlayerViewController.swift in Sources */,
+				ED75BB97260B02A0009AC472 /* JLMediaPlayerItemRequest.swift in Sources */,
+				EDC69F4525FFA401007C8810 /* OMSearchListTableViewSongCell.swift in Sources */,
+				EDC69F4D25FFA401007C8810 /* OMSearchListTableViewMoreCell.swift in Sources */,
+				22AB175C24614F1B004C67EB /* AMAlbums.swift in Sources */,
+				ED75BB98260B02A0009AC472 /* JLMediaPlayerRequestOperation.swift in Sources */,
+				EDC69F3725FFA3C8007C8810 /* OMSearchViewController.swift in Sources */,
+				EDB9DFD725FD10230014EB41 /* AMSearchModel.swift in Sources */,
+				ED0EDD4A25FDD8E10092093B /* OMPlayerMenuBarView.swift in Sources */,
+				2246A87C245AC453007F5CA7 /* OMPlayerListenerCenter.swift in Sources */,
+				ED75BB8B260B02A0009AC472 /* JLMediaPlayer.swift in Sources */,
+				2289EBFA2463DEB500E0F9F5 /* AMObjectProtocol.swift in Sources */,
+				EDC69F3525FFA3C8007C8810 /* OMSearchListSection.swift in Sources */,
+				ED75BB96260B02A0009AC472 /* JLMediaPlayerDataLoader.swift in Sources */,
+				ED75BB91260B02A0009AC472 /* JLMediaPlayerConfig.swift in Sources */,
+				ED75BBA1260B8334009AC472 /* OMPlaylistListNode.swift in Sources */,
+				2246A87E245AC4B9007F5CA7 /* JLExtension.swift in Sources */,
+				2289EBFC2463E5B200E0F9F5 /* JLAlbum.swift in Sources */,
+				22959CB5244D86AE00571046 /* AppDelegate.swift in Sources */,
+				22DE09BF245B03320024EE04 /* JLMacroDefinition.swift in Sources */,
+				ED75BB90260B02A0009AC472 /* JLMediaBaseModel.swift in Sources */,
+				EDC69F4A25FFA401007C8810 /* OMSearchListTableViewAlbumCell.swift in Sources */,
+				2225514E247556540099D62B /* JLDatabase.swift in Sources */,
+				ED0EDD4925FDD8E10092093B /* OMTabBarController.swift in Sources */,
+				228DF2C4245AB81600E9FF1B /* OMPlayerImageCollectionViewCell.swift in Sources */,
+				221EAC69245E920100A5B576 /* OMTheme.swift in Sources */,
+				2289EBFE2463E6BA00E0F9F5 /* JLArtist.swift in Sources */,
+				EDE52FBB2622D09000D02E36 /* OMBaseViewController.swift in Sources */,
+				22DE09C1245B054B0024EE04 /* MIFont.swift in Sources */,
+				228DF2C7245AB81600E9FF1B /* OMPlayerProgressView.swift in Sources */,
+				2246A87B245AC453007F5CA7 /* OMPlayerListenerProtocol.swift in Sources */,
+				22AB176024615B90004C67EB /* AMModel.swift in Sources */,
+				22AB175A24614203004C67EB /* AMTracks.swift in Sources */,
+				22AB175724613BD9004C67EB /* JLTrack.swift in Sources */,
+				EDC69F4725FFA401007C8810 /* OMSearchListTableViewArtistCell.swift in Sources */,
+				EDE52FC02622E10000D02E36 /* OMHomeRecentPlayCollectionViewCell.swift in Sources */,
+				2200AC2A2494FD0900E44910 /* AMFetchManager.swift in Sources */,
+				ED0EDD4E25FDD9330092093B /* OMNavigationViewController.swift in Sources */,
+				ED75BB93260B02A0009AC472 /* JLMediaPlayerSeekItem.swift in Sources */,
+				2289EC002463EA6600E0F9F5 /* JLMedia.swift in Sources */,
+				2246A879245AC453007F5CA7 /* OMPlayerListenerNode.swift in Sources */,
+				22D4D79F2511B2D800593D38 /* OMHomeViewController.swift in Sources */,
+				22AB175E246150C3004C67EB /* AMArtists.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		22468D4F2476630D001A7404 /* Localizations.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				22468D4E2476630D001A7404 /* zh-Hans */,
+				22468D5024766324001A7404 /* en */,
+			);
+			name = Localizations.strings;
+			sourceTree = "<group>";
+		};
+		22959CBF244D86B100571046 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				22959CC0244D86B100571046 /* Base */,
+				22468D48247661FA001A7404 /* zh-Hans */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		ED178EAD260249C500A3B8B7 /* OMSearchListTableViewAlbumCell.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ED178EAC260249C500A3B8B7 /* Base */,
+			);
+			name = OMSearchListTableViewAlbumCell.xib;
+			sourceTree = "<group>";
+		};
+		ED178EB1260249D000A3B8B7 /* OMSearchListTableViewArtistCell.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ED178EB0260249D000A3B8B7 /* Base */,
+			);
+			name = OMSearchListTableViewArtistCell.xib;
+			sourceTree = "<group>";
+		};
+		ED178EB5260249D600A3B8B7 /* OMSearchListTableViewMoreCell.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ED178EB4260249D600A3B8B7 /* Base */,
+			);
+			name = OMSearchListTableViewMoreCell.xib;
+			sourceTree = "<group>";
+		};
+		ED178EB9260249DC00A3B8B7 /* OMSearchListTableViewSongCell.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ED178EB8260249DC00A3B8B7 /* Base */,
+			);
+			name = OMSearchListTableViewSongCell.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		22959CC3244D86B100571046 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
+			};
+			name = Debug;
+		};
+		22959CC4244D86B100571046 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 4.2;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		22959CC6244D86B100571046 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C3E7E9C64CC22453DC3D86AC /* Pods-OMusic.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 4;
+				DEVELOPMENT_TEAM = VEPK8889X2;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(USER_LIBRARY_DIR)/Mobile\\ Documents/com~apple~CloudDocs/class/毕业设计/OMusic-iSCUEC/Framework",
+				);
+				INFOPLIST_FILE = OMusic/Application/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0.0;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-l\"c++\"",
+					"-l\"z\"",
+					"-framework",
+					"\"AVFoundation\"",
+					"-framework",
+					"\"Alamofire\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"CoreServices\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"ImageIO\"",
+					"-framework",
+					"\"MJRefresh\"",
+					"-framework",
+					"\"MarqueeLabel\"",
+					"-framework",
+					"\"Masonry\"",
+					"-framework",
+					"\"PanModal\"",
+					"-framework",
+					"\"QuartzCore\"",
+					"-framework",
+					"\"SDWebImage\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"UIKit\"",
+					"-framework",
+					"\"WCDBSwift\"",
+					"-framework",
+					"\"sqlcipher\"",
+					"-framework",
+					"\"sqliterk\"",
+					"-ObjC",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = club.iscuec.omusic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		22959CC7244D86B100571046 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C539F81E8DCFFC63F5350502 /* Pods-OMusic.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 4;
+				DEVELOPMENT_TEAM = VEPK8889X2;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(USER_LIBRARY_DIR)/Mobile\\ Documents/com~apple~CloudDocs/class/毕业设计/OMusic-iSCUEC/Framework",
+				);
+				INFOPLIST_FILE = OMusic/Application/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0.0;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-l\"c++\"",
+					"-l\"z\"",
+					"-framework",
+					"\"AVFoundation\"",
+					"-framework",
+					"\"Alamofire\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"CoreServices\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"ImageIO\"",
+					"-framework",
+					"\"MJRefresh\"",
+					"-framework",
+					"\"MarqueeLabel\"",
+					"-framework",
+					"\"Masonry\"",
+					"-framework",
+					"\"PanModal\"",
+					"-framework",
+					"\"QuartzCore\"",
+					"-framework",
+					"\"SDWebImage\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"UIKit\"",
+					"-framework",
+					"\"WCDBSwift\"",
+					"-framework",
+					"\"sqlcipher\"",
+					"-framework",
+					"\"sqliterk\"",
+					"-ObjC",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = club.iscuec.omusic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		22959CAC244D86AE00571046 /* Build configuration list for PBXProject "OMusic" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				22959CC3244D86B100571046 /* Debug */,
+				22959CC4244D86B100571046 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		22959CC5244D86B100571046 /* Build configuration list for PBXNativeTarget "OMusic" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				22959CC6244D86B100571046 /* Debug */,
+				22959CC7244D86B100571046 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 22959CA9244D86AE00571046 /* Project object */;
+}

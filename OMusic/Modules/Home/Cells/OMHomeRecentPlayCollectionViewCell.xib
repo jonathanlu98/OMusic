@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="OMHomeRecentPlayCollectionViewCell" customModule="OMusic" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="168" height="143"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="168" height="143"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1EJ-hl-YLx">
+                        <rect key="frame" x="39" y="0.0" width="90" height="90"/>
+                        <color key="backgroundColor" red="0.6588235294117647" green="0.65490196078431373" blue="0.65098039215686276" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="90" id="3xm-4x-XUv"/>
+                            <constraint firstAttribute="width" constant="90" id="AC2-RV-a7S"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="le5-6i-KYU">
+                        <rect key="frame" x="39" y="98" width="90" height="18"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="90" id="rbl-Tv-r5l"/>
+                        </constraints>
+                        <attributedString key="attributedText">
+                            <fragment content="Label">
+                                <attributes>
+                                    <font key="NSFont" size="13" name="MILanProVF-DemiBold"/>
+                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                </attributes>
+                            </fragment>
+                        </attributedString>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fK3-2i-1Ae">
+                        <rect key="frame" x="39" y="118" width="90" height="12"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="90" id="lN0-N7-i7t"/>
+                        </constraints>
+                        <attributedString key="attributedText">
+                            <fragment content="Label">
+                                <attributes>
+                                    <font key="NSFont" size="9" name="MILanProVF-Regular"/>
+                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                </attributes>
+                            </fragment>
+                        </attributedString>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="1EJ-hl-YLx" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="2UA-rc-SN6"/>
+                <constraint firstItem="fK3-2i-1Ae" firstAttribute="top" secondItem="le5-6i-KYU" secondAttribute="bottom" constant="2" id="4ZX-gb-Xu2"/>
+                <constraint firstItem="1EJ-hl-YLx" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="5BE-X8-Uup"/>
+                <constraint firstItem="fK3-2i-1Ae" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="LCG-uT-oec"/>
+                <constraint firstItem="le5-6i-KYU" firstAttribute="top" secondItem="1EJ-hl-YLx" secondAttribute="bottom" constant="8" id="ael-6m-GkB"/>
+                <constraint firstItem="le5-6i-KYU" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="p2m-uJ-DmX"/>
+            </constraints>
+            <size key="customSize" width="168" height="143"/>
+            <connections>
+                <outlet property="artistNameLabel" destination="fK3-2i-1Ae" id="5V3-Vt-ch2"/>
+                <outlet property="imageView" destination="1EJ-hl-YLx" id="Lmv-QA-620"/>
+                <outlet property="trackNameLabel" destination="le5-6i-KYU" id="MOP-4n-eMq"/>
+            </connections>
+            <point key="canvasLocation" x="191.30434782608697" y="136.94196428571428"/>
+        </collectionViewCell>
+    </objects>
+</document>
